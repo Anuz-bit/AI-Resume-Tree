@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ResumeJSON",
+  "type": "object",
+  "properties": {
+    "file_hash": { "type": "string" },
+    "personal_info": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": ["string", "null"] },
+        "location": { "type": ["string", "null"] },
+        "linkedin": { "type": ["string", "null"] }
+      },
+      "required": ["name", "email", "location", "linkedin"]
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "degree": { "type": "string" },
+          "institution": { "type": "string" },
+          "year": { "type": ["integer", "null"] },
+          "cgpa": { "type": ["number", "null"] }
+        },
+        "required": ["degree", "institution", "year", "cgpa"]
+      }
+    },
+    "experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "company": { "type": "string" },
+          "start_year": { "type": "integer" },
+          "end_year": { "type": ["integer", "null"] },
+          "duration_months": { "type": "integer" },
+          "responsibilities": { "type": "array", "items": { "type": "string" } },
+          "outcomes": { "type": "array", "items": { "type": "string" } },
+          "tech_stack": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["title", "company", "start_year", "end_year", "duration_months", "responsibilities", "outcomes", "tech_stack"]
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "tech_stack": { "type": "array", "items": { "type": "string" } },
+          "outcome": { "type": ["string", "null"] }
+        },
+        "required": ["title", "description", "tech_stack", "outcome"]
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": [
+    "file_hash",
+    "personal_info",
+    "education",
+    "experience",
+    "skills",
+    "projects",
+    "certifications"
+  ]
+}

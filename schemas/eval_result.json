@@ -1,0 +1,111 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "EvaluationResult",
+    "type": "object",
+    "properties": {
+        "eval_id": {
+            "type": "string"
+        },
+        "overall_score": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "dimension_scores": {
+            "type": "object",
+            "properties": {
+                "skill_match": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "experience_quality": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "career_progression": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "context_fit": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 100
+                }
+            },
+            "required": [
+                "skill_match",
+                "experience_quality",
+                "career_progression",
+                "context_fit"
+            ]
+        },
+        "matched_requirements": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "req_id": {
+                        "type": "string"
+                    },
+                    "resume_node_id": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "reasoning": {
+                        "type": "string"
+                    },
+                    "match_type": {
+                        "type": "string",
+                        "enum": [
+                            "full",
+                            "partial",
+                            "none"
+                        ]
+                    }
+                },
+                "required": [
+                    "req_id",
+                    "resume_node_id",
+                    "reasoning",
+                    "match_type"
+                ]
+            }
+        },
+        "unmatched_requirements": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "strengths": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "gaps": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "overall_reasoning": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "eval_id",
+        "overall_score",
+        "dimension_scores",
+        "matched_requirements",
+        "unmatched_requirements",
+        "strengths",
+        "gaps",
+        "overall_reasoning"
+    ]
+}

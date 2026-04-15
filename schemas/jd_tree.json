@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "JDTree",
+    "type": "object",
+    "properties": {
+        "jd_hash": {
+            "type": "string"
+        },
+        "role_title": {
+            "type": "string"
+        },
+        "company_name": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "seniority_level": {
+            "type": "string",
+            "enum": [
+                "junior",
+                "mid",
+                "senior",
+                "lead"
+            ]
+        },
+        "min_years_exp": {
+            "type": [
+                "integer",
+                "null"
+            ]
+        },
+        "requirements": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "req_id": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string",
+                        "enum": [
+                            "skill",
+                            "experience",
+                            "education",
+                            "domain",
+                            "leadership"
+                        ]
+                    },
+                    "classification": {
+                        "type": "string",
+                        "enum": [
+                            "essential",
+                            "flexible"
+                        ]
+                    },
+                    "weight": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "req_id",
+                    "text",
+                    "category",
+                    "classification",
+                    "weight"
+                ]
+            }
+        }
+    },
+    "required": [
+        "jd_hash",
+        "role_title",
+        "company_name",
+        "seniority_level",
+        "min_years_exp",
+        "requirements"
+    ]
+}

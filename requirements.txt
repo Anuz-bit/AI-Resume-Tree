@@ -1,0 +1,10 @@
+google-generativeai
+pdfplumber
+python-docx
+jsonschema
+pyyaml
+scipy
+scikit-learn
+sentence-transformers
+pandas
+python-dotenv

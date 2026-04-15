@@ -7,7 +7,7 @@
     "personal_info": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
+        "name": { "type": ["string", "null"] },
         "email": { "type": ["string", "null"] },
         "location": { "type": ["string", "null"] },
         "linkedin": { "type": ["string", "null"] }
@@ -19,8 +19,8 @@
       "items": {
         "type": "object",
         "properties": {
-          "degree": { "type": "string" },
-          "institution": { "type": "string" },
+          "degree": { "type": ["string", "null"] },
+          "institution": { "type": ["string", "null"] },
           "year": { "type": ["integer", "null"] },
           "cgpa": { "type": ["number", "null"] }
         },
@@ -32,11 +32,11 @@
       "items": {
         "type": "object",
         "properties": {
-          "title": { "type": "string" },
-          "company": { "type": "string" },
-          "start_year": { "type": "integer" },
+          "title": { "type": ["string", "null"] },
+          "company": { "type": ["string", "null"] },
+          "start_year": { "type": ["integer", "null"] },
           "end_year": { "type": ["integer", "null"] },
-          "duration_months": { "type": "integer" },
+          "duration_months": { "type": ["integer", "null"] },
           "responsibilities": { "type": "array", "items": { "type": "string" } },
           "outcomes": { "type": "array", "items": { "type": "string" } },
           "tech_stack": { "type": "array", "items": { "type": "string" } }
@@ -53,8 +53,8 @@
       "items": {
         "type": "object",
         "properties": {
-          "title": { "type": "string" },
-          "description": { "type": "string" },
+          "title": { "type": ["string", "null"] },
+          "description": { "type": ["string", "null"] },
           "tech_stack": { "type": "array", "items": { "type": "string" } },
           "outcome": { "type": ["string", "null"] }
         },

@@ -2,9 +2,7 @@ import os
 import json
 import hashlib
 import time
-from google import genai
-from google.genai import types
-
+import google.generativeai as genai
 
 class LLMError(Exception):
     pass
@@ -22,44 +20,84 @@ class LLMClient:
     def __init__(self):
         if self._initialized:
             return
+            
+        try:
+            from dotenv import load_dotenv
+            load_dotenv()
+        except ImportError:
+            pass
+            
         api_key = os.environ.get("GEMINI_API_KEY")
         if not api_key:
             raise LLMError("GEMINI_API_KEY environment variable not set")
-        self.client = genai.Client(api_key=api_key)
-        self.model_name = "gemini-2.0-flash"
-        self._cache = {}
+            
+        genai.configure(api_key=api_key)
+        self.model = genai.GenerativeModel("gemini-2.5-flash")
+        
+        self.cache_file = "./data/api_cache/llm_cache.json"
+        self._cache = self._load_cache()
         self._initialized = True
+
+    def _load_cache(self):
+        if os.path.exists(self.cache_file):
+            try:
+                with open(self.cache_file, "r") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+        return {}
+
+    def _save_cache(self):
+        os.makedirs(os.path.dirname(self.cache_file), exist_ok=True)
+        try:
+            with open(self.cache_file, "w") as f:
+                json.dump(self._cache, f)
+        except Exception:
+            pass
 
     def _cache_key(self, prompt, system, temperature):
         raw = f"{prompt}{system}{temperature}"
         return hashlib.sha256(raw.encode()).hexdigest()
+
+    def _parse_retry_delay(self, error_msg):
+        import re
+        match = re.search(r"retryDelay['\"]:\s*['\"](\d+)s['\"]", str(error_msg))
+        if match:
+            return int(match.group(1))
+        return None
 
     def call(self, prompt, system="", temperature=0.2):
         key = self._cache_key(prompt, system, temperature)
         if key in self._cache:
             return self._cache[key]
 
+        # Use system instructions natively if available in GenerativeModel, but merging is safer
         full_prompt = f"{system}\n\n{prompt}" if system else prompt
-        max_retries = 3
+        max_retries = 5
+        base_delays = [15, 30, 60, 60, 120]
 
         for attempt in range(max_retries):
             try:
-                response = self.client.models.generate_content(
-                    model=self.model_name,
-                    contents=full_prompt,
-                    config=types.GenerateContentConfig(
+                response = self.model.generate_content(
+                    full_prompt,
+                    generation_config=genai.types.GenerationConfig(
                         temperature=temperature,
-                        max_output_tokens=4096
+                        response_mime_type="application/json"
                     )
                 )
                 result = response.text
                 self._cache[key] = result
+                self._save_cache()
                 return result
             except Exception as e:
-                if attempt < max_retries - 1:
-                    time.sleep(2 ** attempt)
+                err_str = str(e)
+                if ("429" in err_str or "quota" in err_str.lower() or "503" in err_str) and attempt < max_retries - 1:
+                    api_delay = self._parse_retry_delay(err_str)
+                    wait_time = (api_delay + 5) if api_delay else base_delays[attempt]
+                    print(f"  [Rate limited] Waiting {wait_time}s before retry {attempt + 2}/{max_retries}...")
+                    time.sleep(wait_time)
                 else:
-                    raise LLMError(f"LLM API call failed after {max_retries} retries: {str(e)}")
+                    raise LLMError(f"LLM API call failed: {err_str}")
 
     def call_json(self, prompt, system="", temperature=0.2):
         json_system = (system or "") + "\nReturn ONLY valid JSON. No markdown, no backticks, no explanation."

@@ -21,6 +21,30 @@ system: |
   - Never assume skills not listed
   - Never fabricate outcomes
   - Return ONLY valid JSON, no markdown
+
+  The JSON MUST have this exact structure:
+  {
+    "eval_id": "string (leave empty string)",
+    "overall_score": integer (0-100),
+    "dimension_scores": {
+      "skill_match": integer,
+      "experience_quality": integer,
+      "career_progression": integer,
+      "context_fit": integer
+    },
+    "matched_requirements": [
+      {
+        "req_id": "string",
+        "resume_node_id": "string or null",
+        "reasoning": "string",
+        "match_type": "full|partial|none"
+      }
+    ],
+    "unmatched_requirements": ["string"],
+    "strengths": ["string"],
+    "gaps": ["string"],
+    "overall_reasoning": "string"
+  }
 user_template: |
   Resume Tree:
   {resume_tree}

@@ -1,0 +1,51 @@
+{
+  "personal_info": {
+    "name": "John Doe",
+    "email": null,
+    "location": null,
+    "linkedin": null
+  },
+  "education": [
+    {
+      "degree": "B.S. in Computer Science",
+      "institution": null,
+      "year": null,
+      "cgpa": null
+    }
+  ],
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": null,
+      "start_year": null,
+      "end_year": null,
+      "duration_months": 60,
+      "responsibilities": [
+        "Developed with Python and React",
+        "Built scalable web applications and microservices"
+      ],
+      "outcomes": [],
+      "tech_stack": [
+        "Python",
+        "React",
+        "Django",
+        "Node.js",
+        "AWS",
+        "Docker",
+        "Kubernetes"
+      ]
+    }
+  ],
+  "skills": [
+    "Python",
+    "React",
+    "Django",
+    "Node.js",
+    "AWS",
+    "Docker",
+    "Kubernetes"
+  ],
+  "projects": [],
+  "certifications": [],
+  "file_hash": "7854df38d2eaadd5856925b6cd5b6dea3afd3e406cbefd23c89bd6e61475d788"
+}

@@ -8,7 +8,6 @@ from m2_tree.tree_builder import ResumeTreeBuilder
 from m3_jd.jd_parser import JDParser
 from m4_eval.eval_agent import EvaluationAgent
 from m5_feedback.feedback_module import FeedbackModule
-from m6_experiment.experiment_runner import ExperimentRunner
 
 def setup_data_dirs():
     dirs = [
@@ -100,6 +99,7 @@ def cmd_feedback(args):
         print(f"  Reason: {rw.get('reason', '')}\n")
 
 def cmd_experiment(args):
+    from m6_experiment.experiment_runner import ExperimentRunner
     runner = ExperimentRunner()
     runner.run_experiment(args.dataset, args.jd, args.output)
 

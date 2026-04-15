@@ -9,5 +9,28 @@ system: |
   4. Tag complexity based on responsibilities.
   5. Set has_outcome = true ONLY if a measurable result is explicitly mentioned.
   Return ONLY valid JSON.
+  
+  The JSON MUST follow this exact recursive structure:
+  {
+    "node_id": "string",
+    "type": "root|section|experience|project|education|skills",
+    "title": "string",
+    "level": integer (0, 1, or 2),
+    "summary": "string",
+    "metadata": {
+      "career_stage": "junior|mid|senior|lead|null",
+      "tech_stack": ["string"],
+      "duration_months": integer or null,
+      "recency": "recent|moderate|old|null",
+      "complexity": "low|medium|high|null",
+      "has_outcome": boolean,
+      "responsibility_level": "individual|team|org|null"
+    },
+    "children": [
+      {
+         // recursive TreeNode structure for children
+      }
+    ]
+  }
 user_template: |
   {resume_json}

@@ -1,0 +1,43 @@
+=================================
+# AI-Resume-Tree: Step By Step Guide
+=================================
+
+# 1. Setup Environment
+First, you need to ensure all the python packages required by the project are installed. 
+From your project's root folder, run:
+  > pip install -r requirements.txt
+
+# 2. Test Your Connection
+Your Gemini API key is securely saved in the `.env` file at the root of the project.
+You do not need to configure anything else. When the program runs, it will read this file automatically using the python-dotenv package.
+
+# 3. Running an Evaluation
+The core feature maps a Candidate's Resume to a Job Description (JD).
+Run the following command:
+  > python main.py evaluate --resume "path\to\your_resume.pdf" --jd "path\to\your_job_description.txt"
+
+What to Expect:
+- It will parse the resume into a structured JSON tree in ./data/trees/
+- It will parse the JD into a structured JSON tree in ./data/parsed/
+- It will take a few seconds and then print an "OVERALL SCORE".
+- It will print matched strengths and missing gaps.
+- At the end of the output, it will give you an "Eval ID" (a long string like 123e4567-e89b-12d3). Copy that Eval ID!
+
+# 4. Getting AI Feedback
+Once an evaluation is done, you can get concrete rewrite tips using the Eval ID.
+Run the following command:
+  > python main.py feedback --eval-id "YOUR-EVAL-ID-HERE"
+
+What to Expect:
+- It will analyze the evaluation and print very specific actionable tips for the resume.
+- It will provide textual "Old vs New" rewrite blocks, giving the candidate exactly what they should write into their resume to improve their score.
+
+# 5. Running the Experiment / Benchmark Mode
+If you want to compare how ResumeTree stacks up against simple term-matching frameworks (like TF-IDF or simple LLM Prompts), place multiple resumes inside a directory. Then run:
+
+  > python main.py experiment --dataset "path\to\my_resumes_folder\" --jd "path\to\your_job_description.txt" --output "result_metrics.csv"
+
+What to Expect:
+- This command takes longer to run, as it loads SentenceTransformers and imports heavy libraries.
+- It will evaluate every resume in the folder using multiple methods.
+- At the end, it deposits a CSV file named "result_metrics.csv" detailing Precision metrics and correlations.

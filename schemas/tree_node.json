@@ -34,80 +34,14 @@
         "metadata": {
             "type": "object",
             "properties": {
-                "career_stage": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "enum": [
-                        "junior",
-                        "mid",
-                        "senior",
-                        "lead",
-                        null
-                    ]
-                },
-                "tech_stack": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "duration_months": {
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "recency": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "enum": [
-                        "recent",
-                        "moderate",
-                        "old",
-                        null
-                    ]
-                },
-                "complexity": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "enum": [
-                        "low",
-                        "medium",
-                        "high",
-                        null
-                    ]
-                },
-                "has_outcome": {
-                    "type": "boolean"
-                },
-                "responsibility_level": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "enum": [
-                        "individual",
-                        "team",
-                        "org",
-                        null
-                    ]
-                }
-            },
-            "required": [
-                "career_stage",
-                "tech_stack",
-                "duration_months",
-                "recency",
-                "complexity",
-                "has_outcome",
-                "responsibility_level"
-            ]
+                "career_stage": { "type": ["string", "null"] },
+                "tech_stack": { "type": "array", "items": { "type": "string" } },
+                "duration_months": { "type": ["integer", "null"] },
+                "recency": { "type": ["string", "null"] },
+                "complexity": { "type": ["string", "null"] },
+                "has_outcome": { "type": "boolean" },
+                "responsibility_level": { "type": ["string", "null"] }
+            }
         },
         "children": {
             "type": "array",

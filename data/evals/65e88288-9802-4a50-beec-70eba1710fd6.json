@@ -1,0 +1,51 @@
+{
+  "eval_id": "65e88288-9802-4a50-beec-70eba1710fd6",
+  "overall_score": 10,
+  "dimension_scores": {
+    "skill_match": 25,
+    "experience_quality": 0,
+    "career_progression": 0,
+    "context_fit": 10
+  },
+  "matched_requirements": [
+    {
+      "req_id": "req_1",
+      "resume_node_id": "skill_python,skill_django",
+      "reasoning": "The candidate lists Python and Django as skills, aligning with the required technologies. However, the resume explicitly lacks any professional experience entries to demonstrate the '4+ years of experience' component.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_2",
+      "resume_node_id": "skill_react",
+      "reasoning": "The candidate lists React as a skill, which matches one of the required front-end frameworks. However, no specific work experience is provided to demonstrate practical application.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_3",
+      "resume_node_id": "skill_aws",
+      "reasoning": "AWS is listed as a skill, indicating familiarity with cloud services. However, the resume lacks specific experience entries to demonstrate 'strong knowledge' or practical application of AWS.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_4",
+      "resume_node_id": "skill_docker,skill_kubernetes",
+      "reasoning": "The candidate lists both Docker and Kubernetes as skills, directly addressing the containerization requirement. However, no specific experience is provided to demonstrate practical application.",
+      "match_type": "partial"
+    }
+  ],
+  "unmatched_requirements": [
+    "req_5"
+  ],
+  "strengths": [
+    "Foundational B.S. in Computer Science.",
+    "Proficiency in core web development technologies (Python, Django, React, Node.js).",
+    "Familiarity with modern cloud and containerization tools (AWS, Docker, Kubernetes)."
+  ],
+  "gaps": [
+    "No professional work experience listed, making it impossible to verify the required 4+ years of experience.",
+    "Lack of demonstrated experience or projects applying the listed technical skills.",
+    "No evidence of communication skills.",
+    "Significant mismatch for a 'senior' role requiring a minimum of 4 years of experience."
+  ],
+  "overall_reasoning": "The candidate presents a strong theoretical foundation with a B.S. in Computer Science and lists proficiency in a highly relevant tech stack (Python, Django, React, AWS, Docker, Kubernetes) that aligns well with the job description's technical requirements. However, the resume explicitly states a complete absence of professional work experience or projects. This creates a critical gap for a 'Senior Software Engineer' role which requires a minimum of 4 years of experience and demonstrated application of skills. While the listed skills are a positive, the lack of any practical experience or outcomes makes it impossible to assess experience quality, career progression, or the depth of skill knowledge required for a senior position, resulting in a very low overall score."
+}

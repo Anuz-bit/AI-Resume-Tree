@@ -1,0 +1,130 @@
+{
+  "personal_info": {
+    "name": "Vihaan Khare",
+    "email": "vihaankhare100@gmail.com",
+    "location": null,
+    "linkedin": "linkedin.com/in/vihaan-khare"
+  },
+  "education": [
+    {
+      "degree": "B.Tech in Information Technology",
+      "institution": "Vishwakarma Institute of Technology",
+      "year": 2028,
+      "cgpa": 8.93
+    },
+    {
+      "degree": "Higher Secondary Certificate (HSC)",
+      "institution": "Aditya English Medium School",
+      "year": 2024,
+      "cgpa": null
+    }
+  ],
+  "experience": [
+    {
+      "title": "Sponsorship Secretary",
+      "company": "Tech to Product Innovation Club",
+      "start_year": 2025,
+      "end_year": 2026,
+      "duration_months": 4,
+      "responsibilities": [
+        "Spearheaded negotiations to secure corporate backing for technical events.",
+        "Cultivated industry partnerships to drive resources for student initiatives."
+      ],
+      "outcomes": [],
+      "tech_stack": []
+    }
+  ],
+  "skills": [
+    "C",
+    "C++",
+    "Java",
+    "Python",
+    "Dart",
+    "JavaScript",
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "Flutter",
+    "MongoDB",
+    "MySQL",
+    "Firebase",
+    "Git",
+    "GitHub",
+    "REST APIs",
+    "Socket.io",
+    "JWT Authentication",
+    "TensorFlow.js",
+    "MediaPipe",
+    "OpenCV",
+    "Scikit-Learn",
+    "Pandas",
+    "NumPy"
+  ],
+  "projects": [
+    {
+      "title": "AI Proctored Online Examination System",
+      "description": "Engineered an event-driven backend architecture using WebSockets, integrating TensorFlow.js and MediaPipe to automate real-time monitoring and manage concurrent user sessions. Structured scalable MongoDB collections to handle high-frequency data operations, ensuring reliable state logging, accurate live timers, and automated submission workflows.",
+      "tech_stack": [
+        "React.js (Vite)",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Socket.io",
+        "TensorFlow.js",
+        "MediaPipe"
+      ],
+      "outcome": null
+    },
+    {
+      "title": "Cab Booking Platform",
+      "description": "Engineered the backend logic and relational database schemas for a ride-booking system to efficiently map, store, and query complex data flows between user requests, vehicles, and driver availability. Implemented secure REST APIs and WebSocket connections to handle continuous data streaming, active ride tracking, and asynchronous event synchronization.",
+      "tech_stack": [
+        "React.js (Vite)",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Socket.io"
+      ],
+      "outcome": null
+    },
+    {
+      "title": "Nifty Market Trend Predictor",
+      "description": "Architected a time-series forecasting pipeline using LSTM and ensemble networks, implementing robust TimeSeriesSplit logic to manage complex sequential arrays and prevent data leakage. Optimized algorithmic performance for highly imbalanced datasets using AdaBoost to capture rare minority class events, achieving a 93.73% cross-validation directional accuracy.",
+      "tech_stack": [
+        "Python",
+        "Scikit-Learn",
+        "TensorFlow",
+        "Pandas",
+        "NumPy"
+      ],
+      "outcome": "achieving a 93.73% cross-validation directional accuracy"
+    },
+    {
+      "title": "Transformer Maintenance Management App",
+      "description": "Built an industry-sponsored asset tracking application using Flutter, applying object-oriented Dart principles to manage application state and digitize complex field workflows. Orchestrated asynchronous data synchronization with Cloud Firestore to handle real-time location tracking, maintenance logs, and enforce strict role-based access rules.",
+      "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Firebase Authentication",
+        "Cloud Firestore",
+        "Firebase Cloud Messaging",
+        "Google Maps API"
+      ],
+      "outcome": null
+    },
+    {
+      "title": "EchoSoul Project",
+      "description": "Architected a client-server application, integrating a Python/ FastAPI backend with a Node.js frontend to dynamically generate custom Al personality profiles. Engineered complex data workflows to process file uploads, manage asynchronous Google Gemini API calls, and execute text-to-speech audio conversions.",
+      "tech_stack": [
+        "Python",
+        "FastAPI",
+        "Node.js"
+      ],
+      "outcome": "Top 20 Finalist (out of 250 teams) - Sociothon 2025"
+    }
+  ],
+  "certifications": [],
+  "file_hash": "ca57fde39be280b62a8b44d359deb286845560d94a27a6f908f136bb699196d4"
+}

@@ -1,0 +1,17 @@
+# Secrets
+.env
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Data and Logs
+data/api_cache/
+*.log

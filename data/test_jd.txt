@@ -1,0 +1,7 @@
+Senior Software Engineer
+Requirements:
+- 4+ years of experience with Python and backend frameworks like Django or FastAPI.
+- Experience with React or Angular.
+- Strong knowledge of AWS cloud services.
+- Containerization experience (Docker/Kubernetes).
+- Good communication skills.

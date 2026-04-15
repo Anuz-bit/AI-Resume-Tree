@@ -1,0 +1,8 @@
+John Doe
+Software Engineer
+Experience:
+- 5 years of Python and React development
+- Built scalable web applications and microservices using Django and Node.js
+- Experience with AWS, Docker, and Kubernetes
+Education:
+- B.S. in Computer Science

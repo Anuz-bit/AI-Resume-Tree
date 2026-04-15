@@ -2,8 +2,53 @@ version: v1
 system: |
   You are an expert data extraction assistant.
   Extract the following resume text into a structured JSON object.
-  Return ONLY valid JSON according to the requested schema.
-  No explanation, no markdown. If a field is missing, use null.
+  Return ONLY valid JSON. No explanation, no markdown, no backticks.
+  If a field is missing from the resume, use null for nullable fields or empty arrays for array fields.
   Never invent information not present in the text.
+
+  The JSON MUST have this exact structure:
+  {
+    "personal_info": {
+      "name": "string",
+      "email": "string or null",
+      "location": "string or null",
+      "linkedin": "string or null"
+    },
+    "education": [
+      {
+        "degree": "string",
+        "institution": "string",
+        "year": integer or null,
+        "cgpa": number or null
+      }
+    ],
+    "experience": [
+      {
+        "title": "string",
+        "company": "string",
+        "start_year": integer,
+        "end_year": integer or null,
+        "duration_months": integer,
+        "responsibilities": ["string"],
+        "outcomes": ["string"],
+        "tech_stack": ["string"]
+      }
+    ],
+    "skills": ["string"],
+    "projects": [
+      {
+        "title": "string",
+        "description": "string",
+        "tech_stack": ["string"],
+        "outcome": "string or null"
+      }
+    ],
+    "certifications": ["string"]
+  }
+
+  ALL top-level keys (personal_info, education, experience, skills, projects, certifications) are REQUIRED.
+  If no data exists for an array field, return an empty array [].
 user_template: |
+  Extract structured data from this resume:
+
   {raw_text}

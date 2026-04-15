@@ -1,0 +1,281 @@
+{
+  "node_id": "root",
+  "type": "root",
+  "title": "John Doe's Resume",
+  "level": 0,
+  "summary": "A comprehensive overview of John Doe's professional experience, education, and technical skills, highlighting expertise in full-stack development and scalable system architecture.",
+  "metadata": {
+    "career_stage": null,
+    "tech_stack": [],
+    "duration_months": null,
+    "recency": null,
+    "complexity": null,
+    "has_outcome": false,
+    "responsibility_level": null
+  },
+  "children": [
+    {
+      "node_id": "sec_experience",
+      "type": "section",
+      "title": "Experience",
+      "level": 1,
+      "summary": "Details of John Doe's professional work history, showcasing roles and contributions in software development.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "exp_0",
+          "type": "experience",
+          "title": "Software Engineer",
+          "level": 2,
+          "summary": "As a Software Engineer, this candidate developed robust applications using Python and React. They were responsible for building scalable web applications and microservices, demonstrating expertise in full-stack development and system architecture.",
+          "metadata": {
+            "career_stage": "senior",
+            "tech_stack": [
+              "Python",
+              "React",
+              "Django",
+              "Node.js",
+              "AWS",
+              "Docker",
+              "Kubernetes"
+            ],
+            "duration_months": 60,
+            "recency": "recent",
+            "complexity": "high",
+            "has_outcome": false,
+            "responsibility_level": "team"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "node_id": "sec_education",
+      "type": "section",
+      "title": "Education",
+      "level": 1,
+      "summary": "Academic background and qualifications.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "edu_0",
+          "type": "education",
+          "title": "B.S. in Computer Science",
+          "level": 2,
+          "summary": "Obtained a Bachelor of Science degree in Computer Science, providing a strong foundational knowledge in the field.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "moderate",
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "node_id": "sec_skills",
+      "type": "section",
+      "title": "Technical Skills",
+      "level": 1,
+      "summary": "A comprehensive overview of the candidate's technical proficiencies, covering programming languages, frameworks, cloud platforms, and DevOps tools.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "skill_python",
+          "type": "skills",
+          "title": "Python",
+          "level": 2,
+          "summary": "Proficient in Python, utilized for backend development, data processing, and scripting. Demonstrated ability to build robust and efficient solutions.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Python"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_react",
+          "type": "skills",
+          "title": "React",
+          "level": 2,
+          "summary": "Skilled in React for building dynamic and responsive user interfaces. Experienced in developing modern front-end web applications.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "React"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_django",
+          "type": "skills",
+          "title": "Django",
+          "level": 2,
+          "summary": "Expertise in Django, a high-level Python web framework, for rapid development of secure and scalable web applications. Applied to create robust backend systems.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Django"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_nodejs",
+          "type": "skills",
+          "title": "Node.js",
+          "level": 2,
+          "summary": "Competent in Node.js for server-side JavaScript development and building efficient, scalable network applications. Used for microservices and API development.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Node.js"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_aws",
+          "type": "skills",
+          "title": "AWS",
+          "level": 2,
+          "summary": "Experienced with Amazon Web Services (AWS) for cloud infrastructure management, deployment, and scaling applications. Familiar with various AWS services like EC2, S3, and Lambda.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "AWS"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_docker",
+          "type": "skills",
+          "title": "Docker",
+          "level": 2,
+          "summary": "Proficient in Docker for containerization, enabling consistent development, testing, and deployment environments. Utilized for packaging applications and their dependencies.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Docker"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_kubernetes",
+          "type": "skills",
+          "title": "Kubernetes",
+          "level": 2,
+          "summary": "Knowledgeable in Kubernetes for orchestrating containerized applications, managing deployments, scaling, and load balancing. Applied to ensure high availability and resilience of services.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Kubernetes"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "node_id": "sec_projects",
+      "type": "section",
+      "title": "Projects",
+      "level": 1,
+      "summary": "Showcase of personal and professional projects, demonstrating practical application of skills.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": []
+    },
+    {
+      "node_id": "sec_certifications",
+      "type": "section",
+      "title": "Certifications",
+      "level": 1,
+      "summary": "Professional certifications obtained to validate specialized skills and knowledge.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": []
+    }
+  ]
+}

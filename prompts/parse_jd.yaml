@@ -8,5 +8,23 @@ system: |
     When ambiguous, classify as essential
   Weight: 1.0 for essential, 0.4 for flexible.
   Return ONLY valid JSON.
+
+  The JSON MUST have this exact structure:
+  {
+    "jd_hash": "string (leave blank or null)",
+    "role_title": "string",
+    "company_name": "string or null",
+    "seniority_level": "junior|mid|senior|lead",
+    "min_years_exp": integer or null,
+    "requirements": [
+      {
+        "req_id": "string",
+        "text": "string",
+        "category": "skill|experience|education|domain|leadership",
+        "classification": "essential|flexible",
+        "weight": number
+      }
+    ]
+  }
 user_template: |
   {jd_text}

@@ -1,0 +1,53 @@
+{
+  "eval_id": "053b3458-c267-43b2-a372-d47ed3be5179",
+  "overall_score": 89,
+  "dimension_scores": {
+    "skill_match": 95,
+    "experience_quality": 90,
+    "career_progression": 75,
+    "context_fit": 90
+  },
+  "matched_requirements": [
+    {
+      "req_id": "REQ001",
+      "resume_node_id": "exp_0",
+      "reasoning": "The candidate has 60 months (5 years) of experience as a Software Engineer, explicitly using Python and Django, which fully satisfies the 4+ years requirement and specific tech stack.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ002",
+      "resume_node_id": "exp_0",
+      "reasoning": "The candidate explicitly lists and demonstrates experience with React in their Software Engineer role and dedicated skill section, meeting the requirement for React or Angular.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ003",
+      "resume_node_id": "skill_aws",
+      "reasoning": "The candidate explicitly lists AWS in their tech stack and details experience with AWS for cloud infrastructure, deployment, and scaling, indicating strong knowledge.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ004",
+      "resume_node_id": "skill_docker",
+      "reasoning": "The candidate explicitly lists and details proficiency in Docker for containerization and knowledge in Kubernetes for orchestration, fully satisfying the requirement.",
+      "match_type": "full"
+    }
+  ],
+  "unmatched_requirements": [
+    "REQ005"
+  ],
+  "strengths": [
+    "Extensive experience (5 years) as a Software Engineer, meeting senior-level requirements.",
+    "Strong proficiency in core backend technologies including Python and Django.",
+    "Solid front-end development skills with React.",
+    "Demonstrated expertise in cloud infrastructure with AWS.",
+    "Proficiency in modern DevOps practices, specifically Docker and Kubernetes.",
+    "High complexity and team-level responsibility in previous role, aligning with senior expectations."
+  ],
+  "gaps": [
+    "Lack of explicit evidence or mention of 'good communication skills' in the resume.",
+    "The resume does not detail specific project outcomes or measurable achievements.",
+    "Career progression is inferred from a single long-term senior role, rather than explicit advancement through multiple positions or promotions."
+  ],
+  "overall_reasoning": "The candidate presents a very strong technical profile, fully matching all essential technical requirements for a Senior Software Engineer role, including Python, Django, React, AWS, Docker, and Kubernetes. Their 5 years of experience at a senior level with high complexity aligns well with the job's demands. The primary area for improvement is the lack of explicit evidence for communication skills and specific project outcomes. Overall, a highly suitable candidate for the role."
+}

@@ -21,6 +21,26 @@
   ],
   "experience": [
     {
+      "title": "Transformer Maintenance Management App (Industry-Sponsored Project)",
+      "company": "MSEB",
+      "start_year": 2025,
+      "end_year": 2026,
+      "duration_months": 7,
+      "responsibilities": [
+        "Built an industry-sponsored asset tracking application using Flutter, applying object-oriented Dart principles to manage application state and digitize complex field workflows.",
+        "Orchestrated asynchronous data synchronization with Cloud Firestore to handle real-time location tracking, maintenance logs, and enforce strict role-based access rules."
+      ],
+      "outcomes": [],
+      "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Firebase Authentication",
+        "Cloud Firestore",
+        "Firebase Cloud Messaging",
+        "Google Maps API"
+      ]
+    },
+    {
       "title": "Sponsorship Secretary",
       "company": "Tech to Product Innovation Club",
       "start_year": 2025,
@@ -99,28 +119,16 @@
         "Pandas",
         "NumPy"
       ],
-      "outcome": "achieving a 93.73% cross-validation directional accuracy"
+      "outcome": "achieving a 93.73% cross-validation directional accuracy."
     },
     {
-      "title": "Transformer Maintenance Management App",
-      "description": "Built an industry-sponsored asset tracking application using Flutter, applying object-oriented Dart principles to manage application state and digitize complex field workflows. Orchestrated asynchronous data synchronization with Cloud Firestore to handle real-time location tracking, maintenance logs, and enforce strict role-based access rules.",
-      "tech_stack": [
-        "Flutter",
-        "Dart",
-        "Firebase Authentication",
-        "Cloud Firestore",
-        "Firebase Cloud Messaging",
-        "Google Maps API"
-      ],
-      "outcome": null
-    },
-    {
-      "title": "EchoSoul Project",
+      "title": "EchoSoul Project (Hackathon Finalist)",
       "description": "Architected a client-server application, integrating a Python/ FastAPI backend with a Node.js frontend to dynamically generate custom Al personality profiles. Engineered complex data workflows to process file uploads, manage asynchronous Google Gemini API calls, and execute text-to-speech audio conversions.",
       "tech_stack": [
         "Python",
         "FastAPI",
-        "Node.js"
+        "Node.js",
+        "Google Gemini API"
       ],
       "outcome": "Top 20 Finalist (out of 250 teams) - Sociothon 2025"
     }

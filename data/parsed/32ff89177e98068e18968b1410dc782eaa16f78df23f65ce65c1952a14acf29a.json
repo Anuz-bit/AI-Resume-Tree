@@ -1,0 +1,105 @@
+{
+  "personal_info": {
+    "name": "SUMIT DEVENDRA RATHOD",
+    "email": "sumitrathod0306@gmail.com",
+    "location": "Pune, MH",
+    "linkedin": null
+  },
+  "education": [
+    {
+      "degree": "B.Tech in Computer Science Engineering [AI & ML]",
+      "institution": "VIT Pune (Bibwewadi)",
+      "year": 2028,
+      "cgpa": 9.06
+    },
+    {
+      "degree": "Secondary Education",
+      "institution": "Abhyasa Secondary School, Amravati",
+      "year": null,
+      "cgpa": null
+    }
+  ],
+  "experience": [
+    {
+      "title": "Project Developer",
+      "company": null,
+      "start_year": null,
+      "end_year": null,
+      "duration_months": null,
+      "responsibilities": [
+        "Built a name recognition system using fuzzy logic techniques to handle variations and inconsistencies in user input.",
+        "Implemented matching algorithms to improve text identification accuracy in real-world data."
+      ],
+      "outcomes": [],
+      "tech_stack": [
+        "Fuzzy Logic"
+      ]
+    },
+    {
+      "title": "Project Developer",
+      "company": null,
+      "start_year": null,
+      "end_year": null,
+      "duration_months": null,
+      "responsibilities": [
+        "Developed a facial-analysis-based software to estimate Body Mass Index (BMI) using image processing and trained ML models."
+      ],
+      "outcomes": [],
+      "tech_stack": [
+        "Image Processing",
+        "ML Models"
+      ]
+    },
+    {
+      "title": "Project Developer",
+      "company": null,
+      "start_year": null,
+      "end_year": null,
+      "duration_months": null,
+      "responsibilities": [
+        "Currently working on an AI-based system for early detection of common diseases using image and symptom data for predictive diagnosis."
+      ],
+      "outcomes": [],
+      "tech_stack": [
+        "AI",
+        "Image Processing"
+      ]
+    },
+    {
+      "title": "Volunteer",
+      "company": "VIT Pune",
+      "start_year": null,
+      "end_year": null,
+      "duration_months": null,
+      "responsibilities": [
+        "Contributed to event planning and execution during sports and cultural fests at VIT Pune."
+      ],
+      "outcomes": [
+        "enhancing organizational and collaboration skills"
+      ],
+      "tech_stack": []
+    }
+  ],
+  "skills": [
+    "C",
+    "Python",
+    "Java",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Embedded Systems (Arduino)",
+    "Java Fundamentals",
+    "Backend Logic Building",
+    "Problem-solving",
+    "Data Analysis",
+    "Data Visualization (Excel)",
+    "Data Visualization (Tableau)",
+    "Quick Learner",
+    "Effective Communicator",
+    "AI/ML Model Development",
+    "AI/ML Model Implementation"
+  ],
+  "projects": [],
+  "certifications": [],
+  "file_hash": "32ff89177e98068e18968b1410dc782eaa16f78df23f65ce65c1952a14acf29a"
+}

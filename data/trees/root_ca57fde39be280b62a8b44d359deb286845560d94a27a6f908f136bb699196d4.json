@@ -1,48 +1,64 @@
 {
   "node_id": "root",
   "type": "root",
-  "title": "Resume",
+  "title": "Vihaan Khare's Resume",
   "level": 0,
-  "summary": "This resume outlines Vihaan Khare's academic background, project experience in AI/ML and full-stack development, and leadership role in a student club. It highlights strong technical skills across various programming languages and frameworks, demonstrating a proactive approach to learning and applying technology.",
-  "metadata": {},
+  "summary": "A technical resume highlighting expertise in full-stack development, AI/ML, and mobile application development, with experience in industry-sponsored projects and leadership roles.",
+  "metadata": {
+    "career_stage": null,
+    "tech_stack": [],
+    "duration_months": null,
+    "recency": null,
+    "complexity": null,
+    "has_outcome": false,
+    "responsibility_level": null
+  },
   "children": [
     {
       "node_id": "education_section",
       "type": "section",
       "title": "Education",
       "level": 1,
-      "summary": "This section details Vihaan Khare's academic qualifications, including a B.Tech in Information Technology and Higher Secondary Certificate.",
-      "metadata": {},
+      "summary": "Academic background including a B.Tech in Information Technology and Higher Secondary Certificate.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
       "children": [
         {
-          "node_id": "education_vit_btech",
+          "node_id": "education_btech",
           "type": "education",
           "title": "B.Tech in Information Technology",
           "level": 2,
-          "summary": "Currently pursuing a B.Tech in Information Technology at Vishwakarma Institute of Technology, with an impressive CGPA of 8.93. This ongoing degree demonstrates a strong academic foundation in core IT principles and advanced technical concepts.",
+          "summary": "Currently pursuing a B.Tech in Information Technology at Vishwakarma Institute of Technology, with an impressive CGPA of 8.93, expected to graduate in 2028.",
           "metadata": {
             "career_stage": null,
             "tech_stack": [],
             "duration_months": null,
             "recency": "recent",
-            "complexity": "low",
+            "complexity": null,
             "has_outcome": false,
             "responsibility_level": null
           },
           "children": []
         },
         {
-          "node_id": "education_aditya_hsc",
+          "node_id": "education_hsc",
           "type": "education",
           "title": "Higher Secondary Certificate (HSC)",
           "level": 2,
-          "summary": "Completed Higher Secondary Certificate from Aditya English Medium School in 2024. This foundational education provided a strong base for further academic pursuits in information technology.",
+          "summary": "Completed Higher Secondary Certificate at Aditya English Medium School in 2024.",
           "metadata": {
             "career_stage": null,
             "tech_stack": [],
             "duration_months": null,
             "recency": "recent",
-            "complexity": "low",
+            "complexity": null,
             "has_outcome": false,
             "responsibility_level": null
           },
@@ -55,15 +71,47 @@
       "type": "section",
       "title": "Experience",
       "level": 1,
-      "summary": "This section highlights Vihaan Khare's experience as a Sponsorship Secretary, demonstrating leadership and negotiation skills within a technical club.",
-      "metadata": {},
+      "summary": "Professional and organizational experience, including an industry-sponsored project and a leadership role in a student club.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
       "children": [
+        {
+          "node_id": "experience_transformer_app",
+          "type": "experience",
+          "title": "Transformer Maintenance Management App (Industry-Sponsored Project)",
+          "level": 2,
+          "summary": "Developed an industry-sponsored asset tracking application for MSEB using Flutter and Dart, digitizing complex field workflows and managing application state with object-oriented principles. Orchestrated asynchronous data synchronization with Cloud Firestore to enable real-time location tracking, maintenance logs, and enforce role-based access rules over a 7-month period.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "Flutter",
+              "Dart",
+              "Firebase Authentication",
+              "Cloud Firestore",
+              "Firebase Cloud Messaging",
+              "Google Maps API"
+            ],
+            "duration_months": 7,
+            "recency": "recent",
+            "complexity": "high",
+            "has_outcome": false,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
         {
           "node_id": "experience_sponsorship_secretary",
           "type": "experience",
           "title": "Sponsorship Secretary",
           "level": 2,
-          "summary": "As Sponsorship Secretary for the Tech to Product Innovation Club, Vihaan spearheaded negotiations to secure corporate backing for technical events. This role involved cultivating industry partnerships over 4 months to drive essential resources for student initiatives, showcasing strong interpersonal and strategic planning skills.",
+          "summary": "As Sponsorship Secretary for the Tech to Product Innovation Club, Vihaan spearheaded negotiations to secure corporate backing for technical events. He also cultivated industry partnerships over 4 months to drive essential resources for student initiatives.",
           "metadata": {
             "career_stage": "junior",
             "tech_stack": [],
@@ -71,473 +119,7 @@
             "recency": "recent",
             "complexity": "medium",
             "has_outcome": false,
-            "responsibility_level": "individual"
-          },
-          "children": []
-        }
-      ]
-    },
-    {
-      "node_id": "skills_section",
-      "type": "section",
-      "title": "Skills",
-      "level": 1,
-      "summary": "This section lists Vihaan Khare's diverse technical skills, encompassing programming languages, frameworks, databases, and machine learning tools.",
-      "metadata": {},
-      "children": [
-        {
-          "node_id": "skill_c",
-          "type": "skills",
-          "title": "C",
-          "level": 2,
-          "summary": "Proficient in C, demonstrating foundational programming knowledge and ability to work with low-level system operations. This skill underpins understanding of data structures and algorithms.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "C"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_c++",
-          "type": "skills",
-          "title": "C++",
-          "level": 2,
-          "summary": "Skilled in C++, capable of developing high-performance applications and implementing complex object-oriented designs. This proficiency is crucial for competitive programming and system-level development.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "C++"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_java",
-          "type": "skills",
-          "title": "Java",
-          "level": 2,
-          "summary": "Competent in Java, enabling development of robust, scalable, and enterprise-level applications. This includes understanding of JVM, multithreading, and various Java frameworks.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Java"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_python",
-          "type": "skills",
-          "title": "Python",
-          "level": 2,
-          "summary": "Highly proficient in Python, utilized for scripting, data analysis, machine learning, and backend development. This versatility allows for rapid prototyping and complex algorithmic implementations.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Python"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_dart",
-          "type": "skills",
-          "title": "Dart",
-          "level": 2,
-          "summary": "Experienced with Dart, primarily for developing cross-platform mobile applications using the Flutter framework. This includes understanding of asynchronous programming and state management.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Dart"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_javascript",
-          "type": "skills",
-          "title": "JavaScript",
-          "level": 2,
-          "summary": "Adept in JavaScript, essential for both frontend interactivity and backend server-side logic. This skill is foundational for modern web development across various frameworks.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "JavaScript"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_reactjs",
-          "type": "skills",
-          "title": "React.js",
-          "level": 2,
-          "summary": "Skilled in React.js, used for building dynamic and responsive user interfaces with a component-based architecture. This enables efficient development of single-page applications.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "React.js"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_nodejs",
-          "type": "skills",
-          "title": "Node.js",
-          "level": 2,
-          "summary": "Proficient in Node.js, utilized for building scalable and high-performance backend services and APIs. This includes expertise in asynchronous programming and event-driven architectures.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Node.js"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_expressjs",
-          "type": "skills",
-          "title": "Express.js",
-          "level": 2,
-          "summary": "Experienced with Express.js, a minimalist web framework for Node.js, used to build robust RESTful APIs and web applications. This facilitates rapid backend development and routing.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Express.js"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_flutter",
-          "type": "skills",
-          "title": "Flutter",
-          "level": 2,
-          "summary": "Skilled in Flutter, enabling the development of natively compiled applications for mobile, web, and desktop from a single codebase. This includes UI/UX design and state management.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Flutter"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_mongodb",
-          "type": "skills",
-          "title": "MongoDB",
-          "level": 2,
-          "summary": "Proficient in MongoDB, a NoSQL database, for flexible and scalable data storage and retrieval. This includes schema design, indexing, and aggregation pipelines.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "MongoDB"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_mysql",
-          "type": "skills",
-          "title": "MySQL",
-          "level": 2,
-          "summary": "Experienced with MySQL, a relational database management system, for structured data storage and complex querying. This includes database design, normalization, and SQL optimization.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "MySQL"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_firebase",
-          "type": "skills",
-          "title": "Firebase",
-          "level": 2,
-          "summary": "Skilled in Firebase, a comprehensive mobile and web application development platform, for backend services like authentication, real-time database, and cloud functions. This accelerates development and scales applications.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Firebase"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_git",
-          "type": "skills",
-          "title": "Git",
-          "level": 2,
-          "summary": "Proficient in Git for version control, enabling collaborative development, code management, and tracking changes effectively. This ensures robust and organized project workflows.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Git"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_github",
-          "type": "skills",
-          "title": "GitHub",
-          "level": 2,
-          "summary": "Experienced with GitHub for hosting and managing code repositories, facilitating collaboration, code reviews, and project management. This platform is essential for open-source contributions and team projects.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "GitHub"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_rest_apis",
-          "type": "skills",
-          "title": "REST APIs",
-          "level": 2,
-          "summary": "Adept at designing, developing, and consuming RESTful APIs for seamless communication between client and server applications. This ensures efficient data exchange and integration.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "REST APIs"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_socketio",
-          "type": "skills",
-          "title": "Socket.io",
-          "level": 2,
-          "summary": "Skilled in Socket.io for building real-time, bidirectional, and event-based communication applications. This enables features like live chat, notifications, and real-time data updates.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Socket.io"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_jwt_authentication",
-          "type": "skills",
-          "title": "JWT Authentication",
-          "level": 2,
-          "summary": "Experienced in implementing JWT (JSON Web Token) authentication for securing APIs and web applications. This ensures secure user sessions and controlled access to resources.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "JWT Authentication"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_tensorflowjs",
-          "type": "skills",
-          "title": "TensorFlow.js",
-          "level": 2,
-          "summary": "Proficient in TensorFlow.js for deploying and training machine learning models directly in the browser or Node.js. This enables client-side AI capabilities and real-time inference.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "TensorFlow.js"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_mediapipe",
-          "type": "skills",
-          "title": "MediaPipe",
-          "level": 2,
-          "summary": "Skilled in MediaPipe for building cross-platform, customizable ML solutions for live and streaming media. This includes capabilities for face detection, pose estimation, and object tracking.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "MediaPipe"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_opencv",
-          "type": "skills",
-          "title": "OpenCV",
-          "level": 2,
-          "summary": "Experienced with OpenCV for computer vision tasks, including image processing, object detection, and video analysis. This is crucial for developing advanced visual recognition systems.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "OpenCV"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_scikitlearn",
-          "type": "skills",
-          "title": "Scikit-Learn",
-          "level": 2,
-          "summary": "Proficient in Scikit-Learn for machine learning, including classification, regression, clustering, and dimensionality reduction. This enables rapid development and deployment of predictive models.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Scikit-Learn"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_pandas",
-          "type": "skills",
-          "title": "Pandas",
-          "level": 2,
-          "summary": "Skilled in Pandas for data manipulation and analysis in Python, including data cleaning, transformation, and aggregation. This is essential for preparing data for machine learning models.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "Pandas"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
-          },
-          "children": []
-        },
-        {
-          "node_id": "skill_numpy",
-          "type": "skills",
-          "title": "NumPy",
-          "level": 2,
-          "summary": "Experienced with NumPy for numerical computing in Python, particularly for array operations and mathematical functions. This provides a high-performance foundation for scientific computing and data science.",
-          "metadata": {
-            "career_stage": null,
-            "tech_stack": [
-              "NumPy"
-            ],
-            "duration_months": null,
-            "recency": null,
-            "complexity": "low",
-            "has_outcome": false,
-            "responsibility_level": null
+            "responsibility_level": "team"
           },
           "children": []
         }
@@ -548,17 +130,25 @@
       "type": "section",
       "title": "Projects",
       "level": 1,
-      "summary": "This section showcases Vihaan Khare's diverse project portfolio, demonstrating expertise in AI/ML, full-stack development, and real-time systems.",
-      "metadata": {},
+      "summary": "A portfolio of technical projects showcasing expertise in AI/ML, full-stack development, and real-time systems.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
       "children": [
         {
-          "node_id": "project_ai_proctored_exam_system",
+          "node_id": "project_ai_proctoring",
           "type": "project",
           "title": "AI Proctored Online Examination System",
           "level": 2,
-          "summary": "Vihaan engineered an event-driven backend architecture utilizing WebSockets, integrating TensorFlow.js and MediaPipe for real-time monitoring and managing concurrent user sessions. The system featured scalable MongoDB collections to handle high-frequency data operations, ensuring reliable state logging, accurate live timers, and automated submission workflows for online examinations.",
+          "summary": "Engineered an event-driven backend architecture using WebSockets, integrating TensorFlow.js and MediaPipe to automate real-time monitoring and manage concurrent user sessions. Structured scalable MongoDB collections to handle high-frequency data operations, ensuring reliable state logging, accurate live timers, and automated submission workflows.",
           "metadata": {
-            "career_stage": null,
+            "career_stage": "junior",
             "tech_stack": [
               "React.js (Vite)",
               "Tailwind CSS",
@@ -570,7 +160,7 @@
               "MediaPipe"
             ],
             "duration_months": null,
-            "recency": null,
+            "recency": "recent",
             "complexity": "high",
             "has_outcome": false,
             "responsibility_level": "individual"
@@ -578,13 +168,13 @@
           "children": []
         },
         {
-          "node_id": "project_cab_booking_platform",
+          "node_id": "project_cab_booking",
           "type": "project",
           "title": "Cab Booking Platform",
           "level": 2,
-          "summary": "Vihaan engineered the backend logic and relational database schemas for a robust ride-booking system, efficiently mapping, storing, and querying complex data flows between user requests, vehicles, and driver availability. The platform implemented secure REST APIs and WebSocket connections to handle continuous data streaming, active ride tracking, and asynchronous event synchronization, ensuring a smooth user experience.",
+          "summary": "Engineered the backend logic and relational database schemas for a ride-booking system to efficiently map, store, and query complex data flows between user requests, vehicles, and driver availability. Implemented secure REST APIs and WebSocket connections to handle continuous data streaming, active ride tracking, and asynchronous event synchronization.",
           "metadata": {
-            "career_stage": null,
+            "career_stage": "junior",
             "tech_stack": [
               "React.js (Vite)",
               "Tailwind CSS",
@@ -594,7 +184,7 @@
               "Socket.io"
             ],
             "duration_months": null,
-            "recency": null,
+            "recency": "recent",
             "complexity": "high",
             "has_outcome": false,
             "responsibility_level": "individual"
@@ -602,13 +192,13 @@
           "children": []
         },
         {
-          "node_id": "project_nifty_market_trend_predictor",
+          "node_id": "project_nifty_predictor",
           "type": "project",
           "title": "Nifty Market Trend Predictor",
           "level": 2,
-          "summary": "Vihaan architected a sophisticated time-series forecasting pipeline using LSTM and ensemble networks, implementing robust TimeSeriesSplit logic to manage complex sequential arrays and prevent data leakage. The algorithmic performance was optimized for highly imbalanced datasets using AdaBoost to capture rare minority class events, achieving a significant 93.73% cross-validation directional accuracy.",
+          "summary": "Architected a time-series forecasting pipeline using LSTM and ensemble networks, implementing robust TimeSeriesSplit logic to manage complex sequential arrays and prevent data leakage. Optimized algorithmic performance for highly imbalanced datasets using AdaBoost to capture rare minority class events, achieving a 93.73% cross-validation directional accuracy.",
           "metadata": {
-            "career_stage": null,
+            "career_stage": "junior",
             "tech_stack": [
               "Python",
               "Scikit-Learn",
@@ -617,7 +207,7 @@
               "NumPy"
             ],
             "duration_months": null,
-            "recency": null,
+            "recency": "recent",
             "complexity": "high",
             "has_outcome": true,
             "responsibility_level": "individual"
@@ -625,47 +215,498 @@
           "children": []
         },
         {
-          "node_id": "project_transformer_maintenance_app",
+          "node_id": "project_echosoul",
           "type": "project",
-          "title": "Transformer Maintenance Management App",
+          "title": "EchoSoul Project (Hackathon Finalist)",
           "level": 2,
-          "summary": "Vihaan built an industry-sponsored asset tracking application using Flutter, applying object-oriented Dart principles to manage application state and digitize complex field workflows. The app orchestrated asynchronous data synchronization with Cloud Firestore to handle real-time location tracking, maintenance logs, and enforce strict role-based access rules, providing a comprehensive solution for asset management.",
+          "summary": "Architected a client-server application, integrating a Python/FastAPI backend with a Node.js frontend to dynamically generate custom AI personality profiles. Engineered complex data workflows to process file uploads, manage asynchronous Google Gemini API calls, and execute text-to-speech audio conversions, leading to the project being a Top 20 Finalist out of 250 teams in Sociothon 2025.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "Python",
+              "FastAPI",
+              "Node.js",
+              "Google Gemini API"
+            ],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "high",
+            "has_outcome": true,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "node_id": "skills_section",
+      "type": "section",
+      "title": "Skills",
+      "level": 1,
+      "summary": "A comprehensive list of technical skills across programming languages, frameworks, databases, and machine learning.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "skill_c",
+          "type": "skills",
+          "title": "C",
+          "level": 2,
+          "summary": "Proficient in C programming language.",
           "metadata": {
             "career_stage": null,
             "tech_stack": [
-              "Flutter",
-              "Dart",
-              "Firebase Authentication",
-              "Cloud Firestore",
-              "Firebase Cloud Messaging",
-              "Google Maps API"
+              "C"
             ],
             "duration_months": null,
             "recency": null,
-            "complexity": "high",
+            "complexity": null,
             "has_outcome": false,
-            "responsibility_level": "individual"
+            "responsibility_level": null
           },
           "children": []
         },
         {
-          "node_id": "project_echosoul_project",
-          "type": "project",
-          "title": "EchoSoul Project",
+          "node_id": "skill_c++",
+          "type": "skills",
+          "title": "C++",
           "level": 2,
-          "summary": "Vihaan architected a client-server application, integrating a Python/FastAPI backend with a Node.js frontend to dynamically generate custom AI personality profiles. The project engineered complex data workflows to process file uploads, manage asynchronous Google Gemini API calls, and execute text-to-speech audio conversions, earning recognition as a Top 20 Finalist out of 250 teams in Sociothon 2025.",
+          "summary": "Proficient in C++ programming language.",
           "metadata": {
             "career_stage": null,
             "tech_stack": [
-              "Python",
-              "FastAPI",
+              "C++"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_java",
+          "type": "skills",
+          "title": "Java",
+          "level": 2,
+          "summary": "Proficient in Java programming language.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Java"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_python",
+          "type": "skills",
+          "title": "Python",
+          "level": 2,
+          "summary": "Proficient in Python programming language.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Python"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_dart",
+          "type": "skills",
+          "title": "Dart",
+          "level": 2,
+          "summary": "Proficient in Dart programming language.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Dart"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_javascript",
+          "type": "skills",
+          "title": "JavaScript",
+          "level": 2,
+          "summary": "Proficient in JavaScript programming language.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "JavaScript"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_react.js",
+          "type": "skills",
+          "title": "React.js",
+          "level": 2,
+          "summary": "Skilled in React.js for front-end development.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "React.js"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_node.js",
+          "type": "skills",
+          "title": "Node.js",
+          "level": 2,
+          "summary": "Skilled in Node.js for back-end development.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
               "Node.js"
             ],
             "duration_months": null,
             "recency": null,
-            "complexity": "high",
-            "has_outcome": true,
-            "responsibility_level": "individual"
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_express.js",
+          "type": "skills",
+          "title": "Express.js",
+          "level": 2,
+          "summary": "Skilled in Express.js for building web applications and APIs.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Express.js"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_flutter",
+          "type": "skills",
+          "title": "Flutter",
+          "level": 2,
+          "summary": "Skilled in Flutter for cross-platform mobile development.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Flutter"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_mongodb",
+          "type": "skills",
+          "title": "MongoDB",
+          "level": 2,
+          "summary": "Proficient in MongoDB NoSQL database.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "MongoDB"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_mysql",
+          "type": "skills",
+          "title": "MySQL",
+          "level": 2,
+          "summary": "Proficient in MySQL relational database.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "MySQL"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_firebase",
+          "type": "skills",
+          "title": "Firebase",
+          "level": 2,
+          "summary": "Skilled in Firebase for backend services.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Firebase"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_git",
+          "type": "skills",
+          "title": "Git",
+          "level": 2,
+          "summary": "Proficient in Git version control system.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Git"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_github",
+          "type": "skills",
+          "title": "GitHub",
+          "level": 2,
+          "summary": "Experienced with GitHub for collaborative development and code hosting.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "GitHub"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_rest_apis",
+          "type": "skills",
+          "title": "REST APIs",
+          "level": 2,
+          "summary": "Skilled in designing and implementing RESTful APIs.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "REST APIs"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_socket.io",
+          "type": "skills",
+          "title": "Socket.io",
+          "level": 2,
+          "summary": "Skilled in using Socket.io for real-time, bidirectional communication.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Socket.io"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_jwt_authentication",
+          "type": "skills",
+          "title": "JWT Authentication",
+          "level": 2,
+          "summary": "Experienced in implementing JWT for secure authentication.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "JWT Authentication"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_tensorflow.js",
+          "type": "skills",
+          "title": "TensorFlow.js",
+          "level": 2,
+          "summary": "Skilled in TensorFlow.js for machine learning in the browser.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "TensorFlow.js"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_mediapipe",
+          "type": "skills",
+          "title": "MediaPipe",
+          "level": 2,
+          "summary": "Skilled in MediaPipe for on-device machine learning solutions.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "MediaPipe"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_opencv",
+          "type": "skills",
+          "title": "OpenCV",
+          "level": 2,
+          "summary": "Skilled in OpenCV for computer vision tasks.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "OpenCV"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_scikit-learn",
+          "type": "skills",
+          "title": "Scikit-Learn",
+          "level": 2,
+          "summary": "Skilled in Scikit-Learn for machine learning algorithms.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Scikit-Learn"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_pandas",
+          "type": "skills",
+          "title": "Pandas",
+          "level": 2,
+          "summary": "Proficient in Pandas for data manipulation and analysis.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Pandas"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_numpy",
+          "type": "skills",
+          "title": "NumPy",
+          "level": 2,
+          "summary": "Proficient in NumPy for numerical computing in Python.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "NumPy"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
           },
           "children": []
         }

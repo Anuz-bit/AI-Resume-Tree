@@ -1,0 +1,45 @@
+{
+  "eval_id": "f0a88440-9545-48d0-9f4a-e1b036f52871",
+  "overall_score": 16,
+  "dimension_scores": {
+    "skill_match": 40,
+    "experience_quality": 5,
+    "career_progression": 0,
+    "context_fit": 0
+  },
+  "matched_requirements": [
+    {
+      "req_id": "REQ001",
+      "resume_node_id": "skill_python",
+      "reasoning": "The candidate lists Python as a skill, but lacks the specified 4+ years of experience and explicit mention of backend frameworks like Django or FastAPI.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "REQ005",
+      "resume_node_id": "skill_effective_communicator",
+      "reasoning": "The candidate explicitly lists 'Effective Communicator' as a skill, directly matching the requirement.",
+      "match_type": "full"
+    }
+  ],
+  "unmatched_requirements": [
+    "REQ002",
+    "REQ003",
+    "REQ004"
+  ],
+  "strengths": [
+    "Strong academic performance (9.06 CGPA in B.Tech AI & ML).",
+    "Foundational skills in AI/ML, Image Processing, and Fuzzy Logic through projects.",
+    "Proficiency in multiple programming languages (C, Python, Java, JavaScript, HTML, CSS).",
+    "Demonstrated problem-solving, data analysis, and data visualization skills.",
+    "Possesses strong soft skills: quick learner and effective communicator."
+  ],
+  "gaps": [
+    "Lack of 4+ years of professional software engineering experience.",
+    "No experience with specific backend frameworks (Django/FastAPI).",
+    "No experience with modern frontend frameworks (React/Angular).",
+    "Missing knowledge of AWS cloud services.",
+    "No experience with containerization technologies (Docker/Kubernetes).",
+    "Significant mismatch in seniority level (student/junior vs. senior engineer)."
+  ],
+  "overall_reasoning": "The candidate, a current B.Tech student specializing in AI & ML, demonstrates strong academic performance and foundational technical skills, particularly in AI/ML, image processing, and various programming languages. They also possess good soft skills like communication and problem-solving. However, the candidate's profile is a significant mismatch for a Senior Software Engineer role, which explicitly requires 4+ years of professional experience and specific expertise in backend frameworks, frontend technologies, cloud services (AWS), and containerization. The candidate's experience is project-based and at a junior career stage, not aligning with the senior-level expectations of the job description."
+}

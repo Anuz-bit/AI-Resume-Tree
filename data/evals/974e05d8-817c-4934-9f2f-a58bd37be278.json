@@ -1,0 +1,48 @@
+{
+  "eval_id": "974e05d8-817c-4934-9f2f-a58bd37be278",
+  "overall_score": 19,
+  "dimension_scores": {
+    "skill_match": 40,
+    "experience_quality": 10,
+    "career_progression": 5,
+    "context_fit": 5
+  },
+  "matched_requirements": [
+    {
+      "req_id": "REQ001",
+      "resume_node_id": "project_echosoul",
+      "reasoning": "The candidate demonstrates proficiency in Python and FastAPI through projects, but their overall professional experience duration is significantly less than the 4+ years required for a senior role.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "REQ002",
+      "resume_node_id": "skill_react.js",
+      "reasoning": "The candidate explicitly lists React.js as a skill and has used it in projects like 'AI Proctored Online Examination System' and 'Cab Booking Platform'.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ005",
+      "resume_node_id": "experience_sponsorship_secretary",
+      "reasoning": "The role of Sponsorship Secretary, involving negotiations and cultivating partnerships, implies good communication skills, though it's not explicitly stated or quantified.",
+      "match_type": "partial"
+    }
+  ],
+  "unmatched_requirements": [
+    "REQ003",
+    "REQ004"
+  ],
+  "strengths": [
+    "Strong foundational skills in Python, JavaScript, React.js, Node.js, Express.js, Flutter, and Dart.",
+    "Experience with various databases including MongoDB, MySQL, and Firebase.",
+    "Demonstrated ability to work on complex projects involving AI/ML (TensorFlow.js, MediaPipe, Scikit-Learn) and real-time systems (Socket.io, WebSockets).",
+    "Experience in an industry-sponsored project, showcasing practical application of technical skills.",
+    "Leadership experience as Sponsorship Secretary, implying soft skills like negotiation and partnership building."
+  ],
+  "gaps": [
+    "Lack of the required 4+ years of professional experience for a Senior Software Engineer role.",
+    "No explicit experience with AWS cloud services.",
+    "No experience with containerization technologies (Docker/Kubernetes).",
+    "Candidate is currently a student, which does not align with the career progression expected for a senior-level position."
+  ],
+  "overall_reasoning": "The candidate, Vihaan Khare, demonstrates strong technical aptitude and project experience in areas like full-stack development, mobile apps, and AI/ML, which is impressive for a student. They possess many of the core programming and framework skills (Python, FastAPI, React.js) required by the job description. However, the role is for a 'Senior Software Engineer' requiring '4+ years of experience,' which is a significant mismatch with the candidate's current career stage as a B.Tech student with limited professional experience. Key essential skills like AWS and containerization are also missing. While technically capable for a junior role, the candidate does not meet the seniority and experience requirements for this specific position."
+}

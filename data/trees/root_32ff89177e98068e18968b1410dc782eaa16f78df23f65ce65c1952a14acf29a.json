@@ -1,0 +1,475 @@
+{
+  "node_id": "root",
+  "type": "root",
+  "title": "Resume",
+  "level": 0,
+  "summary": "Comprehensive resume for SUMIT DEVENDRA RATHOD, detailing education, project experience, and skills.",
+  "metadata": {
+    "career_stage": null,
+    "tech_stack": [],
+    "duration_months": null,
+    "recency": null,
+    "complexity": null,
+    "has_outcome": false,
+    "responsibility_level": null
+  },
+  "children": [
+    {
+      "node_id": "education_section",
+      "type": "section",
+      "title": "Education",
+      "level": 1,
+      "summary": "Overview of academic qualifications and achievements.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "edu_vit_btech",
+          "type": "education",
+          "title": "B.Tech in Computer Science Engineering [AI & ML]",
+          "level": 2,
+          "summary": "Currently pursuing a B.Tech in Computer Science Engineering with a specialization in AI & ML at VIT Pune. Maintaining a strong academic record with a CGPA of 9.06, demonstrating proficiency in core computer science and emerging AI/ML concepts.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "AI",
+              "Machine Learning",
+              "Computer Science"
+            ],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "medium",
+            "has_outcome": true,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
+        {
+          "node_id": "edu_abhyasa_secondary",
+          "type": "education",
+          "title": "Secondary Education",
+          "level": 2,
+          "summary": "Completed Secondary Education at Abhyasa Secondary School, Amravati. This foundational education provided essential academic skills and a broad knowledge base.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "old",
+            "complexity": "low",
+            "has_outcome": false,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "node_id": "experience_section",
+      "type": "section",
+      "title": "Experience",
+      "level": 1,
+      "summary": "Details of project development and volunteer work, showcasing practical application of technical skills.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "exp_proj_fuzzy_logic",
+          "type": "experience",
+          "title": "Project Developer (Fuzzy Logic Name Recognition)",
+          "level": 2,
+          "summary": "Developed a name recognition system utilizing fuzzy logic techniques to effectively manage variations and inconsistencies in user input. Implemented advanced matching algorithms, significantly enhancing text identification accuracy in diverse real-world datasets.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "Fuzzy Logic"
+            ],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "medium",
+            "has_outcome": true,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
+        {
+          "node_id": "exp_proj_facial_bmi",
+          "type": "experience",
+          "title": "Project Developer (Facial BMI Estimation)",
+          "level": 2,
+          "summary": "Engineered a facial-analysis-based software designed to estimate Body Mass Index (BMI) from images. This involved leveraging image processing techniques and training machine learning models to achieve predictive BMI estimations.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "Image Processing",
+              "ML Models"
+            ],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "high",
+            "has_outcome": false,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
+        {
+          "node_id": "exp_proj_ai_disease",
+          "type": "experience",
+          "title": "Project Developer (AI Disease Detection)",
+          "level": 2,
+          "summary": "Currently developing an AI-based system focused on the early detection of common diseases using image and symptom data. This project aims to facilitate predictive diagnosis, enhancing early intervention capabilities.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "AI",
+              "Image Processing"
+            ],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "high",
+            "has_outcome": false,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
+        {
+          "node_id": "exp_volunteer_vit",
+          "type": "experience",
+          "title": "Volunteer at VIT Pune",
+          "level": 2,
+          "summary": "Actively contributed to the successful planning and execution of various sports and cultural fests at VIT Pune. This role significantly enhanced organizational and collaboration skills through practical event management experience.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "low",
+            "has_outcome": true,
+            "responsibility_level": "team"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "node_id": "skills_section",
+      "type": "section",
+      "title": "Skills",
+      "level": 1,
+      "summary": "A comprehensive list of technical and soft skills, including programming languages, data analysis tools, and AI/ML competencies.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "skill_c",
+          "type": "skills",
+          "title": "C",
+          "level": 2,
+          "summary": "Proficient in C programming language, suitable for system-level programming and performance-critical applications.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_python",
+          "type": "skills",
+          "title": "Python",
+          "level": 2,
+          "summary": "Skilled in Python, widely used for web development, data analysis, AI/ML, and automation tasks.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_java",
+          "type": "skills",
+          "title": "Java",
+          "level": 2,
+          "summary": "Competent in Java, a versatile language for enterprise applications, Android development, and large-scale systems.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_javascript",
+          "type": "skills",
+          "title": "JavaScript",
+          "level": 2,
+          "summary": "Experienced in JavaScript, essential for front-end web development and increasingly used for back-end with Node.js.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_html",
+          "type": "skills",
+          "title": "HTML",
+          "level": 2,
+          "summary": "Proficient in HTML for structuring web content and creating accessible and semantic web pages.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_css",
+          "type": "skills",
+          "title": "CSS",
+          "level": 2,
+          "summary": "Skilled in CSS for styling web pages, ensuring responsive designs and visually appealing user interfaces.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_embedded_systems_arduino",
+          "type": "skills",
+          "title": "Embedded Systems (Arduino)",
+          "level": 2,
+          "summary": "Hands-on experience with Embedded Systems, specifically Arduino, for developing IoT and hardware-interfacing projects.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_java_fundamentals",
+          "type": "skills",
+          "title": "Java Fundamentals",
+          "level": 2,
+          "summary": "Strong understanding of Java fundamentals, including OOP concepts, data structures, and algorithms.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_backend_logic_building",
+          "type": "skills",
+          "title": "Backend Logic Building",
+          "level": 2,
+          "summary": "Adept at designing and implementing robust backend logic for various applications, ensuring efficient data processing and system functionality.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_problem_solving",
+          "type": "skills",
+          "title": "Problem-solving",
+          "level": 2,
+          "summary": "Demonstrated strong problem-solving abilities, capable of analyzing complex issues and developing effective solutions.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_data_analysis",
+          "type": "skills",
+          "title": "Data Analysis",
+          "level": 2,
+          "summary": "Skilled in data analysis, capable of interpreting complex datasets to extract meaningful insights and support decision-making.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_data_visualization_excel",
+          "type": "skills",
+          "title": "Data Visualization (Excel)",
+          "level": 2,
+          "summary": "Proficient in creating clear and insightful data visualizations using Excel, aiding in the communication of complex data trends.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_data_visualization_tableau",
+          "type": "skills",
+          "title": "Data Visualization (Tableau)",
+          "level": 2,
+          "summary": "Experienced in Tableau for advanced data visualization, creating interactive dashboards and reports to present data effectively.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_quick_learner",
+          "type": "skills",
+          "title": "Quick Learner",
+          "level": 2,
+          "summary": "A quick learner, capable of rapidly acquiring new technologies, methodologies, and adapting to evolving project requirements.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_effective_communicator",
+          "type": "skills",
+          "title": "Effective Communicator",
+          "level": 2,
+          "summary": "An effective communicator, able to articulate technical concepts clearly and collaborate efficiently with team members and stakeholders.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_ai_ml_model_development",
+          "type": "skills",
+          "title": "AI/ML Model Development",
+          "level": 2,
+          "summary": "Skilled in the development of AI/ML models, encompassing data preprocessing, model selection, training, and evaluation.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_ai_ml_model_implementation",
+          "type": "skills",
+          "title": "AI/ML Model Implementation",
+          "level": 2,
+          "summary": "Experienced in the implementation of AI/ML models, deploying them into practical applications and integrating with existing systems.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "null",
+            "complexity": "null",
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

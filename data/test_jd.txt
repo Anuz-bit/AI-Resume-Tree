@@ -1,7 +1,41 @@
-Senior Software Engineer
-Requirements:
-- 4+ years of experience with Python and backend frameworks like Django or FastAPI.
-- Experience with React or Angular.
-- Strong knowledge of AWS cloud services.
-- Containerization experience (Docker/Kubernetes).
-- Good communication skills.
+Location: Pune, India
+Type: Internship
+
+Role Overview
+
+We are looking for a highly motivated Software Engineer Intern (AI/ML) to join our team. The ideal candidate is a B.Tech student with strong foundations in machine learning, software development, and data engineering, with hands-on experience building end-to-end ML systems and scalable applications.
+
+Key Responsibilities
+Develop and deploy machine learning models for real-world applications such as risk prediction and classification systems
+Build and maintain scalable data pipelines using tools like Apache Kafka and Airflow
+Design and implement backend APIs using FastAPI and integrate with frontend applications
+Perform data preprocessing, feature engineering, and model evaluation using industry-standard techniques
+Create interactive dashboards and visualizations for insights and decision-making
+Collaborate in Agile/Scrum environments using Git/GitHub for version control
+Work on real-time systems with alert mechanisms (SMS/email notifications, event streaming)
+Ensure model interpretability using tools like SHAP
+Required Skills
+Programming: Python, Java, JavaScript, C/C++
+Machine Learning: scikit-learn, XGBoost, LightGBM, ensemble methods
+Data Tools: Pandas, NumPy, Feature Engineering, SMOTE
+Web & APIs: FastAPI, REST APIs, React (basic)
+Databases: SQL, MongoDB
+Tools & Platforms: Git, GitHub, MLflow, Apache Kafka, Airflow
+Core Concepts: Data Structures & Algorithms, OOP, Operating Systems
+Preferred Qualifications
+Experience building end-to-end ML pipelines (training → deployment → monitoring)
+Knowledge of model explainability and performance metrics (AUC, F1-score, precision-recall)
+Experience with dashboarding tools (e.g., Plotly Dash)
+Exposure to real-world/industry projects or government collaborations
+Projects & Experience (What Makes You Stand Out)
+Developed CREDIX, an AI-based credit risk prediction platform with ensemble models and real-time data pipelines
+Built a Flutter-based mobile application (GridSync) for MSEDCL to digitize transformer maintenance systems
+Implemented accident severity prediction models with high accuracy using ensemble techniques
+Published a conference paper and filed a patent in accident prevention systems
+Soft Skills
+Strong problem-solving ability
+Effective communication and teamwork
+Leadership and initiative in projects
+Education
+B.Tech in Information Technology (CGPA: 9.2/10)
+Vishwakarma Institute of Technology, Pune (Expected 2028)

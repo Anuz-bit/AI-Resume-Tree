@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Results Dashboard - ResumeTree</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#2e3036",
+                    "outline-variant": "#434655",
+                    "outline": "#8d90a0",
+                    "surface-container-highest": "#33353a",
+                    "secondary": "#4edea3",
+                    "error-container": "#93000a",
+                    "inverse-surface": "#e2e2e9",
+                    "secondary-container": "#00a572",
+                    "on-surface": "#e2e2e9",
+                    "surface-bright": "#37393f",
+                    "background": "#111319",
+                    "surface-variant": "#33353a",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "tertiary-fixed-dim": "#d0bcff",
+                    "on-secondary": "#003824",
+                    "on-primary": "#002a78",
+                    "primary-fixed": "#dbe1ff",
+                    "tertiary-container": "#7d4ce7",
+                    "on-tertiary-container": "#f6edff",
+                    "on-tertiary": "#3c0091",
+                    "tertiary": "#d0bcff",
+                    "on-primary-container": "#eeefff",
+                    "tertiary-fixed": "#e9ddff",
+                    "surface-container-lowest": "#0c0e13",
+                    "surface-tint": "#b4c5ff",
+                    "inverse-primary": "#0053db",
+                    "surface-container-high": "#282a30",
+                    "surface-dim": "#111319",
+                    "on-tertiary-fixed": "#23005c",
+                    "surface-container": "#1e1f25",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface": "#111319",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-error": "#690005",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#5516be",
+                    "on-surface-variant": "#c3c6d7",
+                    "on-secondary-container": "#00311f",
+                    "surface-container-low": "#191b21",
+                    "on-secondary-fixed": "#002113",
+                    "secondary-fixed": "#6ffbbe",
+                    "primary": "#b4c5ff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-error-container": "#ffdad6",
+                    "primary-container": "#2563eb",
+                    "on-primary-fixed": "#00174b",
+                    "on-background": "#e2e2e9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["JetBrains Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .noise-bg {
+            position: relative;
+        }
+        .noise-bg::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen flex flex-col noise-bg">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl shadow-2xl shadow-blue-500/5 bg-gradient-to-b from-slate-900/10 to-transparent">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
+<div class="text-2xl font-['Newsreader'] italic text-slate-50">ResumeTree</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-blue-400 font-semibold border-b border-blue-500/50 pb-1 font-['Newsreader'] text-lg tracking-tight hover:bg-slate-800/50 transition-all duration-300" href="#">Analysis</a>
+<a class="text-slate-400 font-normal hover:text-slate-200 transition-colors font-['Newsreader'] text-lg tracking-tight hover:bg-slate-800/50 transition-all duration-300" href="#">Repository</a>
+<a class="text-slate-400 font-normal hover:text-slate-200 transition-colors font-['Newsreader'] text-lg tracking-tight hover:bg-slate-800/50 transition-all duration-300" href="#">Pricing</a>
+<a class="text-slate-400 font-normal hover:text-slate-200 transition-colors font-['Newsreader'] text-lg tracking-tight hover:bg-slate-800/50 transition-all duration-300" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-5 py-2 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity">Get Started</button>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-blue-500 transition-colors">account_circle</span>
+</div>
+</div>
+</header>
+<div class="flex flex-1 pt-20">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r border-slate-800/20 bg-slate-900/50 backdrop-blur-lg fixed left-0 top-20 bottom-0 z-40 bg-slate-900/40 py-6 px-4">
+<div class="mb-8 px-4">
+<div class="text-sm font-semibold text-slate-200">Project Alpha</div>
+<div class="text-xs text-slate-500 font-mono mt-1">IEEE_Standard_v2.1</div>
+</div>
+<button class="mb-8 w-full bg-surface-container-highest text-primary border border-outline-variant/15 py-2.5 rounded-lg text-sm font-medium hover:bg-surface-container-low transition-colors">
+                New Analysis
+            </button>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 font-['JetBrains_Mono'] text-xs tracking-widest uppercase hover:bg-slate-800/40 rounded" href="#">
+<span class="material-symbols-outlined text-lg">account_tree</span>
+                    Visualizer
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 bg-blue-500/10 text-blue-400 border-r-2 border-blue-500 font-['JetBrains_Mono'] text-xs tracking-widest uppercase translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-lg">speed</span>
+                    Scorecard
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 font-['JetBrains_Mono'] text-xs tracking-widest uppercase hover:bg-slate-800/40 rounded" href="#">
+<span class="material-symbols-outlined text-lg">rule</span>
+                    Requirements
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 font-['JetBrains_Mono'] text-xs tracking-widest uppercase hover:bg-slate-800/40 rounded" href="#">
+<span class="material-symbols-outlined text-lg">history</span>
+                    History
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 font-['JetBrains_Mono'] text-xs tracking-widest uppercase hover:bg-slate-800/40 rounded" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="mt-auto flex flex-col gap-2 pt-8 border-t border-slate-800/20">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 font-['JetBrains_Mono'] text-xs tracking-widest uppercase hover:bg-slate-800/40 rounded" href="#">
+<span class="material-symbols-outlined text-lg">description</span>
+                    Documentation
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-300 font-['JetBrains_Mono'] text-xs tracking-widest uppercase hover:bg-slate-800/40 rounded" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+                    Support
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 flex flex-col md:flex-row gap-6 p-6 min-h-[calc(100vh-5rem)]">
+<!-- Left Panel: Tree Visualizer -->
+<div class="w-full md:w-[280px] flex-shrink-0 bg-surface-container-low rounded-xl p-5 flex flex-col relative noise-bg">
+<h2 class="font-headline text-xl text-on-surface mb-6">Taxonomy Match</h2>
+<div class="flex-1 relative flex justify-center items-center py-10">
+<!-- Placeholder for Tree Visualizer -->
+<div class="flex flex-col items-center gap-8 relative z-10 w-full">
+<!-- Node 1: Matched -->
+<div class="w-full bg-surface-container-high rounded-lg p-3 flex items-center justify-between shadow-[0_4px_24px_rgba(37,99,235,0.06)] border border-outline-variant/15 relative z-10">
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider">Root</span>
+<span class="text-sm font-medium text-on-surface">Data Science</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Connector -->
+<div class="absolute w-px bg-outline-variant/30 h-16 top-12 z-0"></div>
+<!-- Node 2: Partial -->
+<div class="w-full bg-surface-container rounded-lg p-3 flex items-center justify-between border border-outline-variant/15 relative z-10 ml-4">
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider">Skill</span>
+<span class="text-sm font-medium text-on-surface">Machine Learning</span>
+</div>
+<span class="material-symbols-outlined text-tertiary-container text-sm">timelapse</span>
+</div>
+<!-- Connector -->
+<div class="absolute w-px bg-outline-variant/30 h-16 top-32 z-0"></div>
+<!-- Node 3: Gap -->
+<div class="w-full bg-surface-container-lowest rounded-lg p-3 flex items-center justify-between border border-outline-variant/15 relative z-10 ml-8 opacity-70">
+<div class="flex flex-col">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider">Sub-domain</span>
+<span class="text-sm font-medium text-on-surface line-through decoration-error/50">NLP Models</span>
+</div>
+<span class="material-symbols-outlined text-error text-sm">cancel</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Center Panel: Score Gauge & Bars -->
+<div class="flex-1 bg-surface rounded-xl flex flex-col px-8 py-10 relative">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h1 class="font-headline text-4xl text-on-surface tracking-tight mb-2">Analysis Complete</h1>
+<div class="font-mono text-xs text-on-surface-variant bg-surface-container-highest inline-block px-2 py-1 rounded">Profile / Role_Match / Lead_Data_Scientist</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row items-center justify-center gap-12 mb-16">
+<!-- Fixed Score Gauge -->
+<div class="relative w-[240px] h-[240px] flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background track -->
+<circle class="stroke-surface-container-high" cx="50" cy="50" fill="none" r="45" stroke-linecap="round" stroke-width="6"></circle>
+<!-- Progress arc (78%) -->
+<circle class="stroke-primary" cx="50" cy="50" fill="none" r="45" stroke-dasharray="282.7" stroke-dashoffset="62.2" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center">
+<span class="font-mono text-5xl font-bold text-on-surface">78</span>
+<span class="font-mono text-xs text-on-surface-variant tracking-widest mt-1">/100</span>
+</div>
+</div>
+<!-- Dimension Bars -->
+<div class="flex-1 w-full max-w-md flex flex-col gap-6">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium">Technical Fit</span>
+<span class="font-mono text-on-surface-variant">85%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium">Research Impact</span>
+<span class="font-mono text-on-surface-variant">62%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium">Formatting &amp; Rigor</span>
+<span class="font-mono text-on-surface-variant">90%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Detail Cards -->
+<div class="w-full lg:w-[320px] flex-shrink-0 flex flex-col gap-4">
+<h3 class="font-headline text-lg text-on-surface px-2 mb-2">Key Insights</h3>
+<!-- Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors border border-outline-variant/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h4 class="font-medium text-sm text-on-surface">Strong Alignment</h4>
+</div>
+<span class="bg-surface-container-highest text-on-surface-variant font-mono text-[10px] px-2 py-0.5 rounded uppercase">Match</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-4 leading-relaxed">
+                        Demonstrated 5+ years in Python data pipelines, aligning perfectly with core requirements.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest text-on-surface-variant font-mono text-[10px] px-2 py-1 rounded">Python</span>
+<span class="bg-surface-container-highest text-on-surface-variant font-mono text-[10px] px-2 py-1 rounded">Airflow</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors border border-outline-variant/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">warning</span>
+<h4 class="font-medium text-sm text-on-surface">Missing Requirement</h4>
+</div>
+<span class="bg-surface-container-highest text-on-surface-variant font-mono text-[10px] px-2 py-0.5 rounded uppercase">Gap</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-4 leading-relaxed">
+                        No explicit mention of Kubernetes orchestration in production environments.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest text-error font-mono text-[10px] px-2 py-1 rounded border border-error/20">Kubernetes</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-900 bg-slate-950 mt-auto ml-0 md:ml-64 relative z-50">
+<div class="flex justify-between items-center w-full px-12 py-8 max-w-7xl mx-auto">
+<div class="text-slate-400 font-bold font-['JetBrains_Mono'] text-[10px] text-slate-500">© 2024 ResumeTree IEEE Analytics. Built for Precision.</div>
+<div class="flex gap-6">
+<a class="text-slate-600 hover:text-blue-400 transition-colors font-['JetBrains_Mono'] text-[10px] text-slate-500" href="#">Terms</a>
+<a class="text-slate-600 hover:text-blue-400 transition-colors font-['JetBrains_Mono'] text-[10px] text-slate-500" href="#">Privacy</a>
+<a class="text-slate-600 hover:text-blue-400 transition-colors font-['JetBrains_Mono'] text-[10px] text-slate-500" href="#">API</a>
+<a class="text-slate-600 hover:text-blue-400 transition-colors font-['JetBrains_Mono'] text-[10px] text-slate-500" href="#">GitHub</a>
+</div>
+</div>
+</footer>
+</body></html>

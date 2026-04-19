@@ -1,4 +1,4 @@
-import os
+pip install google-genaiimport os
 import json
 from typing import Optional, Dict, Any
 

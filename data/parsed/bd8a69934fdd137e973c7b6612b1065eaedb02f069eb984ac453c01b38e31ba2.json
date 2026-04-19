@@ -1,0 +1,119 @@
+{
+  "personal_info": {
+    "name": "Anuj Wankhede",
+    "email": "anuj.wankhede1312@gmail.com",
+    "location": "Pune, India",
+    "linkedin": "linkedin.com/in/anuj-wankhede"
+  },
+  "education": [
+    {
+      "degree": "B.Tech, Information Technology",
+      "institution": "Vishwakarma Institute of Technology (VIT), Pune",
+      "year": 2028,
+      "cgpa": 9.2
+    }
+  ],
+  "experience": [
+    {
+      "title": "Mobile App Developer",
+      "company": "GridSync\u2014Industry Project with MSEDCL (Maharashtra State Electricity Distribution Co. Ltd.)",
+      "start_year": 2025,
+      "end_year": 2025,
+      "duration_months": 6,
+      "responsibilities": [
+        "Built GridSync\u2014a cross-platform Flutter/Dart mobile application for MSEDCL to digitize transformer maintenance across Maharashtra; replaced manual paper-based records with a centralized real-time system.",
+        "Implemented role-based access (Admin & Technician), automated maintenance scheduling (90/180/365-day cycles), photo proof logging, and overdue alerts via Firebase FCM\u2014delivered to a real government utility client."
+      ],
+      "outcomes": [
+        "Digitized transformer maintenance across Maharashtra, replacing manual paper-based records with a centralized real-time system.",
+        "Delivered to a real government utility client."
+      ],
+      "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Firebase FCM"
+      ]
+    }
+  ],
+  "skills": [
+    "Java",
+    "Python",
+    "JavaScript",
+    "C",
+    "C++",
+    "Machine learning",
+    "scikit-learn",
+    "XGBoost",
+    "Pandas",
+    "NumPy",
+    "SHAP",
+    "MLflow",
+    "FastAPI",
+    "React",
+    "REST APIs",
+    "HTML/CSS",
+    "MongoDB",
+    "SQL",
+    "relational databases",
+    "data warehousing",
+    "Google collab",
+    "Git",
+    "GitHub",
+    "Apache Kafka",
+    "Airflow",
+    "Computer science",
+    "OOP",
+    "Datastructures & algorithms",
+    "Operating System",
+    "Agile/Scrum",
+    "CI/CD",
+    "Communication",
+    "Leadership",
+    "Collaboration",
+    "Mentorship"
+  ],
+  "projects": [
+    {
+      "title": "CREDIX\u2014AI Pre-Delinquency Risk Platform",
+      "description": "Built an end-to-end FinTech AI platform predicting customer Probability of Default 2\u20134 weeks before missed payment using a 4-model ensemble (XGBoost, LightGBM, RF, Logistic Regression) stacked via meta-learner. Engineered 55+ behavioral features via Feast Feature Store with rolling 30/60-day windows; tracked with MLflow; streamed data via Apache Kafka and Airflow. Deployed 5 role-based Plotly Dash dashboards with SHAP explainability per customer and automated Twilio SMS/email alerts for high-risk segments.",
+      "tech_stack": [
+        "XGBoost",
+        "LightGBM",
+        "SHAP",
+        "MLflow",
+        "Kafka",
+        "Airflow",
+        "PlotlyDash",
+        "RF",
+        "Logistic Regression",
+        "Feast Feature Store",
+        "Twilio"
+      ],
+      "outcome": "Achieved AUC 0.72\u20130.82, KS 0.30\u20130.45."
+    },
+    {
+      "title": "Accident Severity Prediction",
+      "description": "Benchmarked 5 ensemble models with SMOTE class balancing. End-to-end pipeline: EDA, preprocessing, feature encoding, F1/precision-recall evaluation.",
+      "tech_stack": [
+        "Python",
+        "scikit-learn",
+        "SMOTE",
+        "Ensemble Models"
+      ],
+      "outcome": "Best: 99.20% accuracy (C SEV, RF) and 71.79% (P ISEV, Stacking)."
+    },
+    {
+      "title": "Intellectus\u2014Student Risk Analysis System",
+      "description": "scikit-learn classification model with FastAPI REST API backend and React (Vite) dashboard, centralizing student risk insights for educators.",
+      "tech_stack": [
+        "FastAPI",
+        "React (Vite)",
+        "scikit-learn",
+        "REST API"
+      ],
+      "outcome": null
+    }
+  ],
+  "certifications": [],
+  "file_hash": "bd8a69934fdd137e973c7b6612b1065eaedb02f069eb984ac453c01b38e31ba2"
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - ResumeTree</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,300&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages/feedback.css">
+</head>
+<body class="bg-base text-primary font-body antialiased min-h-screen col transition-colors">
+    <div class="noise-overlay"></div>
+    
+<nav class="navbar" id="navbar">
+  <div class="nav-container row space-between items-center px-lg h-16 w-full max-w-7xl mx-auto">
+    <a href="index.html" class="logo row items-center gap-2 text-primary font-600 font-body">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M12 22v-6"></path><path d="M16 11l-4-4-4 4"></path><path d="M12 2v5"></path><path d="M6 16v-4"></path><path d="M18 16v-4"></path></svg>
+      ResumeTree
+    </a>
+    <div class="nav-links row gap-8 display-md">
+      <a href="howitworks.html" class="text-secondary hover-primary">How It Works</a>
+      <a href="research.html" class="text-secondary hover-primary">Research</a>
+      <a href="upload.html" class="text-secondary hover-primary">Upload</a>
+    </div>
+    <div class="nav-actions row items-center gap-4">
+      <button id="theme-toggle" class="icon-btn text-secondary hover-primary">
+        <svg id="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg id="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+      <a href="upload.html" class="btn btn-primary">Try Free</a>
+    </div>
+  </div>
+</nav>
+<div id="toast-container" class="fixed bottom-lg right-lg col gap-2 z-50"></div>
+
+    <main id="main-content" class="flex-1 w-full relative z-10 page-transition" style="padding-top: 100px;">
+        
+<div class="max-w-3xl mx-auto px-6 w-full">
+    <header class="mb-12 animate-in">
+        <div class="row items-center gap-2 mb-4 font-mono text-xs text-tertiary">
+            <span>EVALUATION</span><span class="text-primary">•</span><span class="text-blue">RECOMMENDATIONS</span>
+        </div>
+        <h1 class="font-display text-5xl mb-4 text-primary">Impact <span class="italic">Optimization</span></h1>
+        <p class="text-secondary text-base leading-relaxed">We've identified key opportunities to elevate your professional narrative from task-based bullet points into achievement-driven stories.</p>
+    </header>
+
+    <div class="card quote-card mb-12 animate-in" style="animation-delay: 100ms;">
+        <h3 class="font-600 text-sm mb-2 text-primary">Strategic Insight</h3>
+        <p class="text-secondary text-sm leading-relaxed">Your resume demonstrates strong technical competence, but the experience section reads like a job description rather than a record of accomplishments. Shift your tone to emphasize <span class="text-primary font-500">results, autonomy, and underlying logic</span>. Focus on quantification where possible.</p>
+    </div>
+
+    <h2 class="font-600 text-xl border-b pb-4 mb-8 text-primary animate-in" style="animation-delay: 200ms;">Ranked by Impact</h2>
+    <div class="col gap-4 mb-16 animate-in" style="animation-delay: 300ms;">
+        <div class="card row items-start gap-4 hover:bg-elevated cursor-default border-l-[3px] border-l-red-500" style="border-left: 3px solid var(--red-500);">
+            <div class="flex-1">
+                <div class="row space-between items-center mb-1">
+                    <h4 class="font-500 text-sm text-primary">Clarify Data Pipeline Scope</h4>
+                    <span class="badge badge-high">HIGH</span>
+                </div>
+                <p class="text-xs text-tertiary italic mb-2">Gap: No explicit scalable data pipelines</p>
+                <p class="text-sm text-secondary leading-relaxed">Emphasize the end-to-end nature of your existing pipeline. Mentioning how data structurally flows maps perfectly to the pipeline knowledge requirement without fabricating tools.</p>
+                <div class="mt-4"><span class="chip chip-proj">proj_0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="font-600 text-xl border-b pb-4 mb-8 text-primary animate-in" style="animation-delay: 400ms;">Suggested Rewrites</h2>
+    <section class="mb-12 animate-in" style="animation-delay: 500ms;">
+        <div class="row items-center gap-3 mb-4">
+            <span class="chip chip-exp">exp_1</span>
+            <h3 class="font-600 text-base text-primary">Software Engineer Intern</h3>
+        </div>
+        <div class="diff-view bg-card mb-4">
+            <div class="diff-col before">
+                <div class="diff-top-border red"></div>
+                <div class="font-mono text-xs text-red font-500 mb-4">Before</div>
+                <p class="text-sm text-secondary leading-relaxed">Worked on the company's main web application using React and Redux. <span class="diff-del">Helped</span> backend team to integrate new REST APIs for user dashboard features.</p>
+            </div>
+            <div class="diff-col after">
+                <div class="diff-top-border green"></div>
+                <div class="font-mono text-xs text-mint font-500 mb-4">After</div>
+                <p class="text-sm text-primary leading-relaxed cursor-text"><span class="diff-add">Architected high-performance UI components</span> for the core React/Redux platform. Partnered with backend engineering to seamlessly integrate REST APIs, <span class="diff-add">delivering real-time data to user dashboards used by 5,000+ daily active users</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="col items-center mt-xl border-t pt-8 animate-in" style="animation-delay: 600ms;">
+        <button id="download-pdf-btn" class="btn btn-primary">Download Feedback as PDF</button>
+    </div>
+</div>
+
+    </main>
+    
+    <script src="js/global.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/pages/feedback.js"></script>
+</body>
+</html>

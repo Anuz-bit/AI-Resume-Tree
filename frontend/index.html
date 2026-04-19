@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Evaluation - ResumeTree</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,300&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body class="bg-base text-primary font-body antialiased min-h-screen col transition-colors">
+    <div class="noise-overlay"></div>
+    
+<nav class="navbar" id="navbar">
+  <div class="nav-container row space-between items-center px-lg h-16 w-full max-w-7xl mx-auto">
+    <a href="index.html" class="logo row items-center gap-2 text-primary font-600 font-body">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M12 22v-6"></path><path d="M16 11l-4-4-4 4"></path><path d="M12 2v5"></path><path d="M6 16v-4"></path><path d="M18 16v-4"></path></svg>
+      ResumeTree
+    </a>
+    <div class="nav-links row gap-8 display-md">
+      <a href="howitworks.html" class="text-secondary hover-primary">How It Works</a>
+      <a href="research.html" class="text-secondary hover-primary">Research</a>
+      <a href="upload.html" class="text-secondary hover-primary">Upload</a>
+    </div>
+    <div class="nav-actions row items-center gap-4">
+      <button id="theme-toggle" class="icon-btn text-secondary hover-primary">
+        <svg id="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg id="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+      <a href="upload.html" class="btn btn-primary">Try Free</a>
+    </div>
+  </div>
+</nav>
+<div id="toast-container" class="fixed bottom-lg right-lg col gap-2 z-50"></div>
+
+    <main id="main-content" class="flex-1 w-full relative z-10 page-transition pt-16">
+        
+<div id="hero-canvas" class="absolute top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none"></div>
+<section class="max-w-7xl mx-auto px-lg relative z-10 row items-center justify-center text-center pb-xl pt-xl" style="min-height: 90vh;">
+    <div class="col items-center gap-6 max-w-3xl">
+        <div class="border rounded-full px-4 py-1 text-xs font-mono text-blue bg-card animate-in">
+            IEEE Research · VIT Pune · 2025
+        </div>
+        <h1 class="font-display text-primary animate-in" style="font-size: 72px; line-height: 1.05; letter-spacing: -0.03em; animation-delay: 250ms;">
+            Resume screening<br><span class="text-blue italic font-display">that actually thinks.</span>
+        </h1>
+        <p class="text-secondary text-lg mb-4 animate-in" style="animation-delay: 400ms;">
+            ResumeTree structures resumes as intelligent trees and uses LLM reasoning to evaluate fit. Every score is explained. Every decision is traceable.
+        </p>
+        <div class="row gap-4 animate-in" style="animation-delay: 550ms;">
+            <a href="upload.html" class="btn btn-primary text-base">Evaluate a Resume &rarr;</a>
+            <a href="howitworks.html" class="btn btn-ghost text-base">See How It Works</a>
+        </div>
+    </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-lg py-xl z-10 relative">
+    <div class="row items-center gap-6 flex-wrap justify-center">
+        <div class="card col items-center flex-1 min-w-[250px] scroll-fade text-center">
+            <h2 class="font-display text-4xl mb-2 text-primary" data-counter="100">0</h2>
+            <p class="text-secondary text-sm font-mono">% Score Traceable</p>
+        </div>
+        <div class="card col items-center flex-1 min-w-[250px] scroll-fade text-center">
+            <h2 class="font-display text-4xl mb-2 text-primary">0</h2>
+            <p class="text-secondary text-sm font-mono">Vector Embeddings</p>
+        </div>
+        <div class="card col items-center flex-1 min-w-[250px] scroll-fade text-center">
+            <h2 class="font-display text-4xl mb-2 text-primary">M4</h2>
+            <p class="text-secondary text-sm font-mono">Chain-of-Thought</p>
+        </div>
+    </div>
+</section>
+
+    </main>
+    
+    <script src="js/global.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/pages/landing.js"></script>
+</body>
+</html>

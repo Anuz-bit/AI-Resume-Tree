@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Benchmark - ResumeTree</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,300&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages/research.css">
+</head>
+<body class="bg-base text-primary font-body antialiased min-h-screen col transition-colors">
+    <div class="noise-overlay"></div>
+    
+<nav class="navbar" id="navbar">
+  <div class="nav-container row space-between items-center px-lg h-16 w-full max-w-7xl mx-auto">
+    <a href="index.html" class="logo row items-center gap-2 text-primary font-600 font-body">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M12 22v-6"></path><path d="M16 11l-4-4-4 4"></path><path d="M12 2v5"></path><path d="M6 16v-4"></path><path d="M18 16v-4"></path></svg>
+      ResumeTree
+    </a>
+    <div class="nav-links row gap-8 display-md">
+      <a href="howitworks.html" class="text-secondary hover-primary">How It Works</a>
+      <a href="research.html" class="text-secondary hover-primary">Research</a>
+      <a href="upload.html" class="text-secondary hover-primary">Upload</a>
+    </div>
+    <div class="nav-actions row items-center gap-4">
+      <button id="theme-toggle" class="icon-btn text-secondary hover-primary">
+        <svg id="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg id="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+      <a href="upload.html" class="btn btn-primary">Try Free</a>
+    </div>
+  </div>
+</nav>
+<div id="toast-container" class="fixed bottom-lg right-lg col gap-2 z-50"></div>
+
+    <main id="main-content" class="flex-1 w-full relative z-10 page-transition" style="padding-top: 100px;">
+        
+<div class="max-w-7xl mx-auto px-6 w-full pb-xl row flex-wrap gap-12">
+    <div class="col flex-1 min-w-[300px] animate-in">
+        <h1 class="font-display text-4xl mb-2 text-primary">Run Experiment</h1>
+        <p class="text-secondary text-sm mb-8">Execute the pipeline against a benchmark dataset. Results stream in real-time.</p>
+        
+        <div class="card col gap-6">
+            <div class="col gap-2">
+                <label class="font-500 text-sm">Dataset Folder (Resumes)</label>
+                <input type="file" webkitdirectory directory multiple class="w-full">
+            </div>
+            <div class="col gap-2">
+                <label class="font-500 text-sm">Job Description (.txt)</label>
+                <input type="file" accept=".txt" class="w-full">
+            </div>
+            <div class="col gap-2">
+                <label class="font-500 text-sm">Ground Truth CSV (Optional)</label>
+                <input type="file" accept=".csv" class="w-full">
+            </div>
+            <button class="btn btn-primary mt-2">Run Benchmark &rarr;</button>
+        </div>
+    </div>
+
+    <div class="col flex-1 min-w-[400px] animate-in" style="animation-delay: 200ms;">
+        <h2 class="font-600 text-xl mb-6 border-b pb-2 text-primary">Live Results</h2>
+        <div class="table-wrapper bg-card">
+            <table>
+                <thead>
+                    <tr><th>Method</th><th>P@5</th><th>P@10</th><th>Spearman ρ</th><th>Latency</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>TF-IDF</td><td>0.72</td><td>0.68</td><td>0.65</td><td>12ms</td></tr>
+                    <tr><td>SBERT</td><td>0.76</td><td>0.71</td><td>0.69</td><td>145ms</td></tr>
+                    <tr><td>Flat-LLM</td><td>0.74</td><td>0.70</td><td>0.67</td><td>3200ms</td></tr>
+                    <tr class="highlight"><td>ResumeTree</td><td>0.91</td><td>0.88</td><td>0.89</td><td>4100ms</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row gap-4 mt-6 justify-center">
+            <button class="btn btn-ghost">Export CSV</button>
+            <button class="btn btn-primary">Export Report PDF</button>
+        </div>
+    </div>
+</div>
+
+    </main>
+    
+<footer class="footer border-t border-border mt-xl py-xl px-lg">
+  <div class="max-w-7xl mx-auto row space-between items-center text-tertiary text-sm">
+    <div class="row items-center gap-2">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M12 22v-6"></path><path d="M16 11l-4-4-4 4"></path><path d="M12 2v5"></path><path d="M6 16v-4"></path><path d="M18 16v-4"></path></svg>
+      <span>© 2025 ResumeTree · IEEE Research Project</span>
+    </div>
+    <div class="row gap-4">
+      <a href="#" class="hover-primary">GitHub</a>
+      <a href="#" class="hover-primary">Research Paper</a>
+      <a href="#" class="hover-primary">Contact</a>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/global.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/pages/research.js"></script>
+</body>
+</html>

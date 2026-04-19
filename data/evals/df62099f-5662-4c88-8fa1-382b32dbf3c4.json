@@ -1,0 +1,48 @@
+{
+  "eval_id": "df62099f-5662-4c88-8fa1-382b32dbf3c4",
+  "overall_score": 25,
+  "dimension_scores": {
+    "skill_match": 60,
+    "experience_quality": 10,
+    "career_progression": 0,
+    "context_fit": 5
+  },
+  "matched_requirements": [
+    {
+      "req_id": "req_001",
+      "resume_node_id": "proj_1",
+      "reasoning": "The candidate demonstrates experience with Python (skill_1, proj_0, proj_1) and FastAPI (proj_1), a required backend framework. However, they lack the specified 4+ years of professional experience, being a B.Tech student.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_002",
+      "resume_node_id": "proj_1",
+      "reasoning": "The candidate has experience with React, as demonstrated in their 'Intellectus' and 'Proctor Exam Platform' projects.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_005",
+      "resume_node_id": "skill_17",
+      "reasoning": "The resume explicitly states the candidate possesses strong communication skills.",
+      "match_type": "full"
+    }
+  ],
+  "unmatched_requirements": [
+    "req_003",
+    "req_004"
+  ],
+  "strengths": [
+    "Strong foundational programming skills (Python, Java, C, C++, JavaScript, HTML, CSS).",
+    "Experience with modern web frameworks (React, FastAPI) and full-stack development.",
+    "Demonstrated ability to build machine learning pipelines and full-stack applications through projects.",
+    "Good academic performance with a 9.2 CGPA in B.Tech.",
+    "Possesses soft skills such as communication, leadership, and team collaboration."
+  ],
+  "gaps": [
+    "Lack of professional experience, especially the required 4+ years for a senior role.",
+    "No explicit experience with AWS cloud services.",
+    "No containerization experience (Docker/Kubernetes).",
+    "The candidate's career stage (junior/student) is a significant mismatch for a Senior Software Engineer position."
+  ],
+  "overall_reasoning": "The candidate, Anuj Wankhede, demonstrates strong technical aptitude and project experience in areas like Python, FastAPI, and React, which align with some of the job's skill requirements. They also possess good communication skills. However, the most critical gap is the complete lack of professional experience, particularly the 4+ years required for a Senior Software Engineer role, as Anuj is currently a B.Tech student. Furthermore, essential skills such as AWS cloud services and containerization (Docker/Kubernetes) are not mentioned. While Anuj shows great promise for an entry-level or junior position, their profile does not align with the seniority and experience expectations of this role."
+}

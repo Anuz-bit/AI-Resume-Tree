@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - ResumeTree</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,300&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/pages/howitworks.css">
+</head>
+<body class="bg-base text-primary font-body antialiased min-h-screen col transition-colors">
+    <div class="noise-overlay"></div>
+    
+<nav class="navbar" id="navbar">
+  <div class="nav-container row space-between items-center px-lg h-16 w-full max-w-7xl mx-auto">
+    <a href="index.html" class="logo row items-center gap-2 text-primary font-600 font-body">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M12 22v-6"></path><path d="M16 11l-4-4-4 4"></path><path d="M12 2v5"></path><path d="M6 16v-4"></path><path d="M18 16v-4"></path></svg>
+      ResumeTree
+    </a>
+    <div class="nav-links row gap-8 display-md">
+      <a href="howitworks.html" class="text-secondary hover-primary">How It Works</a>
+      <a href="research.html" class="text-secondary hover-primary">Research</a>
+      <a href="upload.html" class="text-secondary hover-primary">Upload</a>
+    </div>
+    <div class="nav-actions row items-center gap-4">
+      <button id="theme-toggle" class="icon-btn text-secondary hover-primary">
+        <svg id="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg id="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+      <a href="upload.html" class="btn btn-primary">Try Free</a>
+    </div>
+  </div>
+</nav>
+<div id="toast-container" class="fixed bottom-lg right-lg col gap-2 z-50"></div>
+
+    <main id="main-content" class="flex-1 w-full relative z-10 page-transition" style="padding-top: 100px;">
+        
+<div class="max-w-3xl mx-auto px-6 w-full pb-xl">
+    <header class="text-center mb-16 animate-in">
+        <h1 class="font-display text-5xl mb-4 text-primary">How ResumeTree <span class="italic text-blue">Evaluates.</span></h1>
+        <p class="text-secondary text-lg">We abandoned simplistic vector search in favor of hierarchical trees and dynamic chain-of-thought LLM reasoning.</p>
+    </header>
+
+    <div class="col gap-12 mt-12 animate-in" style="animation-delay: 200ms;">
+        <div class="timeline-card">
+            <div class="timeline-number">1</div>
+            <h3 class="font-600 text-lg mb-2">Hierarchical Parsing</h3>
+            <p class="text-secondary leading-relaxed">Unlike vector databases that flatten professional experience into meaningless strings of numbers, M1 Parser structures your resume into a JSON hierarchy preserving the exact context of every project, skill, and title.</p>
+        </div>
+        <div class="timeline-card">
+            <div class="timeline-number">2</div>
+            <h3 class="font-600 text-lg mb-2">Tree Construction</h3>
+            <p class="text-secondary leading-relaxed">M2 TreeBuilder converts the hierarchy into a traversable graph. A candidate isn't a paragraph; they are an interconnected network of nodes. You learn <em>Python</em> (skill_1) which was explicitly used to build <em>Accident Predictor</em> (proj_0).</p>
+        </div>
+        <div class="timeline-card">
+            <div class="timeline-number">3</div>
+            <h3 class="font-600 text-lg mb-2">Reasoned Evaluation</h3>
+            <p class="text-secondary leading-relaxed">M4 EvalAgent doesn't use cosine similarity. It reads the weighted Job Description (from M3) and navigates your career tree. It uses Gemini AI to trace explicit linkages, reasoning actively about whether your <em>proj_0</em> answers the need for <em>REST APIs</em>.</p>
+        </div>
+    </div>
+</div>
+
+    </main>
+    
+<footer class="footer border-t border-border mt-xl py-xl px-lg">
+  <div class="max-w-7xl mx-auto row space-between items-center text-tertiary text-sm">
+    <div class="row items-center gap-2">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M12 22v-6"></path><path d="M16 11l-4-4-4 4"></path><path d="M12 2v5"></path><path d="M6 16v-4"></path><path d="M18 16v-4"></path></svg>
+      <span>© 2025 ResumeTree · IEEE Research Project</span>
+    </div>
+    <div class="row gap-4">
+      <a href="#" class="hover-primary">GitHub</a>
+      <a href="#" class="hover-primary">Research Paper</a>
+      <a href="#" class="hover-primary">Contact</a>
+    </div>
+  </div>
+</footer>
+
+    <script src="js/global.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/pages/howitworks.js"></script>
+</body>
+</html>

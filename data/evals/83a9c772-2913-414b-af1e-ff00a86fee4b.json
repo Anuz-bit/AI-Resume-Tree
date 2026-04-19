@@ -1,0 +1,239 @@
+{
+  "eval_id": "83a9c772-2913-414b-af1e-ff00a86fee4b",
+  "overall_score": 100,
+  "dimension_scores": {
+    "skill_match": 100,
+    "experience_quality": 100,
+    "career_progression": 100,
+    "context_fit": 100
+  },
+  "matched_requirements": [
+    {
+      "req_id": "REQ001",
+      "resume_node_id": "skill_7",
+      "reasoning": "The candidate explicitly lists 'Machine Learning' as a skill and demonstrates practical application in multiple projects.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ002",
+      "resume_node_id": "proj_1",
+      "reasoning": "The candidate has two projects ('Intellectus' and 'Proctor Exam Platform') that showcase end-to-end full-stack development capabilities.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ003",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project directly involves developing a machine learning pipeline for predictive tasks, and 'Intellectus' uses scikit-learn for analysis.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ004",
+      "resume_node_id": "proj_1",
+      "reasoning": "The 'Intellectus' project explicitly mentions a user-friendly dashboard built with React (Vite) to visualize results.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ005",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project summary explicitly states the development of an end-to-end ML pipeline, including EDA, preprocessing, and encoding.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ006",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project involved comparing ensemble models like Random Forest, Voting, and Stacking.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ007",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project explicitly states that data imbalance was handled using SMOTE.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ008",
+      "resume_node_id": "proj_1",
+      "reasoning": "The candidate developed a FastAPI backend for inference in 'Intellectus' and used Node.js/Express in the 'Proctor Exam Platform'.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ009",
+      "resume_node_id": "proj_1",
+      "reasoning": "The 'Intellectus' project featured a user-friendly dashboard built with React (Vite) to visualize results.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ010",
+      "resume_node_id": "proj_2",
+      "reasoning": "The 'Proctor Exam Platform' project incorporated robust JWT authentication for secure access.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ011",
+      "resume_node_id": "proj_2",
+      "reasoning": "The 'Proctor Exam Platform' included advanced proctoring functionalities such as tab switch and focus loss detection.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ012",
+      "resume_node_id": "skill_13",
+      "reasoning": "The candidate is proficient in Git and experienced with GitHub, and also lists 'Team Collaboration' as a skill.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ013",
+      "resume_node_id": "edu_0",
+      "reasoning": "The candidate is currently pursuing a B.Tech in Information Technology from Vishwakarma Institute of Technology (VIT), Pune.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ014",
+      "resume_node_id": "edu_0",
+      "reasoning": "The candidate is from VIT Pune and has a notable CGPA of 9.2, indicating academic excellence.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ015",
+      "resume_node_id": "skill_1",
+      "reasoning": "The candidate explicitly lists 'Python' as a skill, utilized for scripting, data analysis, and machine learning.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ016",
+      "resume_node_id": "skill_0",
+      "reasoning": "The candidate explicitly lists 'Java' as a skill, proficient in developing robust and scalable applications.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ017",
+      "resume_node_id": "skill_3",
+      "reasoning": "The candidate explicitly lists 'C++' as a skill, applying object-oriented programming principles.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ018",
+      "resume_node_id": "skill_4",
+      "reasoning": "The candidate explicitly lists 'JavaScript' as a skill, adept for front-end development.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ019",
+      "resume_node_id": "proj_1",
+      "reasoning": "The 'Intellectus' project integrated a FastAPI backend for inference, demonstrating hands-on experience.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ020",
+      "resume_node_id": "proj_2",
+      "reasoning": "The 'Proctor Exam Platform' was engineered using Node.js, demonstrating hands-on experience.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ021",
+      "resume_node_id": "proj_2",
+      "reasoning": "The 'Proctor Exam Platform' was engineered using Express, demonstrating hands-on experience.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ022",
+      "resume_node_id": "proj_1",
+      "reasoning": "The 'Intellectus' project featured a dashboard built with React (Vite), and 'Proctor Exam Platform' also used React.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ023",
+      "resume_node_id": "proj_1",
+      "reasoning": "The 'Intellectus' project explicitly utilized scikit-learn for the core analysis, indicating a solid understanding.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ024",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project involved comparing ensemble models like Random Forest, Voting, and Stacking.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ025",
+      "resume_node_id": "skill_10",
+      "reasoning": "The candidate explicitly lists 'Feature Engineering' as a skill and it's implied in the ML pipeline development in 'proj_0'.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ026",
+      "resume_node_id": "proj_2",
+      "reasoning": "The 'Proctor Exam Platform' incorporated MongoDB, demonstrating hands-on experience.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ027",
+      "resume_node_id": "skill_13",
+      "reasoning": "The candidate is proficient in Git for version control and experienced with GitHub for hosting repositories.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ028",
+      "resume_node_id": "skill_11",
+      "reasoning": "The candidate explicitly lists a 'Strong grasp of Object-Oriented Programming (OOP) principles' as a skill.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ029",
+      "resume_node_id": "skill_12",
+      "reasoning": "The candidate explicitly lists 'basic knowledge of Data Structures and Algorithms' as a skill.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ030",
+      "resume_node_id": "proj_1",
+      "reasoning": "The 'Intellectus' project is a student risk analysis prototype, directly matching this domain experience.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ031",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project directly aligns with building accident severity prediction models.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ032",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project explicitly states that data imbalance was effectively handled using SMOTE.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ033",
+      "resume_node_id": "proj_2",
+      "reasoning": "The 'Proctor Exam Platform' is a full-stack application incorporating robust JWT authentication for secure access.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ034",
+      "resume_node_id": "proj_2",
+      "reasoning": "The 'Proctor Exam Platform' included advanced proctoring functionalities such as tab switch and focus loss detection.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ035",
+      "resume_node_id": "skill_17",
+      "reasoning": "The candidate lists 'Communication' and 'Team Collaboration' as strong skills, which implies demonstration through project work.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "REQ036",
+      "resume_node_id": "skill_18",
+      "reasoning": "The candidate explicitly lists 'Leadership' potential, capable of guiding teams and taking initiative.",
+      "match_type": "full"
+    }
+  ],
+  "unmatched_requirements": [],
+  "strengths": [
+    "Exceptional alignment with all essential and flexible technical skills and experience requirements.",
+    "Strong academic background from a preferred institution (VIT Pune) with a high CGPA (9.2).",
+    "Demonstrated ability to build end-to-end Machine Learning pipelines, including advanced techniques like ensemble models and SMOTE for imbalanced datasets.",
+    "Proven full-stack development capabilities with experience in diverse technologies (FastAPI, Node.js, Express, React, MongoDB).",
+    "Direct project experience in specific domains mentioned in the JD (accident severity prediction, student risk analysis systems).",
+    "Practical implementation of secure authentication (JWT) and advanced frontend features (proctoring detection)."
+  ],
+  "gaps": [],
+  "overall_reasoning": "Anuj Wankhede is an outstanding candidate for the Software Engineer (AI/ML Focus) role. The resume demonstrates a perfect alignment with all essential and flexible requirements, showcasing strong foundational knowledge, practical project experience in both AI/ML and full-stack development, and proficiency in a wide array of relevant technologies. The candidate's academic excellence, coupled with complex, outcome-driven projects, indicates a highly capable and promising junior engineer with no identifiable gaps for this role."
+}

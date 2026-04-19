@@ -1,0 +1,568 @@
+{
+  "node_id": "root",
+  "type": "root",
+  "title": "Anuj Wankhede Resume",
+  "level": 0,
+  "summary": "Comprehensive overview of Anuj Wankhede's academic background, technical skills, and project experience in AI/ML and full-stack development.",
+  "metadata": {
+    "career_stage": null,
+    "tech_stack": [],
+    "duration_months": null,
+    "recency": null,
+    "complexity": null,
+    "has_outcome": false,
+    "responsibility_level": null
+  },
+  "children": [
+    {
+      "node_id": "education_section",
+      "type": "section",
+      "title": "Education",
+      "level": 1,
+      "summary": "Details of academic qualifications including degrees and institutions.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "edu_0",
+          "type": "education",
+          "title": "B.Tech, Information Technology",
+          "level": 2,
+          "summary": "Anuj is pursuing a B.Tech in Information Technology from Vishwakarma Institute of Technology (VIT), Pune. This academic pursuit demonstrates strong foundational knowledge with a notable CGPA of 9.2, indicating consistent high performance in core IT subjects.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "low",
+            "has_outcome": true,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
+        {
+          "node_id": "edu_1",
+          "type": "education",
+          "title": "Class XII (Maharashtra State Board)",
+          "level": 2,
+          "summary": "Anuj completed Class XII under the Maharashtra State Board in 2024. This marks the completion of secondary education, providing a strong academic base for higher studies.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "low",
+            "has_outcome": false,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
+        {
+          "node_id": "edu_2",
+          "type": "education",
+          "title": "Class X (CBSE)",
+          "level": 2,
+          "summary": "Anuj completed Class X under CBSE in 2022. This foundational education provided a comprehensive understanding across various subjects.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [],
+            "duration_months": null,
+            "recency": "moderate",
+            "complexity": "low",
+            "has_outcome": false,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "node_id": "skills_section",
+      "type": "section",
+      "title": "Skills",
+      "level": 1,
+      "summary": "A comprehensive list of technical and soft skills.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "skill_0",
+          "type": "skills",
+          "title": "Java",
+          "level": 2,
+          "summary": "Proficient in Java programming language, capable of developing robust and scalable applications.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Java"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_1",
+          "type": "skills",
+          "title": "Python",
+          "level": 2,
+          "summary": "Skilled in Python, utilized for scripting, data analysis, and machine learning applications.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Python"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_2",
+          "type": "skills",
+          "title": "C",
+          "level": 2,
+          "summary": "Competent in C programming, demonstrating understanding of low-level memory management and system programming concepts.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "C"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_3",
+          "type": "skills",
+          "title": "C++",
+          "level": 2,
+          "summary": "Proficient in C++, applying object-oriented programming principles for efficient software development.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "C++"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_4",
+          "type": "skills",
+          "title": "JavaScript",
+          "level": 2,
+          "summary": "Adept in JavaScript for front-end development and interactive web applications.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "JavaScript"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_5",
+          "type": "skills",
+          "title": "HTML",
+          "level": 2,
+          "summary": "Skilled in HTML for structuring web content and building accessible web pages.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "HTML"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_6",
+          "type": "skills",
+          "title": "CSS",
+          "level": 2,
+          "summary": "Proficient in CSS for styling web pages and creating visually appealing user interfaces.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "CSS"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_7",
+          "type": "skills",
+          "title": "Machine Learning",
+          "level": 2,
+          "summary": "Possesses foundational knowledge in Machine Learning, including model training, evaluation, and application in predictive tasks.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Machine Learning"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_8",
+          "type": "skills",
+          "title": "Data Science",
+          "level": 2,
+          "summary": "Understands Data Science principles, including data collection, analysis, and interpretation to derive insights.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Data Science"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_9",
+          "type": "skills",
+          "title": "Data Visualization",
+          "level": 2,
+          "summary": "Skilled in Data Visualization techniques to present complex data clearly and effectively for better understanding.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Data Visualization"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_10",
+          "type": "skills",
+          "title": "Feature Engineering",
+          "level": 2,
+          "summary": "Competent in Feature Engineering, transforming raw data into features that improve machine learning model performance.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Feature Engineering"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_11",
+          "type": "skills",
+          "title": "Object-Oriented Programming",
+          "level": 2,
+          "summary": "Strong grasp of Object-Oriented Programming (OOP) principles, enabling the development of modular and reusable code.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Object-Oriented Programming"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_12",
+          "type": "skills",
+          "title": "Data Structures and Algorithms (Basics)",
+          "level": 2,
+          "summary": "Possesses basic knowledge of Data Structures and Algorithms, crucial for efficient problem-solving and code optimization.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Data Structures and Algorithms"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_13",
+          "type": "skills",
+          "title": "Git",
+          "level": 2,
+          "summary": "Proficient in Git for version control, managing code changes, and collaborating effectively on projects.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Git"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_14",
+          "type": "skills",
+          "title": "GitHub",
+          "level": 2,
+          "summary": "Experienced with GitHub for hosting code repositories, collaborating with teams, and managing project workflows.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "GitHub"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_15",
+          "type": "skills",
+          "title": "Jupyter Notebook",
+          "level": 2,
+          "summary": "Skilled in using Jupyter Notebook for interactive data analysis, prototyping, and sharing code.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Jupyter Notebook"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_16",
+          "type": "skills",
+          "title": "Google Colab",
+          "level": 2,
+          "summary": "Experienced with Google Colab for cloud-based machine learning development and collaborative coding.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Google Colab"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_17",
+          "type": "skills",
+          "title": "Communication",
+          "level": 2,
+          "summary": "Possesses strong communication skills, effectively conveying technical information and collaborating with peers.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Communication"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_18",
+          "type": "skills",
+          "title": "Leadership",
+          "level": 2,
+          "summary": "Demonstrates leadership potential, capable of guiding teams and taking initiative in project execution.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Leadership"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        },
+        {
+          "node_id": "skill_19",
+          "type": "skills",
+          "title": "Team Collaboration",
+          "level": 2,
+          "summary": "Adept at team collaboration, working effectively with others to achieve shared project goals and foster a productive environment.",
+          "metadata": {
+            "career_stage": null,
+            "tech_stack": [
+              "Team Collaboration"
+            ],
+            "duration_months": null,
+            "recency": null,
+            "complexity": null,
+            "has_outcome": false,
+            "responsibility_level": null
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "node_id": "projects_section",
+      "type": "section",
+      "title": "Projects",
+      "level": 1,
+      "summary": "Showcase of practical applications and development experience.",
+      "metadata": {
+        "career_stage": null,
+        "tech_stack": [],
+        "duration_months": null,
+        "recency": null,
+        "complexity": null,
+        "has_outcome": false,
+        "responsibility_level": null
+      },
+      "children": [
+        {
+          "node_id": "proj_0",
+          "type": "project",
+          "title": "Accident Severity Prediction (AI/ML)",
+          "level": 2,
+          "summary": "Developed an end-to-end machine learning pipeline for accident severity prediction, encompassing EDA, preprocessing, and encoding. The project involved comparing ensemble models like Random Forest, Voting, and Stacking, and effectively handled data imbalance using SMOTE, achieving a best accuracy of 71.79% on PISEV and 99.20% on CSEV.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "Python",
+              "scikit-learn",
+              "SMOTE",
+              "Ensembles"
+            ],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "high",
+            "has_outcome": true,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
+        {
+          "node_id": "proj_1",
+          "type": "project",
+          "title": "Intellectus \u2013 Student Risk Analysis System",
+          "level": 2,
+          "summary": "Created a student risk analysis prototype utilizing scikit-learn for the core analysis, integrated with a FastAPI backend for inference. The system featured a user-friendly dashboard built with React (Vite) to visualize results, demonstrating full-stack development capabilities.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "FastAPI",
+              "React (Vite)",
+              "scikit-learn"
+            ],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "medium",
+            "has_outcome": false,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        },
+        {
+          "node_id": "proj_2",
+          "type": "project",
+          "title": "Proctor Exam Platform",
+          "level": 2,
+          "summary": "Engineered a full-stack online examination system, incorporating robust JWT authentication for secure access. The platform also included advanced proctoring functionalities such as tab switch and focus loss detection to ensure exam integrity, showcasing expertise in secure web application development.",
+          "metadata": {
+            "career_stage": "junior",
+            "tech_stack": [
+              "Node.js",
+              "Express",
+              "MongoDB",
+              "React"
+            ],
+            "duration_months": null,
+            "recency": "recent",
+            "complexity": "medium",
+            "has_outcome": false,
+            "responsibility_level": "individual"
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

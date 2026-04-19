@@ -2,7 +2,8 @@ import os
 import json
 import hashlib
 import time
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 class LLMError(Exception):
     pass
@@ -29,10 +30,10 @@ class LLMClient:
             
         api_key = os.environ.get("GEMINI_API_KEY")
         if not api_key:
-            raise LLMError("GEMINI_API_KEY environment variable not set")
+            raise LLMError("GEMINI_API_KEY environment variable not set. Please add it to a .env file.")
             
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel("gemini-2.5-flash")
+        self.client = genai.Client(api_key=api_key)
+        self.model_id = "gemini-2.5-flash"
         
         self.cache_file = "./data/api_cache/llm_cache.json"
         self._cache = self._load_cache()
@@ -59,58 +60,68 @@ class LLMClient:
         raw = f"{prompt}{system}{temperature}"
         return hashlib.sha256(raw.encode()).hexdigest()
 
-    def _parse_retry_delay(self, error_msg):
-        import re
-        match = re.search(r"retryDelay['\"]:\s*['\"](\d+)s['\"]", str(error_msg))
-        if match:
-            return int(match.group(1))
-        return None
-
-    def call(self, prompt, system="", temperature=0.2):
+    def call(self, prompt, system="", temperature=0.2, model=None):
         key = self._cache_key(prompt, system, temperature)
         if key in self._cache:
             return self._cache[key]
 
-        # Use system instructions natively if available in GenerativeModel, but merging is safer
-        full_prompt = f"{system}\n\n{prompt}" if system else prompt
+        target_model = model or self.model_id
         max_retries = 5
-        base_delays = [15, 30, 60, 60, 120]
+        base_delays = [5, 10, 20, 40, 60]
 
         for attempt in range(max_retries):
             try:
-                response = self.model.generate_content(
-                    full_prompt,
-                    generation_config=genai.types.GenerationConfig(
-                        temperature=temperature,
-                        response_mime_type="application/json"
-                    )
+                config = types.GenerateContentConfig(
+                    temperature=temperature,
+                    system_instruction=system if system else None,
+                    response_mime_type="application/json"
                 )
+                
+                response = self.client.models.generate_content(
+                    model=target_model,
+                    contents=prompt,
+                    config=config
+                )
+                
                 result = response.text
+                if not result:
+                     raise LLMError("Empty response from LLM")
+                     
                 self._cache[key] = result
                 self._save_cache()
                 return result
             except Exception as e:
                 err_str = str(e)
                 if ("429" in err_str or "quota" in err_str.lower() or "503" in err_str) and attempt < max_retries - 1:
-                    api_delay = self._parse_retry_delay(err_str)
-                    wait_time = (api_delay + 5) if api_delay else base_delays[attempt]
-                    print(f"  [Rate limited] Waiting {wait_time}s before retry {attempt + 2}/{max_retries}...")
+                    wait_time = base_delays[attempt]
+                    print(f"  [Rate limited/Error] Waiting {wait_time}s before retry {attempt + 2}/{max_retries}...")
                     time.sleep(wait_time)
                 else:
-                    raise LLMError(f"LLM API call failed: {err_str}")
+                    raise LLMError(f"LLM API call failed after {attempt+1} attempts: {err_str}")
 
-    def call_json(self, prompt, system="", temperature=0.2):
-        json_system = (system or "") + "\nReturn ONLY valid JSON. No markdown, no backticks, no explanation."
-        response_text = self.call(prompt, json_system, temperature)
+    def call_json(self, prompt, system="", temperature=0.2, model=None):
+        # The new SDK handles application/json response_mime_type well, 
+        # but we keep the system instruction nudge for safety.
+        json_system = (system or "") + "\nReturn ONLY valid JSON."
+        response_text = self.call(prompt, json_system, temperature, model=model)
 
         cleaned = response_text.strip()
         if cleaned.startswith("```"):
-            cleaned = cleaned.split("```")[1]
-            if cleaned.startswith("json"):
-                cleaned = cleaned[4:]
+            if "```json" in cleaned:
+                cleaned = cleaned.split("```json")[-1].split("```")[0]
+            else:
+                cleaned = cleaned.split("```")[-2]
         cleaned = cleaned.strip()
 
         try:
             return json.loads(cleaned)
         except json.JSONDecodeError as e:
-            raise LLMError(f"Failed to parse JSON response: {e}\nResponse was: {cleaned[:200]}")
+            # Fallback: try to find anything between { and }
+            try:
+                start = cleaned.find('{')
+                end = cleaned.rfind('}') + 1
+                if start != -1 and end != 0:
+                    return json.loads(cleaned[start:end])
+            except:
+                pass
+            raise LLMError(f"Failed to parse JSON response: {e}\nResponse was: {cleaned[:200]}")

@@ -78,25 +78,49 @@ def cmd_feedback(args):
     with open(eval_path, "r", encoding="utf-8") as f:
         eval_result = json.load(f)
         
-    print("Generating actionable feedback...")
-    feedback_module = FeedbackModule()
-    feedback = feedback_module.generate_feedback(eval_result)
-    
-    print("\nFEEDBACK GENERATED:")
-    print("OVERALL ADVICE:")
-    print(feedback.get('overall_advice', ''))
-    
-    print("\nIMPROVEMENT TIPS (Ranked by Impact):")
-    for tip in feedback.get('improvement_tips', []):
-        print(f"[{tip.get('impact', 'N/A').upper()}] Gap: {tip.get('gap', '')}")
-        print(f"  Tip: {tip.get('tip', '')} (Node: {tip.get('node_id', 'N/A')})")
+    print(f"Generating actionable feedback for Evaluation {args.eval_id}...")
+    try:
+        feedback_module = FeedbackModule()
+        feedback = feedback_module.generate_feedback(eval_result)
         
-    print("\nRESUME REWRITES:")
-    for rw in feedback.get('resume_rewrites', []):
-        print(f"  Node [{rw.get('node_id', '')}]")
-        print(f"  Old: {rw.get('original_summary', '')}")
-        print(f"  New: {rw.get('improved_summary', '')}")
-        print(f"  Reason: {rw.get('reason', '')}\n")
+        print("\n" + "="*50)
+        print("FEEDBACK GENERATED")
+        print("="*50)
+        
+        print("\nOVERALL ADVICE:")
+        print(feedback.get('overall_advice', 'No advice generated.'))
+        
+        print("\nIMPROVEMENT TIPS (Ranked by Impact):")
+        tips = feedback.get('improvement_tips', [])
+        if not tips:
+            print("  No tips generated.")
+        else:
+            for tip in tips:
+                impact = tip.get('impact', 'N/A').upper()
+                print(f"[{impact}] Gap: {tip.get('gap', 'General Improvement')}")
+                print(f"  Tip: {tip.get('tip', '')}")
+                print(f"  Node: {tip.get('node_id', 'Global')}\n")
+            
+        print("RESUME REWRITES:")
+        rewrites = feedback.get('resume_rewrites', [])
+        if not rewrites:
+            print("  No rewrites generated.")
+        else:
+            for rw in rewrites:
+                print(f"  Node [{rw.get('node_id', 'N/A')}]")
+                print(f"  Old: {rw.get('original_summary', '')}")
+                print(f"  New: {rw.get('improved_summary', '')}")
+                print(f"  Reason: {rw.get('reason', '')}\n")
+        
+        # Save feedback for record
+        feedback_save_path = f"./data/evals/feedback_{args.eval_id}.json"
+        with open(feedback_save_path, "w", encoding="utf-8") as f:
+            json.dump(feedback, f, indent=2)
+        print(f"Full feedback saved to: {feedback_save_path}")
+
+    except Exception as e:
+        print(f"\nError generating feedback: {str(e)}")
+        sys.exit(1)
 
 def cmd_experiment(args):
     from m6_experiment.experiment_runner import ExperimentRunner

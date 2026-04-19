@@ -84,9 +84,31 @@ class ExperimentRunner:
 
     def run_experiment(self, dataset_folder: str, jd_filepath: str, output_csv: str):
         print("Starting experiment...")
-        # Load JD
-        with open(jd_filepath, "r", encoding="utf-8") as f:
-            jd_text = f.read()
+        # Get absolute path for jd to avoid issues in jd_parser
+        abs_jd_filepath = os.path.abspath(jd_filepath)
+        try:
+            with open(abs_jd_filepath, "r", encoding="utf-8") as f:
+                jd_text = f.read()
+        except UnicodeDecodeError:
+            with open(abs_jd_filepath, "r", encoding="latin-1") as f:
+                jd_text = f.read()
+
+        jd_text = jd_text.replace('\r\n', '\n').strip()
+
+        # Load resumes
+        resume_texts = {}
+        resume_filepaths = []
+        for filename in os.listdir(dataset_folder):
+            if filename.endswith(".pdf") or filename.endswith(".docx") or filename.endswith(".txt"):
+                if "jd" not in filename.lower():  # ensure we don't treat JDs as resumes
+                    filepath = os.path.join(dataset_folder, filename)
+                    resume_texts[filename] = self._extract_text(filepath)
+                    resume_filepaths.append(filepath)
+
+        dataset_size = len(resume_texts)
+        if dataset_size == 0:
+            print("No resumes found in dataset folder.")
+            return
 
         # Load ground truth if exists
         ground_truth_path = os.path.join(dataset_folder, "ground_truth.csv")
@@ -96,22 +118,15 @@ class ExperimentRunner:
             for idx, row in df_gt.iterrows():
                 true_scores[row['filename']] = float(row['score'])
 
-        # Load resumes
-        resume_texts = {}
-        resume_filepaths = []
-        for filename in os.listdir(dataset_folder):
-            if filename.endswith(".pdf") or filename.endswith(".docx") or filename.endswith(".txt"):
-                filepath = os.path.join(dataset_folder, filename)
-                resume_texts[filename] = self._extract_text(filepath)
-                resume_filepaths.append(filepath)
-
         if not true_scores:
-            # Fake ground truth for robustness if not provided
-            print("No ground_truth.csv found, using TF-IDF baseline as surrogate ground truth for testing.")
+            print("No ground_truth.csv found, generating surrogate ground truth using TF-IDF baseline...")
             true_scores = self.run_tfidf_baseline(jd_text, resume_texts)
+            # Save ground truth generator
+            gt_records = [{"filename": k, "score": v} for k, v in true_scores.items()]
+            pd.DataFrame(gt_records).to_csv(ground_truth_path, index=False)
+            print(f"Generated ground_truth.csv at {ground_truth_path}")
             
         true_ranks = self._get_ranks(true_scores)
-        dataset_size = len(resume_texts)
 
         results = []
 
@@ -119,24 +134,30 @@ class ExperimentRunner:
             ("TF-IDF", self.run_tfidf_baseline),
             ("SBERT", self.run_sbert_baseline),
             ("Flat-LLM", self.run_flat_llm_baseline),
-            ("ResumeTree", lambda jd, res: self.run_resumetree(jd_filepath, resume_filepaths))
+            ("ResumeTree", lambda jd, res: self.run_resumetree(abs_jd_filepath, resume_filepaths))
         ]
 
         for method_name, method_func in methods:
             print(f"Running {method_name}...")
             start_time = time.time()
             pred_scores = method_func(jd_text, resume_texts)
-            latency = (time.time() - start_time) / dataset_size * 1000
+            # calculate average latency per resume in milliseconds
+            latency = (time.time() - start_time) / (dataset_size if dataset_size > 0 else 1) * 1000
 
             pred_ranks = self._get_ranks(pred_scores)
             
             p5 = self._precision_at_k(true_ranks, pred_ranks, min(5, dataset_size))
             p10 = self._precision_at_k(true_ranks, pred_ranks, min(10, dataset_size))
             
-            # Use fixed order for correlation
-            ordered_true = [true_scores[fname] for fname in resume_texts.keys()]
+            # Handle spearman correlation calculation gracefully
+            ordered_true = [true_scores.get(fname, 0.0) for fname in resume_texts.keys()]
             ordered_pred = [pred_scores.get(fname, 0.0) for fname in resume_texts.keys()]
-            rho, _ = spearmanr(ordered_true, ordered_pred)
+            
+            # Spearman correlation needs at least 2 distinct data points to be meaningful and not throw warning/nan
+            if dataset_size < 2 or len(set(ordered_true)) < 2 or len(set(ordered_pred)) < 2:
+                rho = 1.0 if ordered_true == ordered_pred else 0.0
+            else:
+                rho, _ = spearmanr(ordered_true, ordered_pred)
             
             results.append({
                 "method": method_name,
@@ -149,4 +170,14 @@ class ExperimentRunner:
 
         df_results = pd.DataFrame(results)
         df_results.to_csv(output_csv, index=False)
-        print(f"Experiment finished. Results saved to {output_csv}")
+        print(f"\nExperiment finished. Results saved to {output_csv}\n")
+        
+        # Print a clean results table
+        print(f"{'METHOD':<15} {'P@5':<6} {'P@10':<6} {'SPEARMAN':<10} {'LATENCY'}")
+        for r in results:
+            m = r['method']
+            p5 = f"{r['precision_at_5']:.2f}"
+            p10 = f"{r['precision_at_10']:.2f}"
+            rho = f"{r['spearman_rho']:.2f}"
+            lat = f"{int(r['avg_latency_ms'])}ms"
+            print(f"{m:<15} {p5:<6} {p10:<6} {rho:<10} {lat}")

@@ -1,0 +1,27 @@
+Location: Pune, India
+Type: Internship / Entry Level
+
+Role Overview:
+We are looking for a Software Engineer (AI/ML Focus) who thrives in building data-driven applications. The ideal candidate has a strong background in Machine Learning and full-stack development, with a proven track record of building predictive models and interactive dashboards.
+
+Key Responsibilities:
+- Design and implement end-to-end Machine Learning pipelines, including Exploratory Data Analysis, preprocessing, and encoding.
+- Build and compare ensemble models (Random Forest, Voting, Stacking) and handle dataset imbalances using techniques like SMOTE.
+- Develop backend inference APIs using FastAPI or Node.js/Express.
+- Create interactive frontend dashboards using React to visualize model outcomes.
+- Implement secure authentication systems (JWT) and real-time frontend signals (e.g., proctoring detection).
+- Collaborate effectively using Git and GitHub.
+
+Required Skills & Qualifications:
+- Education: Currently pursuing or completed a B.Tech in Information Technology or a related field (High CGPA/Academic excellence from institutes like VIT Pune preferred).
+- Programming: Proficiency in Python, Java, C++, and JavaScript.
+- Web Development: Hands-on experience with FastAPI, Node.js, Express, and React (Vite).
+- Machine Learning: Solid understanding of scikit-learn, ensemble learning, and feature engineering.
+- Databases & Tools: Experience with MongoDB and version control (Git/GitHub).
+- Foundational Knowledge: Basics of Object-Oriented Programming (OOP) and Data Structures & Algorithms.
+
+Bonus Points For:
+- Experience building student risk analysis systems or accident severity prediction models.
+- Handling highly imbalanced datasets using SMOTE.
+- Developing full-stack applications with JWT-based security and frontend proctoring features.
+- Strong communication and leadership skills demonstrated through project collaborations.

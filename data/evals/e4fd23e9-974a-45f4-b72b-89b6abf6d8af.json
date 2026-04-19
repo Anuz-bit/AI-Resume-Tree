@@ -1,0 +1,200 @@
+{
+  "eval_id": "e4fd23e9-974a-45f4-b72b-89b6abf6d8af",
+  "overall_score": 75,
+  "dimension_scores": {
+    "skill_match": 70,
+    "experience_quality": 65,
+    "career_progression": 85,
+    "context_fit": 90
+  },
+  "matched_requirements": [
+    {
+      "req_id": "req_01",
+      "resume_node_id": "edu_0",
+      "reasoning": "The candidate is currently pursuing a B.Tech in Information Technology, directly fulfilling this requirement.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_02",
+      "resume_node_id": "skill_7",
+      "reasoning": "The candidate lists 'Machine Learning' as a skill and demonstrates application in multiple projects, showing strong foundational knowledge.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_03",
+      "resume_node_id": "skill_0",
+      "reasoning": "The candidate shows proficiency in multiple programming languages (Java, Python, C/C++, JavaScript) and core concepts like OOP and basic DSA, indicating strong software development foundations.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_04",
+      "resume_node_id": "skill_8",
+      "reasoning": "The candidate has skills in Data Science, Feature Engineering, and demonstrated preprocessing in a project, but lacks explicit experience with scalable data pipeline tools.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_05",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project explicitly states the development of an 'end-to-end machine learning pipeline'.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_06",
+      "resume_node_id": "skill_0",
+      "reasoning": "The candidate states proficiency in Java for 'robust and scalable applications' and has built full-stack systems, but specific details on scalability challenges or solutions in projects are not provided.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_07",
+      "resume_node_id": "proj_0",
+      "reasoning": "The candidate's 'Accident Severity Prediction' and 'Intellectus \u2013 Student Risk Analysis System' projects directly involve risk prediction and classification.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_09",
+      "resume_node_id": "proj_1",
+      "reasoning": "The 'Intellectus' project explicitly mentions integrating a FastAPI backend for inference with a React dashboard, directly matching this requirement.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_10",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project details EDA, preprocessing, encoding, and handling data imbalance with SMOTE, along with 'Feature Engineering' as a skill.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_11",
+      "resume_node_id": "skill_9",
+      "reasoning": "The candidate lists 'Data Visualization' as a skill and built a user-friendly dashboard with React in the 'Intellectus' project.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_12",
+      "resume_node_id": "skill_13",
+      "reasoning": "The candidate is proficient in Git and GitHub for version control and lists 'Team Collaboration' as a skill, but Agile/Scrum environments are not explicitly mentioned.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_15",
+      "resume_node_id": "skill_0",
+      "reasoning": "The candidate lists proficiency in all required programming languages: Python, Java, JavaScript, C, and C++.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_16",
+      "resume_node_id": "proj_0",
+      "reasoning": "The candidate has experience with scikit-learn and ensemble methods (Random Forest, Voting, Stacking) in projects, but XGBoost and LightGBM are not explicitly mentioned.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_17",
+      "resume_node_id": "skill_10",
+      "reasoning": "The candidate lists Feature Engineering as a skill and used SMOTE in a project, but Pandas and NumPy are not explicitly listed, though implied by data science work.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_18",
+      "resume_node_id": "proj_1",
+      "reasoning": "The candidate has experience with FastAPI and React (Vite) for frontend integration, and REST APIs are implied by full-stack projects.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_19",
+      "resume_node_id": "proj_2",
+      "reasoning": "The candidate has experience with MongoDB in a project, but SQL databases are not explicitly mentioned.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_20",
+      "resume_node_id": "skill_13",
+      "reasoning": "The candidate is proficient in Git and GitHub, but MLflow, Apache Kafka, and Airflow are not mentioned.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_21",
+      "resume_node_id": "skill_11",
+      "reasoning": "The candidate has strong grasp of OOP and basic Data Structures & Algorithms, but Operating Systems knowledge is not explicitly stated.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_22",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project describes an 'end-to-end machine learning pipeline' including training and deployment aspects, but monitoring is not explicitly detailed.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_23",
+      "resume_node_id": "proj_0",
+      "reasoning": "The candidate mentions achieving high accuracy in a project, indicating awareness of performance metrics, but specific metrics like AUC, F1-score, precision-recall, or model explainability tools like SHAP are not explicitly listed.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_24",
+      "resume_node_id": "proj_1",
+      "reasoning": "The candidate built a user-friendly dashboard with React (Vite) for visualization, demonstrating dashboarding experience, but not specifically with tools like Plotly Dash.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_28",
+      "resume_node_id": "proj_0",
+      "reasoning": "The 'Accident Severity Prediction' project directly matches this, detailing the use of ensemble models and achieving high accuracy.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_30",
+      "resume_node_id": "edu_0",
+      "reasoning": "While not explicitly listed as a skill, the candidate's high CGPA and successful completion of complex projects imply strong problem-solving abilities.",
+      "match_type": "partial"
+    },
+    {
+      "req_id": "req_31",
+      "resume_node_id": "skill_17",
+      "reasoning": "The candidate explicitly lists 'Communication' and 'Team Collaboration' as skills.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_32",
+      "resume_node_id": "skill_18",
+      "reasoning": "The candidate explicitly lists 'Leadership' as a skill, noting capability in guiding teams and taking initiative.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_33",
+      "resume_node_id": "edu_0",
+      "reasoning": "The candidate is pursuing a B.Tech in Information Technology with a notable CGPA of 9.2, directly matching the requirement.",
+      "match_type": "full"
+    },
+    {
+      "req_id": "req_34",
+      "resume_node_id": "edu_0",
+      "reasoning": "The candidate is studying at Vishwakarma Institute of Technology (VIT), Pune, matching the institution and location, though the expected graduation year is not specified.",
+      "match_type": "partial"
+    }
+  ],
+  "unmatched_requirements": [
+    "req_08",
+    "req_13",
+    "req_14",
+    "req_25",
+    "req_26",
+    "req_27",
+    "req_29"
+  ],
+  "strengths": [
+    "Strong academic background with a high CGPA (9.2/10) in B.Tech Information Technology.",
+    "Demonstrated hands-on experience building end-to-end ML systems, including risk prediction and classification.",
+    "Proficiency in a wide range of programming languages including Python, Java, JavaScript, C, and C++.",
+    "Experience with full-stack development, including FastAPI backends and React frontends.",
+    "Solid foundational understanding of Machine Learning, Data Science, Feature Engineering, and ensemble methods.",
+    "Explicitly lists strong soft skills such as Communication, Leadership, and Team Collaboration."
+  ],
+  "gaps": [
+    "Lack of explicit experience with scalable data pipeline tools like Apache Kafka and Airflow.",
+    "Limited exposure to specific advanced ML tools such as XGBoost, LightGBM, MLflow, and model interpretability tools like SHAP.",
+    "No explicit mention of experience with real-time systems or alert mechanisms.",
+    "Limited explicit experience with SQL databases.",
+    "No documented professional or industry project experience, which is typical for an intern but noted.",
+    "No explicit mention of Operating Systems knowledge."
+  ],
+  "overall_reasoning": "Anuj Wankhede is a highly promising candidate for the Software Engineer Intern (AI/ML) role. His strong academic record, coupled with relevant and complex projects demonstrating end-to-end ML pipeline development, full-stack capabilities, and proficiency in core programming languages, makes him a good fit. While there are some gaps in specific data engineering tools, advanced ML frameworks, and real-time systems, his foundational skills and project experience are excellent for an intern level. His soft skills in communication, leadership, and teamwork further enhance his profile, indicating strong potential for growth within the role."
+}

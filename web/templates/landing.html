@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ResumeTree - The Standard for IEEE Evaluation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300..700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Grain overlay */
+        .bg-grain {
+            position: relative;
+        }
+        .bg-grain::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#2e3036",
+                      "outline-variant": "#434655",
+                      "outline": "#8d90a0",
+                      "surface-container-highest": "#33353a",
+                      "secondary": "#4edea3",
+                      "error-container": "#93000a",
+                      "inverse-surface": "#e2e2e9",
+                      "secondary-container": "#00a572",
+                      "on-surface": "#e2e2e9",
+                      "surface-bright": "#37393f",
+                      "background": "#111319",
+                      "surface-variant": "#33353a",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "tertiary-fixed-dim": "#d0bcff",
+                      "on-secondary": "#003824",
+                      "on-primary": "#002a78",
+                      "primary-fixed": "#dbe1ff",
+                      "tertiary-container": "#7d4ce7",
+                      "on-tertiary-container": "#f6edff",
+                      "on-tertiary": "#3c0091",
+                      "tertiary": "#d0bcff",
+                      "on-primary-container": "#eeefff",
+                      "tertiary-fixed": "#e9ddff",
+                      "surface-container-lowest": "#0c0e13",
+                      "surface-tint": "#b4c5ff",
+                      "inverse-primary": "#0053db",
+                      "surface-container-high": "#282a30",
+                      "surface-dim": "#111319",
+                      "on-tertiary-fixed": "#23005c",
+                      "surface-container": "#1e1f25",
+                      "secondary-fixed-dim": "#4edea3",
+                      "surface": "#111319",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-error": "#690005",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#5516be",
+                      "on-surface-variant": "#c3c6d7",
+                      "on-secondary-container": "#00311f",
+                      "surface-container-low": "#191b21",
+                      "on-secondary-fixed": "#002113",
+                      "secondary-fixed": "#6ffbbe",
+                      "primary": "#b4c5ff",
+                      "on-secondary-fixed-variant": "#005236",
+                      "on-error-container": "#ffdad6",
+                      "primary-container": "#2563eb",
+                      "on-primary-fixed": "#00174b",
+                      "on-background": "#e2e2e9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": ["Newsreader", "serif"],
+                      "body": ["Inter", "sans-serif"],
+                      "label": ["Inter", "sans-serif"],
+                      "mono": ["JetBrains Mono", "monospace"]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col bg-grain">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl shadow-2xl shadow-blue-500/5 bg-gradient-to-b from-slate-900/10 to-transparent">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
+<div class="text-2xl font-headline italic text-slate-50 font-['Newsreader']">ResumeTree</div>
+<div class="hidden md:flex space-x-8">
+<!-- Assuming Home/Landing isn't explicitly in nav, leaving all inactive as requested by default unless matched -->
+<a class="text-slate-400 font-normal hover:text-slate-200 transition-colors font-['Newsreader'] text-lg font-medium tracking-tight hover:bg-slate-800/50 transition-all duration-300 px-3 py-1 rounded-DEFAULT" href="#">Analysis</a>
+<a class="text-slate-400 font-normal hover:text-slate-200 transition-colors font-['Newsreader'] text-lg font-medium tracking-tight hover:bg-slate-800/50 transition-all duration-300 px-3 py-1 rounded-DEFAULT" href="#">Repository</a>
+<a class="text-slate-400 font-normal hover:text-slate-200 transition-colors font-['Newsreader'] text-lg font-medium tracking-tight hover:bg-slate-800/50 transition-all duration-300 px-3 py-1 rounded-DEFAULT" href="#">Pricing</a>
+<a class="text-slate-400 font-normal hover:text-slate-200 transition-colors font-['Newsreader'] text-lg font-medium tracking-tight hover:bg-slate-800/50 transition-all duration-300 px-3 py-1 rounded-DEFAULT" href="#">Community</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-blue-500 font-['Newsreader'] text-lg font-medium tracking-tight hover:bg-slate-800/50 transition-all duration-300 px-4 py-2 rounded-lg">Get Started</button>
+<button class="text-slate-400 hover:text-slate-200 transition-colors hover:bg-slate-800/50 transition-all duration-300 p-2 rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full flex flex-col gap-32">
+<!-- Hero Section -->
+<section class="relative flex flex-col items-center text-center max-w-4xl mx-auto gap-8 pt-16">
+<div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background blur-3xl opacity-50"></div>
+<h1 class="font-headline text-5xl md:text-7xl font-medium tracking-tight text-on-surface leading-tight">
+                The Standard for<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-container">IEEE Evaluation</span>
+</h1>
+<p class="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl font-light leading-relaxed">
+                Precision analytics for professional histories. Elevate your engineering profile with high-end, data-driven evaluation tools designed for technical rigor.
+            </p>
+<div class="flex flex-col sm:flex-row gap-6 mt-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-medium px-8 py-4 rounded-md hover:opacity-90 transition-opacity shadow-[0_0_24px_rgba(37,99,235,0.2)]">
+                    Analyze Your Resume
+                </button>
+<button class="bg-surface-container-highest text-on-surface border border-outline-variant/15 font-medium px-8 py-4 rounded-md hover:bg-surface-container-high transition-colors">
+                    View Documentation
+                </button>
+</div>
+</section>
+<!-- Feature Section (Featured Card) -->
+<section class="flex flex-col gap-12">
+<div class="text-center md:text-left">
+<h2 class="font-headline text-3xl md:text-4xl text-on-surface">Precision Metrics</h2>
+<p class="font-body text-on-surface-variant mt-2 max-w-xl">Deep structural analysis of your technical experience.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Main Feature Card (Glassmorphism/Bento style) -->
+<div class="lg:col-span-8 bg-surface-container-low rounded-xl p-8 lg:p-12 relative overflow-hidden group">
+<!-- Subtle ambient glow -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-700"></div>
+<div class="flex flex-col h-full justify-between gap-12 relative z-10">
+<div>
+<div class="font-mono text-label-sm text-on-surface-variant uppercase tracking-widest mb-4 inline-block bg-surface-container-highest px-3 py-1 rounded-DEFAULT">
+                                Score Summary / Alpha
+                            </div>
+<h3 class="font-headline text-3xl text-on-surface mb-2">Technical Rigor Score</h3>
+<p class="font-body text-on-surface-variant max-w-md">Your experience structure meets IEEE Standard v2.1 requirements with high fidelity.</p>
+</div>
+<!-- Visualization Placeholder -->
+<div class="bg-surface-container rounded-lg p-6 border border-outline-variant/10">
+<div class="flex items-end gap-4 h-32 w-full">
+<div class="w-1/6 bg-surface-container-highest rounded-t-md h-[40%] transition-all duration-500 hover:bg-primary/20"></div>
+<div class="w-1/6 bg-surface-container-highest rounded-t-md h-[60%] transition-all duration-500 hover:bg-primary/20"></div>
+<div class="w-1/6 bg-surface-container-highest rounded-t-md h-[30%] transition-all duration-500 hover:bg-primary/20"></div>
+<div class="w-1/6 bg-primary-container rounded-t-md h-[90%] shadow-[0_0_15px_rgba(37,99,235,0.3)]"></div>
+<div class="w-1/6 bg-surface-container-highest rounded-t-md h-[75%] transition-all duration-500 hover:bg-primary/20"></div>
+<div class="w-1/6 bg-surface-container-highest rounded-t-md h-[50%] transition-all duration-500 hover:bg-primary/20"></div>
+</div>
+<div class="flex justify-between mt-4 border-t border-outline-variant/10 pt-4 font-mono text-label-sm text-outline">
+<span>Q1</span>
+<span>Q2</span>
+<span>Q3</span>
+<span class="text-primary">Q4</span>
+<span>Q5</span>
+<span>Q6</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Cards Stack -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<div class="bg-surface-container-lowest rounded-xl p-8 h-full flex flex-col justify-center border border-outline-variant/5">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" style="font-variation-settings: 'FILL' 1;">speed</span>
+<h4 class="font-headline text-2xl text-on-surface mb-2">Real-time Parsing</h4>
+<p class="font-body text-sm text-on-surface-variant">Instant feedback loop on document structural integrity.</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-8 h-full flex flex-col justify-center border border-outline-variant/5">
+<span class="material-symbols-outlined text-4xl text-secondary mb-4" style="font-variation-settings: 'FILL' 1;">rule</span>
+<h4 class="font-headline text-2xl text-on-surface mb-2">Compliance Check</h4>
+<p class="font-body text-sm text-on-surface-variant">Automated validation against industry formatting standards.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-900 bg-slate-950 flex justify-between items-center px-12 py-8 max-w-7xl mx-auto">
+<div class="text-slate-400 font-bold font-['JetBrains_Mono'] text-[10px]">© 2024 ResumeTree IEEE Analytics. Built for Precision.</div>
+<div class="flex space-x-6">
+<a class="text-slate-600 font-['JetBrains_Mono'] text-[10px] hover:text-blue-400 transition-colors" href="#">Terms</a>
+<a class="text-slate-600 font-['JetBrains_Mono'] text-[10px] hover:text-blue-400 transition-colors" href="#">Privacy</a>
+<a class="text-slate-600 font-['JetBrains_Mono'] text-[10px] hover:text-blue-400 transition-colors" href="#">API</a>
+<a class="text-slate-600 font-['JetBrains_Mono'] text-[10px] hover:text-blue-400 transition-colors" href="#">GitHub</a>
+</div>
+</footer>
+</body></html>

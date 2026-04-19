@@ -1,0 +1,13 @@
+.tree-node { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; cursor: pointer; transition: all 150ms var(--ease-spring); position: relative; }
+.tree-node:hover { background: var(--bg-elevated); transform: scale(1.02); }
+.tree-line { width: 1px; height: 100%; position: absolute; left: 11px; top: 24px; background: var(--bg-border); z-index: 0; }
+.tree-indicator { width: 8px; height: 8px; border-radius: 50%; z-index: 10; flex-shrink:0; }
+.req-card { border-left: 3px solid var(--bg-border); }
+.req-card.full { border-left-color: var(--mint-500); }
+.req-card.partial { border-left-color: var(--amber-500); }
+.req-card.none { border-left-color: var(--red-500); }
+.req-expand { max-height: 0; overflow: hidden; transition: max-height 300ms var(--ease-out), opacity 300ms; opacity: 0; }
+.req-card.open .req-expand { max-height: 200px; opacity: 1; }
+.req-card.open .chevron { transform: rotate(180deg); }
+.dim-bar-track { width: 100%; height: 6px; background: var(--bg-border); border-radius: 3px; overflow: hidden; }
+.dim-bar-fill { height: 100%; width: 0%; transition: width 600ms var(--ease-out); }

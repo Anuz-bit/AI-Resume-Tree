@@ -1,0 +1,7 @@
+Role: Python Backend Engineer - Mid Level
+Requirements:
+- 3+ years of Python development experience (required)
+- REST API development using Django or FastAPI (required)
+- Team leadership or mentoring experience (required)
+- AWS or any cloud platform experience (preferred)
+- Finance or fintech domain knowledge (preferred)

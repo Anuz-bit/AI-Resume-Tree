@@ -16,11 +16,19 @@ class JDParser:
         self.prompt_path = "./prompts/parse_jd.yaml"
         
     def _read_jd_text(self, file_path: str) -> (str, str):
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"JD file not found: {file_path}")
+        abs_path = os.path.abspath(file_path)
+        if not os.path.exists(abs_path):
+            raise FileNotFoundError(f"JD file not found: {abs_path}")
             
-        with open(file_path, "r", encoding='utf-8') as f:
-            text = f.read()
+        try:
+            with open(abs_path, "r", encoding='utf-8') as f:
+                text = f.read()
+        except UnicodeDecodeError:
+            with open(abs_path, "r", encoding='latin-1') as f:
+                text = f.read()
+                
+        # Handle CRLF vs LF
+        text = text.replace('\r\n', '\n')
             
         jd_hash = hashlib.sha256(text.encode('utf-8')).hexdigest()
         return text.strip(), jd_hash

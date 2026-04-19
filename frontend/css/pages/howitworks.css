@@ -1,0 +1,2 @@
+.timeline-card { border: 1px solid var(--bg-border); background: var(--bg-card); position: relative; border-radius: 12px; padding: 24px; }
+.timeline-number { position: absolute; left: -16px; top: -16px; width: 32px; height: 32px; background: var(--blue-500); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-size: 18px; }

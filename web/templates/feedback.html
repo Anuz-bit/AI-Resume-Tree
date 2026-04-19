@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback & Optimization - ResumeTree</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#080A0F',
+                        surface: '#0D1017',
+                        card: '#131720',
+                        elevated: '#1A2030',
+                        border: '#1E2535',
+
+                        blue: {
+                            500: '#2563EB',
+                            400: '#3B82F6',
+                            300: '#60A5FA'
+                        },
+                        mint: {
+                            500: '#10B981',
+                            400: '#34D399'
+                        },
+                        amber: {
+                            500: '#F59E0B'
+                        },
+                        red: {
+                            500: '#EF4444'
+                        },
+                        purple: {
+                            500: '#8B5CF6'
+                        },
+                        text: {
+                            primary: '#F1F5F9',
+                            secondary: '#94A3B8',
+                            tertiary: '#475569',
+                            accent: '#3B82F6'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Instrument Serif"', "serif"],
+                        body: ['"Inter"', "sans-serif"],
+                        mono: ['"JetBrains Mono"', "monospace"]
+                    },
+                    transitionTimingFunction: {
+                        out: 'cubic-bezier(0,0,0.2,1)',
+                        spring: 'cubic-bezier(0.34,1.56,0.64,1)',
+                        smooth: 'cubic-bezier(0.25,0.46,0.45,0.94)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #080A0F;
+            color: #F1F5F9;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+
+        /* Nav specific blur & border */
+        .glass-nav {
+            background: rgba(13, 16, 23, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1E2535;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+            transition: transform 150ms cubic-bezier(0, 0, 0.2, 1), box-shadow 150ms cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            background: #3B82F6;
+            box-shadow: 0 0 24px rgba(37, 99, 235, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid #1E2535;
+            color: #F1F5F9;
+            transition: background 150ms cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        .btn-ghost:hover {
+            background: #1A2030;
+        }
+
+        /* Diff Cards */
+        .diff-column-left {
+            background-color: rgba(239, 68, 68, 0.02);
+            border-bottom: 1px solid #1E2535;
+        }
+
+        .diff-column-right {
+            background-color: rgba(16, 185, 129, 0.02);
+        }
+
+        @media (min-width: 768px) {
+            .diff-column-left {
+                border-bottom: none;
+                border-right: 1px solid #1E2535;
+            }
+        }
+
+        .diff-added {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #34D399;
+            border-radius: 2px;
+            padding: 0 2px;
+        }
+
+        .diff-removed {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #EF4444;
+            text-decoration: line-through;
+            border-radius: 2px;
+            padding: 0 2px;
+        }
+
+        /* Card Hover */
+        .ui-card {
+            background-color: #131720;
+            border: 1px solid #1E2535;
+            transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        .ui-card:hover {
+            background-color: #1A2030;
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Node Chips */
+        .node-chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .node-chip.proj {
+            color: #A78BFA;
+            background-color: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+        }
+
+        .node-chip.exp {
+            color: #60A5FA;
+            background-color: rgba(96, 165, 250, 0.1);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        /* Impact Badges */
+        .impact-high {
+            color: #3B82F6;
+            background-color: rgba(37, 99, 235, 0.15);
+        }
+
+        .impact-medium {
+            color: #F59E0B;
+            background-color: rgba(245, 158, 11, 0.15);
+        }
+
+        /* Nav links hover */
+        .nav-link {
+            position: relative;
+            color: #94A3B8;
+            transition: color 150ms cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        .nav-link:hover {
+            color: #F1F5F9;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #3B82F6;
+            transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        .nav-link.active::after,
+        .nav-link:hover::after {
+            transform: translateX(-50%) scale(1);
+        }
+
+        .nav-link.active {
+            color: #F1F5F9;
+        }
+
+        /* Initial Animation */
+        .animate-enter {
+            animation: fadeUp 400ms cubic-bezier(0, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .stagger-1 {
+            animation-delay: 100ms;
+        }
+
+        .stagger-2 {
+            animation-delay: 180ms;
+        }
+
+        .stagger-3 {
+            animation-delay: 260ms;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col font-body selection:bg-blue-500/30 selection:text-white">
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="glass-nav fixed top-0 w-full z-40 h-[60px] flex items-center">
+        <div class="max-w-[1280px] w-full mx-auto px-6 md:px-12 lg:px-20 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2 text-text-primary">
+                <!-- SVG Icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                    <path d="M12 22v-6"></path>
+                    <path d="M16 11l-4-4-4 4"></path>
+                    <path d="M12 2v5"></path>
+                    <path d="M6 16v-4"></path>
+                    <path d="M18 16v-4"></path>
+                </svg>
+                <span class="font-semibold text-[15px] tracking-tight">ResumeTree</span>
+            </div>
+
+            <!-- Links -->
+            <div class="hidden md:flex items-center gap-8 text-[13px] font-medium">
+                <a href="#" class="nav-link">Evaluation</a>
+                <a href="#" class="nav-link">Job Description</a>
+                <a href="#" class="nav-link active">Feedback</a>
+                <a href="#" class="nav-link">Export</a>
+            </div>
+
+            <!-- Right -->
+            <div class="flex items-center gap-4">
+                <button
+                    class="w-[32px] h-[32px] flex items-center justify-center rounded-[6px] hover:bg-elevated transition-colors text-text-secondary hover:text-text-primary">
+                    <span class="material-symbols-outlined text-[18px]">light_mode</span>
+                </button>
+                <button class="btn-primary text-white font-medium text-[13px] px-4 py-2 rounded-lg hidden sm:block">
+                    Try ResumeTree
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-24 px-6 relative z-10">
+        <div class="max-w-[760px] mx-auto w-full">
+
+            <!-- Context Header -->
+            <header class="mb-16 animate-enter">
+                <div class="flex items-center gap-2 mb-6 font-mono text-[12px] text-text-tertiary">
+                    <span>EVALUATION // d485-bd3a</span>
+                    <span class="text-text-primary">•</span>
+                    <span class="text-blue-500">RECOMMENDATIONS</span>
+                </div>
+
+                <h1 class="font-display font-normal text-[56px] leading-[1.05] tracking-tight text-text-primary mb-6">
+                    Impact <span class="italic">Optimization</span>
+                </h1>
+
+                <p class="text-text-secondary text-[15px] leading-[1.65] max-w-[640px]">
+                    We've identified key opportunities to elevate your professional narrative. The following
+                    recommendations transform task-based bullet points into achievement-driven stories that directly
+                    address the gaps in your evaluation pattern.
+                </p>
+            </header>
+
+            <!-- Overall Advice Note -->
+            <div class="ui-card rounded-[12px] p-6 mb-16 animate-enter stagger-1">
+                <div class="flex items-start gap-4">
+                    <div class="mt-1 opacity-80 text-blue-400">
+                        <span class="material-symbols-outlined text-[20px]">psychology</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-[14px] text-text-primary mb-2">Strategic Insight</h3>
+                        <p class="text-[14px] text-text-secondary leading-[1.65]">
+                            Your resume demonstrates a strong academic foundation and solid technical competence.
+                            However, the experience sections read more like a job description than a record of
+                            accomplishments. To maximize impact, shift your tone to emphasize <span
+                                class="text-text-primary font-medium">results, autonomy, and the underlying logic</span>
+                            behind your engineering decisions. Focus on quantification where possible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-10 animate-enter stagger-2">
+                <h2 class="font-semibold text-[22px] tracking-tight text-text-primary pb-4 border-b border-border">
+                    Suggested Rewrites</h2>
+            </div>
+
+            <!-- Rewrite Node 1 -->
+            <section class="mb-12 animate-enter stagger-3">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="node-chip proj">proj_0</span>
+                        <h3 class="font-semibold text-[16px] text-text-primary">Accident Severity Prediction</h3>
+                    </div>
+                </div>
+
+                <!-- Diff Viewer -->
+                <div class="ui-card rounded-[12px] overflow-hidden flex flex-col md:flex-row mb-4">
+                    <!-- Before -->
+                    <div class="flex-1 diff-column-left p-6 relative">
+                        <div class="absolute top-0 left-0 w-full h-[2px] bg-red-500/30"></div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-red-500 text-[16px]">remove</span>
+                            <span class="font-mono text-[12px] font-medium text-text-secondary">Before</span>
+                        </div>
+                        <p class="text-[14px] text-text-secondary leading-[1.65]">
+                            Developed an end-to-end machine learning pipeline to predict accident severity using various
+                            ensemble models like Random Forest, Voting, and Stacking. <span
+                                class="diff-removed">Performed extensive EDA, data preprocessing</span> (handling
+                            missing values, encoding categorical features), and <span class="diff-removed">addressed
+                                data imbalance using SMOTE</span>.
+                        </p>
+                    </div>
+
+                    <!-- After -->
+                    <div class="flex-1 diff-column-right p-6 relative">
+                        <div class="absolute top-0 left-0 w-full h-[2px] bg-mint-500/60"></div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-mint-500 text-[16px]">add</span>
+                            <span class="font-mono text-[12px] font-medium text-text-primary">After</span>
+                        </div>
+                        <p class="text-[14px] text-text-primary leading-[1.65]">
+                            Designed an end-to-end machine learning pipeline for accident severity prediction, deploying
+                            ensemble models (Random Forest, Voting, Stacking). <span class="diff-added">Engineered
+                                robust features and mitigated severe class imbalances via SMOTE</span>, achieving <span
+                                class="diff-added">a 99.2% accuracy</span> for critical safety classifications.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reasoning Tip -->
+                <div class="bg-elevated border-l-[3px] border-l-blue-500 rounded-r-lg p-4 flex gap-4 items-start">
+                    <div>
+                        <h4 class="font-semibold text-text-primary text-[13px] mb-1">Why this works</h4>
+                        <p class="text-[13px] text-text-secondary leading-[1.65]">
+                            This rewrite substitutes passive task descriptions ("Performed extensive EDA") with
+                            definitive achievements ("Engineered robust features... achieving 99.2% accuracy"). It
+                            directly addresses the gap regarding lack of quantitative impact and makes the engineering
+                            effort sound intentional rather than procedural.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rewrite Node 2 -->
+            <section class="mb-12 animate-enter stagger-3" style="animation-delay: 340ms;">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="node-chip exp">exp_1</span>
+                        <h3 class="font-semibold text-[16px] text-text-primary">Software Engineer Intern</h3>
+                    </div>
+                </div>
+
+                <!-- Diff Viewer -->
+                <div class="ui-card rounded-[12px] overflow-hidden flex flex-col md:flex-row mb-4">
+                    <!-- Before -->
+                    <div class="flex-1 diff-column-left p-6 relative">
+                        <div class="absolute top-0 left-0 w-full h-[2px] bg-red-500/30"></div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-red-500 text-[16px]">remove</span>
+                            <span class="font-mono text-[12px] font-medium text-text-secondary">Before</span>
+                        </div>
+                        <p class="text-[14px] text-text-secondary leading-[1.65]">
+                            Worked on the company's main web application using React and Redux. <span
+                                class="diff-removed">Helped</span> backend team to integrate new REST APIs for user
+                            dashboard features.
+                        </p>
+                    </div>
+
+                    <!-- After -->
+                    <div class="flex-1 diff-column-right p-6 relative">
+                        <div class="absolute top-0 left-0 w-full h-[2px] bg-mint-500/60"></div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-mint-500 text-[16px]">add</span>
+                            <span class="font-mono text-[12px] font-medium text-text-primary">After</span>
+                        </div>
+                        <p class="text-[14px] text-text-primary leading-[1.65]">
+                            <span class="diff-added">Architected high-performance UI components</span> for the core
+                            React/Redux platform. Partnered with backend engineering to seamlessly integrate REST APIs,
+                            <span class="diff-added">delivering real-time data to user dashboards used by 5,000+ daily
+                                active users</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reasoning Tip -->
+                <div class="bg-elevated border-l-[3px] border-l-blue-500 rounded-r-lg p-4 flex gap-4 items-start">
+                    <div>
+                        <h4 class="font-semibold text-text-primary text-[13px] mb-1">Why this works</h4>
+                        <p class="text-[13px] text-text-secondary leading-[1.65]">
+                            Replacing "Worked on" with "Architected" demonstrates ownership. Specifying the scale
+                            ("5,000+ daily active users") grounds the claim. The language implies you didn't just write
+                            code; you delivered a complete solution alongside backend engineers.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Tips List -->
+            <div class="mt-16 animate-enter" style="animation-delay: 420ms;">
+                <h2 class="font-semibold text-[22px] tracking-tight text-text-primary pb-4 border-b border-border mb-6">
+                    Execution Strategy</h2>
+
+                <div class="space-y-4">
+                    <div class="ui-card p-5 rounded-[12px] flex items-start gap-4">
+                        <div class="mt-0.5">
+                            <span class="node-chip proj">proj_0</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-medium text-[15px] text-text-primary">Clarify Data Pipeline Scope</h4>
+                                <span
+                                    class="impact-high font-mono text-[10px] px-2 py-[2px] rounded uppercase font-semibold">High
+                                    Impact</span>
+                            </div>
+                            <p class="text-[13px] text-text-tertiary mb-2 uppercase tracking-wide">Gap: No explicit
+                                scalable data pipelines</p>
+                            <p class="text-[14px] text-text-secondary leading-[1.65]">
+                                Emphasize the end-to-end nature of your existing pipeline. Detail the exact stages from
+                                ingestion to inference. Mentioning how data structurally flows maps perfectly to the
+                                pipeline knowledge requirement without fabricating tools.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ui-card p-5 rounded-[12px] flex items-start gap-4">
+                        <div class="mt-0.5">
+                            <span class="node-chip exp">exp_1</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="font-medium text-[15px] text-text-primary">Surface Cloud Deployments</h4>
+                                <span
+                                    class="impact-medium font-mono text-[10px] px-2 py-[2px] rounded uppercase font-semibold">Medium
+                                    Impact</span>
+                            </div>
+                            <p class="text-[13px] text-text-tertiary mb-2 uppercase tracking-wide">Gap: Missing AWS /
+                                Cloud Platform mentions</p>
+                            <p class="text-[14px] text-text-secondary leading-[1.65]">
+                                If your web application or backend was hosted anywhere (Vercel, Heroku, AWS), explicitly
+                                name the host and your role in deployment configuration to satisfy basic cloud
+                                familiarity requirements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer CTA -->
+            <div class="mt-20 pt-10 border-t border-border flex flex-col items-center animate-enter"
+                style="animation-delay: 500ms;">
+                <h3 class="font-display text-[32px] text-text-primary mb-4">Update & Re-Evaluate</h3>
+                <p class="text-[15px] text-text-secondary mb-8 text-center max-w-[400px]">
+                    Implement these changes in your source document to observe the impact on your ResumeTree alignment
+                    scores.
+                </p>
+                <div class="flex gap-4">
+                    <button class="btn-ghost px-6 py-2.5 rounded-lg text-[14px] font-medium flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">keyboard_return</span>
+                        Back to Evaluation
+                    </button>
+                    <button
+                        class="btn-primary text-white font-medium text-[14px] px-6 py-2.5 rounded-lg flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">download</span>
+                        Export Report
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>

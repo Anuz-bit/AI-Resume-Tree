@@ -1,0 +1,87 @@
+{
+  "personal_info": {
+    "name": "Anuj Wankhede",
+    "email": "anuj.wankhede1312@gmail.com",
+    "location": "Pune,India",
+    "linkedin": "linkedin.com/in/anuj-wankhede"
+  },
+  "education": [
+    {
+      "degree": "B.Tech, Information Technology",
+      "institution": "Vishwakarma Institute of Technology (VIT), Pune",
+      "year": null,
+      "cgpa": 9.2
+    },
+    {
+      "degree": "Class XII (Maharashtra State Board)",
+      "institution": null,
+      "year": 2024,
+      "cgpa": null
+    },
+    {
+      "degree": "Class X (CBSE)",
+      "institution": null,
+      "year": 2022,
+      "cgpa": null
+    }
+  ],
+  "experience": [],
+  "skills": [
+    "Java",
+    "Python",
+    "C",
+    "C++",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Machine Learning",
+    "Data Science",
+    "Data Visualization",
+    "Feature Engineering",
+    "Object-Oriented Programming",
+    "Data Structures and Algorithms (Basics)",
+    "Git",
+    "GitHub",
+    "Jupyter Notebook",
+    "Google Colab",
+    "Communication",
+    "Leadership",
+    "Team Collaboration"
+  ],
+  "projects": [
+    {
+      "title": "Accident Severity Prediction (AI/ML)",
+      "description": "Built an end-to-end ML pipeline (EDA, preprocessing, encoding) to predict PISEV and CSEV. Compared ensemble models (Random Forest, Voting, Stacking; experiments with AdaBoost/XGBoost) and handled imbalance using SMOTE.",
+      "tech_stack": [
+        "Python",
+        "scikit-learn",
+        "SMOTE",
+        "Ensembles"
+      ],
+      "outcome": "Best accuracy: 71.79% on PISEV (Stacking) and 99.20% on CSEV (Random Forest)."
+    },
+    {
+      "title": "Intellectus \u2013 Student Risk Analysis System",
+      "description": "Built a student risk analysis prototype using scikit-learn with a FastAPI inference backend and a React (Vite) dashboard.",
+      "tech_stack": [
+        "FastAPI",
+        "React (Vite)",
+        "scikit-learn"
+      ],
+      "outcome": null
+    },
+    {
+      "title": "Proctor Exam Platform",
+      "description": "Built a full-stack online exam system with JWT auth and proctoring signals (tab switch/focus loss detection).",
+      "tech_stack": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "React"
+      ],
+      "outcome": null
+    }
+  ],
+  "certifications": [],
+  "file_hash": "377793b50a65636e2ab97b44299584f11e73cda31ce98e4cc08c74dd9a368266"
+}

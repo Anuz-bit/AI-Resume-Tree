@@ -2,9 +2,9 @@
 
 <img src="https://img.shields.io/badge/-%F0%9F%8C%B3%20ResumeTree-0D1017?style=for-the-badge&logoColor=white" alt="ResumeTree" />
 
-# ResumeTree
+# ResumeTree!
 
-### *Resume screening that actually thinks.*
+### *Resume screening that actually thinks.*  
 
 **Vectorless · Reasoning-Based · Fully Explainable**
 

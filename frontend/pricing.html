@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing · ResumeTree</title>
+  <script>
+    const saved = localStorage.getItem('resumetree-theme');
+    const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if ((saved || system) === 'dark') document.documentElement.classList.add('dark');
+  </script>
+
+  <style>
+    :root { --base: #F6F8FF; --t1: #0B0F1E; }
+    :root.dark { --base: #07090F; --t1: #ECF0FA; }
+    body { background-color: var(--base); color: var(--t1); margin: 0; }
+  </style>
+
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: center; }
+    @media (max-width: 1023px) { .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; align-items: stretch; } }
+    .pricing-card { padding: 40px; display: flex; flex-direction: column; height: 100%; border-color: var(--border); }
+    .pricing-card.pro { border-color: var(--brand); background: linear-gradient(180deg, var(--brand-glow), transparent); transform: scale(1.05); position: relative; }
+    @media (max-width: 1023px) { .pricing-card.pro { transform: scale(1); } }
+    .pro-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--brand); color: white; padding: 4px 16px; border-radius: 99px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; }
+    ul.pricing-features { list-style: none; margin: 32px 0 0 0; padding: 0; flex-grow: 1; }
+    ul.pricing-features li { margin-bottom: 16px; color: var(--t2); display: flex; align-items: center; gap: 12px; font-size: 14px; }
+    ul.pricing-features li svg { color: var(--excellent); flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar" style="height: 60px; z-index: 100;">
+    <div class="nav-content container flex justify-between items-center w-full">
+      <a href="index.html" class="logo" style="font-weight: 600; flex: 1;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M12 22V2M16 11l-4-4-4 4M6 16v-4M18 16v-4"/></svg>
+        ResumeTree
+      </a>
+      <div class="nav-links flex gap-6" style="font-size: 14px; flex: 1; justify-content: center;">
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="nav-actions flex items-center justify-end gap-4" style="flex: 1;">
+        <button class="btn btn-ghost theme-toggle-btn" style="padding: 8px; border:none;" aria-label="Toggle Theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="btn btn-ghost" style="padding: 8px 16px;">Sign In</button>
+        <button class="btn btn-primary" style="padding: 8px 16px;">Try Free</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-32 mb-32">
+    <div class="text-center mb-24 animate-on-scroll">
+      <h1 class="display-title mb-6">Simple pricing.<br><span class="text-brand">Real results.</span></h1>
+    </div>
+
+    <div class="pricing-grid animate-on-scroll">
+      <!-- Free -->
+      <div class="card pricing-card">
+        <h3 class="mb-2 text-t1 font-600">Free</h3>
+        <div class="display-title-normal mono-text text-t1 mb-2" style="font-size:32px;">₹0<span style="font-size: 16px; font-family:var(--font-ui);color:var(--t3)">/mo</span></div>
+        <p class="text-t2 text-sm">For individuals</p>
+        
+        <ul class="pricing-features pb-8">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 3 scans per month</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> JD matching included</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Basic ATS score + keywords</li>
+        </ul>
+        
+        <button class="btn btn-ghost w-full">Start Free</button>
+      </div>
+
+      <!-- Pro -->
+      <div class="card pricing-card pro">
+        <div class="pro-badge">MOST POPULAR</div>
+        <h3 class="mb-2 text-brand font-600">Pro</h3>
+        <div class="display-title-normal mono-text text-t1 mb-2" style="font-size:32px;">₹499<span style="font-size: 16px; font-family:var(--font-ui);color:var(--t3)">/mo</span></div>
+        <p class="text-t2 text-sm">For active job seekers</p>
+        
+        <ul class="pricing-features pb-8">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited scans</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> JD AI fix suggestions</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multiple JD tracking</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> PDF report download</li>
+        </ul>
+        
+        <button class="btn btn-primary w-full">Start Pro</button>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="card pricing-card">
+        <h3 class="mb-2 text-t1 font-600">Enterprise</h3>
+        <div class="display-title-normal text-t1 mb-2" style="font-size: 32px; padding: 0;">Custom</div>
+        <p class="text-t2 text-sm mt-3">For recruitment teams</p>
+        
+        <ul class="pricing-features pb-8">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Pro</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Team dashboard</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> API access</li>
+        </ul>
+        
+        <button class="btn btn-ghost w-full">Contact Sales</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/core.js" defer></script>
+</body>
+</html>

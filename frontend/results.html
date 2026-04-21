@@ -1,112 +1,285 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evaluation Results - ResumeTree</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,300&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/global.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Match Results · ResumeTree</title>
+  
+  <script>
+    const saved = localStorage.getItem('resumetree-theme');
+    const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if ((saved || system) === 'dark') document.documentElement.classList.add('dark');
+  </script>
+
+  <style>
+    :root { --base: #F6F8FF; --t1: #0B0F1E; }
+    :root.dark { --base: #07090F; --t1: #ECF0FA; }
+    body { background-color: var(--base); color: var(--t1); margin: 0; }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    .dashboard-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; }
+    @media (max-width: 1023px) { .dashboard-layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    .top-bar-sticky { position: sticky; top: 0; background: rgba(var(--surface-rgb, 12, 15, 25), 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 100; }
+    .dark .top-bar-sticky { background: rgba(12, 15, 25, 0.85); }
+    html:not(.dark) .top-bar-sticky { background: rgba(255, 255, 255, 0.85); }
+
+    .jd-context-strip { background: var(--brand-soft); border-bottom: 1px solid var(--brand-glow); padding: 10px 0; font-size: 13px; }
+
+    .sidebar nav a { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; color: var(--t2); text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 500; border-left: 3px solid transparent; transition: background var(--t-fast); margin-bottom: 4px; }
+    .sidebar nav a:hover { background: var(--elevated); color: var(--t1); }
+    .sidebar nav a.active { background: var(--brand-soft); color: var(--t1); border-left: 3px solid var(--brand); }
+    .nav-badge { font-family: var(--font-mono); font-size: 11px; padding: 2px 6px; border-radius: 4px; background: var(--border); color: var(--t2); }
+    .sidebar nav a.active .nav-badge { background: var(--brand); color: #fff; }
+
+    /* Gauge Arc */
+    .gauge-wrapper { position: relative; width: 280px; height: 280px; margin: 0 auto; filter: drop-shadow(0 0 40px var(--brand-glow)); }
+    .gauge-svg { transform: rotate(-90deg); width: 100%; height: 100%; overflow: visible; }
+    .gauge-value { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+    .gauge-number { font-family: var(--font-mono); font-size: 72px; font-weight: 400; line-height: 1; }
+
+    /* Dimension Bars */
+    .dim-bar-wrapper { margin-bottom: 20px; }
+    .dim-bar-title { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
+    .dim-bar-track { width: 100%; height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .dim-bar-fill { height: 100%; border-radius: 99px; }
+
+    /* Data Table */
+    .data-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+    .data-table th, .data-table td { padding: 14px 20px; border-bottom: 1px solid var(--border); text-align: left; font-size: 14px; }
+    .data-table th { background: var(--surface); color: var(--t2); font-weight: 500; }
+    .data-table tr:last-child td { border-bottom: none; }
+  </style>
 </head>
-<body class="bg-base text-primary font-body antialiased min-h-screen col transition-colors">
-    <div class="noise-overlay"></div>
-    
-<nav class="navbar" id="navbar">
-  <div class="nav-container row space-between items-center px-lg h-16 w-full max-w-7xl mx-auto">
-    <a href="index.html" class="logo row items-center gap-2 text-primary font-600 font-body">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-500)" stroke-width="2"><path d="M12 22v-6"></path><path d="M16 11l-4-4-4 4"></path><path d="M12 2v5"></path><path d="M6 16v-4"></path><path d="M18 16v-4"></path></svg>
-      ResumeTree
-    </a>
-    <div class="nav-links row gap-8 display-md">
-      <a href="howitworks.html" class="text-secondary hover-primary">How It Works</a>
-      <a href="research.html" class="text-secondary hover-primary">Research</a>
-      <a href="upload.html" class="text-secondary hover-primary">Upload</a>
-    </div>
-    <div class="nav-actions row items-center gap-4">
-      <button id="theme-toggle" class="icon-btn text-secondary hover-primary">
-        <svg id="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        <svg id="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-      </button>
-      <a href="upload.html" class="btn btn-primary">Try Free</a>
+<body>
+
+  <!-- Blurred Top Bar -->
+  <div class="top-bar-sticky">
+    <div class="container flex justify-between items-center py-4">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M12 22V2M16 11l-4-4-4 4M6 16v-4M18 16v-4"/></svg>
+        </a>
+        <div style="height: 24px; width: 1px; background: var(--border);"></div>
+        <span class="pill mono-text" style="background:transparent; border-color:var(--border-hi);">resume_2025.pdf</span>
+        <span class="text-t3">→</span>
+        <span class="pill mono-text" style="color:var(--t1);">Senior Backend Engineer</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="btn btn-ghost theme-toggle-btn" style="padding: 8px; border:none;" aria-label="Toggle Theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="btn btn-ghost" onclick="window.location.href='index.html'">Scan Again</button>
+        <button class="btn btn-primary" onclick="window.print()">Download Report</button>
+      </div>
     </div>
   </div>
-</nav>
-<div id="toast-container" class="fixed bottom-lg right-lg col gap-2 z-50"></div>
 
-    <main id="main-content" class="flex-1 w-full relative z-10 page-transition pt-16">
-        
-<div id="results-skeleton" class="row h-full w-full gap-6 px-lg pt-4" style="height: calc(100vh - 80px);">
-    <div class="skeleton" style="width: 280px; height: 100%;"></div>
-    <div class="col flex-1 gap-6">
-        <div class="skeleton" style="width: 100%; height: 120px;"></div>
-        <div class="skeleton" style="width: 100%; height: 60vh;"></div>
-    </div>
-</div>
-
-<div id="results-content" class="row h-full w-full max-w-[1400px] mx-auto gap-8 px-4 md:px-lg hidden relative">
-    
-    <!-- Left Sidebar: Tree Visualizer -->
-    <aside class="w-[280px] h-full fixed md:relative bottom-0 bg-surface md:bg-transparent z-40 border-r border-border md:border-none p-4 md:p-0 col overflow-y-auto" style="max-height: 80vh;">
-        <h3 class="font-600 text-sm mb-4 text-tertiary tracking-wider uppercase">Resume Tree</h3>
-        <div id="tree-container" class="col gap-1 text-sm font-mono">
-            <!-- Populated by JS -->
+  <!-- JD Context Strip -->
+  <div class="jd-context-strip">
+    <div class="container flex justify-between items-center text-t2">
+      <div class="flex items-center gap-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span>Matching against: <strong class="text-brand">Senior Backend Engineer at Google</strong></span>
+        <span class="text-t3 mx-2">|</span>
+        <span>23 requirements analyzed</span>
+      </div>
+      <div style="position: relative;">
+        <button class="btn btn-ghost" style="padding: 4px 12px; font-size: 12px; border: none; color: var(--brand);" onclick="document.getElementById('change-jd-flyout').classList.toggle('hidden')">Change JD →</button>
+        <div id="change-jd-flyout" class="card hidden" style="position: absolute; right: 0; top: 100%; width: 360px; z-index: 50; padding: 20px;">
+          <p class="font-500 mb-2">Re-score with different JD</p>
+          <textarea class="textarea mono-text mb-4" style="height: 120px; font-size: 12px;" placeholder="Paste new JD here..."></textarea>
+          <button class="btn btn-primary w-full" onclick="location.reload()">Re-analyze →</button>
         </div>
-    </aside>
+      </div>
+    </div>
+  </div>
 
-    <!-- Main Panel -->
-    <div class="flex-1 col pb-xl gap-8">
+  <main class="container mt-12 mb-32">
+    <div class="dashboard-layout">
+      <!-- Sticky Sidebar -->
+      <aside class="sidebar">
+        <div style="position: sticky; top: 160px;">
+          <nav>
+            <a href="#overall" class="active">
+              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Overall Score</div>
+              <span class="nav-badge">82</span>
+            </a>
+            <a href="#keywords">
+              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> Keyword Analysis</div>
+              <span class="nav-badge">82%</span>
+            </a>
+            <a href="#jdcompat">
+              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> JD Compatibility</div>
+              <span class="nav-badge">19/23</span>
+            </a>
+            <a href="#breakdown">
+              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> Section Breakdown</div>
+              <span class="nav-badge" style="background:var(--average); color:#000;">3</span>
+            </a>
+            <a href="#suggestions">
+              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg> AI Suggestions</div>
+              <span class="nav-badge" style="background:var(--poor); color:#fff;">5</span>
+            </a>
+            <a href="#format">
+              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Format Check</div>
+              <span class="nav-badge" style="background:var(--excellent); color:#fff;">✓</span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <div>
         
-        <!-- Top Bar content implicitly handled by page structure -->
-        <header class="row space-between items-center card border-blue-500/30" style="background: linear-gradient(135deg, rgba(37,99,235,0.05) 0%, var(--bg-card) 100%);">
+        <!-- hero Score -->
+        <section id="overall" class="mb-16 animate-on-scroll card" style="border:1px solid var(--brand-glow); background:linear-gradient(135deg, var(--brand-soft) 0%, var(--card) 60%);">
+          <div id="hero-gauge" class="gauge-wrapper mb-8">
+            <svg class="gauge-svg" viewBox="0 0 240 240">
+              <circle cx="120" cy="120" r="110" fill="none" stroke="var(--border)" stroke-width="14"></circle>
+              <!-- Animated Circle -->
+              <circle id="gauge-circle" cx="120" cy="120" r="110" fill="none" stroke="var(--good)" stroke-width="14" stroke-dasharray="0 692" stroke-linecap="round" style="filter: drop-shadow(0 0 8px var(--brand-glow));"></circle>
+            </svg>
+            <div class="gauge-value">
+              <div id="gauge-score" class="gauge-number text-t1 font-mono" data-score="82">0</div>
+              <div class="text-t2 font-500 mt-2" style="font-size:14px;">Good Match</div>
+              <div class="text-t3 mt-1" style="font-size:12px;">against Senior Backend Engineer</div>
+            </div>
+          </div>
+
+          <div class="grid-2 gap-8 text-left mx-auto">
+            <div class="flex-col justify-center">
+              <p class="text-t2" style="font-size:16px; line-height:1.7;">
+                Your resume is a strong match for this role. You cover 19 of 23 requirements. The main gap is infrastructure keywords (Kubernetes, Terraform) that appear 8 times in the JD but not in your resume.
+              </p>
+            </div>
+            
+            <div class="flex-col gap-1">
+              <div class="dim-bar-wrapper">
+                <div class="dim-bar-title"><span class="text-t2" title="Click to see breakdown">Keyword Match</span> <span class="mono-text">82%</span></div>
+                <div class="dim-bar-track"><div class="dim-bar-fill bg-brand" data-width="82%" style="background:var(--brand);"></div></div>
+              </div>
+              <div class="dim-bar-wrapper">
+                <div class="dim-bar-title"><span class="text-t2" title="Click to see breakdown">Format & Structure</span> <span class="mono-text" style="color:var(--poor);">54%</span></div>
+                <div class="dim-bar-track"><div class="dim-bar-fill" data-width="54%" style="background:var(--poor);"></div></div>
+              </div>
+              <div class="dim-bar-wrapper">
+                <div class="dim-bar-title"><span class="text-t2" title="Click to see breakdown">Experience Match</span> <span class="mono-text">88%</span></div>
+                <div class="dim-bar-track"><div class="dim-bar-fill" data-width="88%" style="background:var(--excellent);"></div></div>
+              </div>
+              <div class="dim-bar-wrapper">
+                <div class="dim-bar-title"><span class="text-t2" title="Click to see breakdown">ATS Compatibility</span> <span class="mono-text">100%</span></div>
+                <div class="dim-bar-track"><div class="dim-bar-fill" data-width="100%" style="background:var(--excellent);"></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- JD Compatibility -->
+        <section id="jdcompat" class="mb-16 animate-on-scroll">
+          <h2 class="display-title-normal mb-8">How well do you fit THIS specific job?</h2>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Requirement</th>
+                <th>In JD</th>
+                <th>In Resume</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Python</td>
+                <td class="mono-text">5×</td>
+                <td><span class="pill pill-green border-none">✓ Found</span></td>
+              </tr>
+              <tr>
+                <td>Microservices</td>
+                <td class="mono-text">4×</td>
+                <td><span class="pill pill-green border-none">✓ Found</span></td>
+              </tr>
+              <tr>
+                <td>Kubernetes</td>
+                <td class="mono-text">4×</td>
+                <td><span class="pill pill-red border-none">✗ Missing</span></td>
+              </tr>
+              <tr>
+                <td>5+ Years Experience</td>
+                <td class="mono-text">3×</td>
+                <td><span class="pill pill-green border-none">✓ Found</span></td>
+              </tr>
+              <tr>
+                <td>Terraform</td>
+                <td class="mono-text">2×</td>
+                <td><span class="pill pill-red border-none">✗ Missing</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="mt-4 p-6 card flex justify-between items-center" style="border:1px dashed var(--border-hi); background:transparent;">
             <div>
-                <h1 id="cand-name" class="font-display text-3xl text-primary font-400">Candidate Evaluation</h1>
-                <p id="cand-role" class="text-secondary mt-1">Mid Level Backend Engineer</p>
+              <p class="text-t1 font-500 mb-1">Want to try a different job?</p>
+              <p class="text-t2 text-sm">Rescore this exact resume against a different role.</p>
             </div>
-            <div class="row gap-4">
-                <a href="feedback.html" class="btn btn-primary shadow-glow">Get Feedback &rarr;</a>
-            </div>
-        </header>
+            <a href="index.html" class="btn btn-ghost" style="padding:8px 16px;">Re-analyze →</a>
+          </div>
+        </section>
 
-        <!-- Dashboard -->
-        <div class="row flex-wrap gap-8">
-            <!-- Gauge Card -->
-            <div class="card col items-center justify-center p-8 w-full md:w-auto">
-                <div class="relative w-[200px] h-[200px]">
-                    <svg viewBox="0 0 100 100" class="w-full h-full transform -rotate-90 stroke-current text-border">
-                        <circle cx="50" cy="50" r="40" fill="none" stroke-width="8" />
-                    </svg>
-                    <svg viewBox="0 0 100 100" class="absolute top-0 left-0 w-full h-full transform -rotate-90 stroke-current">
-                        <circle id="score-arc" cx="50" cy="50" r="40" fill="none" stroke-width="8" stroke-linecap="round" stroke-dasharray="251.2" stroke-dashoffset="251.2" />
-                    </svg>
-                    <div class="absolute top-0 left-0 w-full h-full col items-center justify-center">
-                        <div class="row items-baseline"><span id="score-text" class="font-mono font-600 text-5xl">0</span><span class="text-tertiary">/100</span></div>
-                        <span id="score-status" class="text-xs font-500 tracking-wide mt-1">Evaluating...</span>
-                    </div>
+        <!-- Actions -->
+        <section id="suggestions" class="mb-16 animate-on-scroll">
+          <h2 class="display-title-normal mb-2">AI Suggestions</h2>
+          <p class="text-t3 mb-8 text-sm text-brand">Suggestions are specific to the job you matched against.</p>
+          
+          <div class="flex gap-2 mb-6">
+            <span class="pill" style="border-color:var(--border-hi); color:var(--t1);">All (8)</span>
+            <span class="pill" style="border-color:var(--poor);">High (3)</span>
+            <span class="pill" style="border-color:var(--average);">Medium (3)</span>
+            <span class="pill">Low (2)</span>
+          </div>
+
+          <div class="flex-col gap-4">
+            <!-- High Impact Keyword -->
+            <div class="card card-high flex-col gap-3 p-6" style="padding: 24px;">
+              <div class="flex justify-between items-center mb-2">
+                <span class="pill" style="background:rgba(239, 68, 68, 0.1); color:var(--poor); border:none;">🔴 HIGH</span>
+                <span class="text-t3 text-sm">Keywords & Scope</span>
+              </div>
+              
+              <div class="flex gap-2 mb-2 font-mono" style="font-size:13px; color:var(--poor);">
+                Missing: kubernetes, terraform, helm
+              </div>
+
+              <p class="text-t2 mb-4" style="line-height:1.6;">
+                These appear 8 times in the JD but are not in your resume. ATS will likely filter you out for this role specifically.
+              </p>
+
+              <div class="p-4 rounded border border-border bg-surface mono-text flex justify-between items-start">
+                <div>
+                  <span class="text-t3 text-xs uppercase tracking-widest block mb-2">FIX: ADD TO SKILLS SECTION</span>
+                  <span class="text-t1">"Container Orchestration: Kubernetes, Terraform, Helm"</span>
                 </div>
+                <button class="btn btn-ghost" style="padding: 4px 10px; font-size:12px;">Copy Fix</button>
+              </div>
             </div>
+            
+          </div>
+        </section>
 
-            <!-- Dimensions -->
-            <div class="card flex-1 col justify-center py-6 px-8 gap-6">
-                <h3 class="font-600 text-sm mb-2 text-primary">Dimension Scores</h3>
-                <div id="dimensions-container" class="col gap-4">
-                    <!-- Populated by JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Requirements -->
-        <div class="col mt-8">
-            <h2 class="font-600 text-xl mb-6 text-primary">Requirement Alignment</h2>
-            <div class="col gap-4" id="reqs-container">
-                <!-- Populated by JS -->
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+  </main>
 
-    </main>
-    
-    <script src="js/global.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/pages/results.js"></script>
+  <style>
+    .hidden { display: none !important; }
+  </style>
+  <script src="js/core.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/app.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,125 @@
+/* design-system.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  /* Colors - Light Mode (Default variables as requested, or rather base) */
+  --void      : #F0F4FF;
+  --base      : #F6F8FF;
+  --surface   : #FFFFFF;
+  --card      : #FFFFFF;
+  --elevated  : #EEF2FF;
+  --border    : #DDE3F5;
+  --border-hi : #C4CFEC;
+
+  --brand     : #1B6EF3;
+  --brand-hi  : #1558D4;
+  --brand-glow: rgba(27,110,243,0.12);
+  --brand-soft: rgba(27,110,243,0.05);
+
+  --t1: #0B0F1E;
+  --t2: #4A5270;
+  --t3: #8891AA;
+
+  /* Semantic */
+  --excellent : #10B981;
+  --good      : #3B82F6;
+  --average   : #F59E0B;
+  --poor      : #EF4444;
+
+  /* Timings & Easings */
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --out   : cubic-bezier(0, 0, 0.2, 1);
+
+  --t-fast  : 150ms;
+  --t-normal: 280ms;
+  --t-slow  : 500ms;
+  --t-story : 1400ms;
+
+  /* Fonts */
+  --font-display: "Instrument Serif", "Playfair Display", serif;
+  --font-ui: "Inter", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+}
+
+:root.dark {
+  /* Colors - Dark Mode */
+  --void      : #04060C;
+  --base      : #07090F;
+  --surface   : #0C0F19;
+  --card      : #111521;
+  --elevated  : #171C2C;
+  --border    : #1D2338;
+  --border-hi : #2A3350;
+
+  --brand     : #1B6EF3;
+  --brand-hi  : #4589F5;
+  --brand-glow: rgba(27,110,243,0.18);
+  --brand-soft: rgba(27,110,243,0.06);
+
+  --t1: #ECF0FA;
+  --t2: #8591AD;
+  --t3: #454E68;
+}
+
+* {
+  transition: 
+    background-color 300ms ease,
+    border-color 300ms ease,
+    color 300ms ease;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--font-ui);
+  background-color: var(--base);
+  color: var(--t1);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  accent-color: var(--brand);
+  font-size: 15px;
+  scroll-behavior: smooth;
+  visibility: visible;
+  margin: 0; padding: 0; overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, span, li, p { color: inherit; }
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; margin: 0; line-height: 1.2; }
+p { font-size: 15px; color: var(--t2); margin: 0; }
+.text-tertiary, .text-t3 { color: var(--t3); }
+.text-secondary, .text-t2 { color: var(--t2); }
+.text-brand { color: var(--brand); }
+
+.display-title {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+  font-weight: 400;
+  color: var(--t1);
+}
+
+.mono-text { font-family: var(--font-mono); }
+
+/* Spacing utils */
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-6 { margin-bottom: 24px; }
+.mb-8 { margin-bottom: 32px; }
+.mb-12 { margin-bottom: 48px; }
+.mb-16 { margin-bottom: 64px; }
+.mt-2 { margin-top: 8px; }
+.mt-4 { margin-top: 16px; }
+.mt-6 { margin-top: 24px; }
+.mt-8 { margin-top: 32px; }
+.mt-12 { margin-top: 48px; }
+.mt-16 { margin-top: 64px; }
+
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.gap-6 { gap: 24px; }
+.gap-8 { gap: 32px; }
+.p-4 { padding: 16px; }
+.p-6 { padding: 24px; }
+.p-8 { padding: 32px; }

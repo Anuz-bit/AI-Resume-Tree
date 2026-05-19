@@ -1,5 +1,4 @@
 // core.js
-// Inline check to prevent flash of theme (should ideally be in HTML head, but placed here to sync everything on load)
 (function() {
   const saved = localStorage.getItem('resumetree-theme');
   const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -32,41 +31,60 @@ document.addEventListener('DOMContentLoaded', () => {
   const isDark = document.documentElement.classList.contains('dark');
   updateToggleIcons(isDark);
 
-  // Card Mouse Glow Effect
-  const cards = document.querySelectorAll('.card.spotlight');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
+  // Navbar Scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if(navbar) navbar.classList.toggle('scrolled', window.scrollY > 20);
   });
 
   initReveals();
 });
 
 function initReveals() {
-  try {
-    const reveals = document.querySelectorAll('.animate-on-scroll');
-    if (!reveals.length) return;
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
 
-    const observer = new IntersectionObserver((entries, observerObj) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observerObj.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0,
-      rootMargin: "0px 0px -40px 0px"
+  const observer = new IntersectionObserver((entries, observerObj) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        
+        // Trigger counters if they exist in this section
+        const counters = entry.target.querySelectorAll('.stat-num');
+        counters.forEach(triggerCounter);
+
+        observerObj.unobserve(entry.target);
+      }
     });
+  }, {
+    threshold: 0,
+    rootMargin: "0px 0px -40px 0px"
+  });
 
-    reveals.forEach(el => observer.observe(el));
-  } catch(e) {
-    document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
-    console.warn('Animation failed, showing all:', e);
+  reveals.forEach(el => observer.observe(el));
+}
+
+function triggerCounter(el) {
+  if (el.dataset.animated) return;
+  el.dataset.animated = "true";
+  
+  const target = parseInt(el.getAttribute('data-target'), 10);
+  if (isNaN(target)) return;
+
+  const duration = 1200; // 1200ms
+  const start = performance.now();
+  
+  function update(time) {
+      const elapsed = time - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const current = target * ease;
+      
+      // format logic (add commas for big numbers)
+      el.textContent = Math.floor(current).toLocaleString();
+      
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = target.toLocaleString();
   }
+  requestAnimationFrame(update);
 }

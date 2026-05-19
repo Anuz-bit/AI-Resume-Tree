@@ -14,7 +14,13 @@
   <style>
     :root { --base: #F6F8FF; --t1: #0B0F1E; }
     :root.dark { --base: #07090F; --t1: #ECF0FA; }
-    body { background-color: var(--base); color: var(--t1); margin: 0; }
+    body { background-color: var(--base); color: var(--t1); margin: 0; scroll-behavior: smooth; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--brand); }
   </style>
 
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -24,53 +30,108 @@
   <link rel="stylesheet" href="css/animations.css">
 
   <style>
-    .dashboard-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; }
-    @media (max-width: 1023px) { .dashboard-layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    /* 3-Panel Layout */
+    .dashboard-layout { display: grid; grid-template-columns: 240px 1fr; gap: 40px; }
+    @media (max-width: 1200px) { .dashboard-layout { grid-template-columns: 240px 1fr; } }
+    @media (max-width: 900px) { 
+        .dashboard-layout { grid-template-columns: 1fr; gap: 20px; } 
+        .sidebar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--surface); border-top: 1px solid var(--border); }
+        .sidebar nav { display: flex; overflow-x: auto; padding: 10px; gap: 10px; }
+        .sidebar nav a { flex: 1; justify-content: center; min-width: max-content; }
+        .dashboard-layout > div { margin-bottom: 80px; } /* space for bottom bar */
+    }
 
-    .top-bar-sticky { position: sticky; top: 0; background: rgba(var(--surface-rgb, 12, 15, 25), 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 100; }
-    .dark .top-bar-sticky { background: rgba(12, 15, 25, 0.85); }
-    html:not(.dark) .top-bar-sticky { background: rgba(255, 255, 255, 0.85); }
+    /* Top Bar */
+    .top-bar-sticky { 
+        position: sticky; top: 0; z-index: 100;
+        background: rgba(var(--surface-rgb, 12, 15, 25), 0.7); 
+        backdrop-filter: blur(20px); 
+        transition: border-bottom 0.3s, background 0.3s;
+        border-bottom: 1px solid transparent;
+    }
+    .top-bar-sticky.scrolled { border-bottom: 1px solid var(--border); background: rgba(var(--surface-rgb, 12, 15, 25), 0.9); }
+    .dark .top-bar-sticky { background: rgba(12, 15, 25, 0.7); }
+    .dark .top-bar-sticky.scrolled { background: rgba(12, 15, 25, 0.9); }
+    html:not(.dark) .top-bar-sticky { background: rgba(255, 255, 255, 0.7); }
+    html:not(.dark) .top-bar-sticky.scrolled { background: rgba(255, 255, 255, 0.9); }
 
-    .jd-context-strip { background: var(--brand-soft); border-bottom: 1px solid var(--brand-glow); padding: 10px 0; font-size: 13px; }
-
-    .sidebar nav a { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; color: var(--t2); text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 500; border-left: 3px solid transparent; transition: background var(--t-fast); margin-bottom: 4px; }
+    /* Sidebar Links */
+    .sidebar nav a { 
+        display: flex; align-items: center; justify-content: space-between; 
+        padding: 12px 16px; color: var(--t2); text-decoration: none; 
+        border-radius: 8px; font-size: 14px; font-weight: 500; 
+        border-left: 3px solid transparent; transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1); 
+        margin-bottom: 4px;
+    }
     .sidebar nav a:hover { background: var(--elevated); color: var(--t1); }
-    .sidebar nav a.active { background: var(--brand-soft); color: var(--t1); border-left: 3px solid var(--brand); }
-    .nav-badge { font-family: var(--font-mono); font-size: 11px; padding: 2px 6px; border-radius: 4px; background: var(--border); color: var(--t2); }
-    .sidebar nav a.active .nav-badge { background: var(--brand); color: #fff; }
+    .sidebar nav a.active { background: rgba(59, 130, 246, 0.1); color: var(--brand); border-left: 3px solid var(--brand); }
+    .nav-badge { font-family: var(--font-mono); font-size: 11px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+    
+    /* Badge Colors */
+    .badge-green { background: rgba(16, 185, 129, 0.15); color: var(--excellent); }
+    .badge-blue { background: rgba(59, 130, 246, 0.15); color: var(--brand); }
+    .badge-amber { background: rgba(245, 158, 11, 0.15); color: var(--average); }
+    .badge-red { background: rgba(239, 68, 68, 0.15); color: var(--poor); }
 
-    /* Gauge Arc */
-    .gauge-wrapper { position: relative; width: 280px; height: 280px; margin: 0 auto; filter: drop-shadow(0 0 40px var(--brand-glow)); }
+    /* Score Gauge */
+    .score-gauge-container { display: flex; align-items: center; gap: 40px; }
+    @media (max-width: 600px) { .score-gauge-container { flex-direction: column; text-align: center; } }
+    .gauge-wrapper { position: relative; width: 260px; height: 260px; flex-shrink: 0; }
     .gauge-svg { transform: rotate(-90deg); width: 100%; height: 100%; overflow: visible; }
     .gauge-value { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
-    .gauge-number { font-family: var(--font-mono); font-size: 72px; font-weight: 400; line-height: 1; }
+    .gauge-number { font-family: var(--font-mono); font-size: 80px; font-weight: 400; line-height: 1; }
 
     /* Dimension Bars */
-    .dim-bar-wrapper { margin-bottom: 20px; }
-    .dim-bar-title { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
-    .dim-bar-track { width: 100%; height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
-    .dim-bar-fill { height: 100%; border-radius: 99px; }
+    .dim-bar-wrapper { margin-bottom: 16px; }
+    .dim-bar-title { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; font-weight: 500; }
+    .dim-bar-track { width: 100%; height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .dim-bar-fill { height: 100%; border-radius: 99px; transition: width 1s cubic-bezier(0.2, 0.8, 0.2, 1); width: 0; }
 
-    /* Data Table */
-    .data-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
-    .data-table th, .data-table td { padding: 14px 20px; border-bottom: 1px solid var(--border); text-align: left; font-size: 14px; }
-    .data-table th { background: var(--surface); color: var(--t2); font-weight: 500; }
-    .data-table tr:last-child td { border-bottom: none; }
+    /* Insight Chips */
+    .insight-chip { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; border-radius: 8px; font-size: 14px; margin-bottom: 8px; line-height: 1.4; border: 1px solid transparent; }
+    .insight-chip.green { background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2); color: var(--excellent); }
+    .insight-chip.red { background: rgba(239, 68, 68, 0.05); border-color: rgba(239, 68, 68, 0.2); color: var(--poor); }
+    .insight-chip.amber { background: rgba(245, 158, 11, 0.05); border-color: rgba(245, 158, 11, 0.2); color: var(--average); }
+
+    /* Accordion Cards */
+    .accordion-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); cursor: pointer; overflow: hidden; }
+    .accordion-card:hover { transform: translateY(-2px); border-color: var(--brand-soft); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .dark .accordion-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .accordion-header { padding: 16px 20px; display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center; }
+    .accordion-content { padding: 0 20px; max-height: 0; opacity: 0; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); background: var(--surface); }
+    .accordion-card.expanded .accordion-content { padding: 16px 20px; max-height: 200px; opacity: 1; border-top: 1px solid var(--border); }
+    .accordion-card.expanded .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 0.3s ease; color: var(--t3); }
+
+    /* Gaps & Strengths */
+    .gs-item { display: flex; align-items: flex-start; gap: 12px; padding: 16px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; background: var(--card); border-left: 3px solid transparent; }
+    .gs-gap { border-left-color: var(--poor); }
+    .gs-strength { border-left-color: var(--excellent); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+    .dot.red { background: var(--poor); box-shadow: 0 0 8px rgba(239,68,68,0.4); }
+    .dot.green { background: var(--excellent); box-shadow: 0 0 8px rgba(16,185,129,0.4); }
+
+
+
+
+    /* Scroll Animations */
+    .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
   <!-- Blurred Top Bar -->
-  <div class="top-bar-sticky">
+  <div class="top-bar-sticky" id="top-bar">
     <div class="container flex justify-between items-center py-4">
-      <div class="flex items-center gap-4">
-        <a href="index.html" class="logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><path d="M12 22V2M16 11l-4-4-4 4M6 16v-4M18 16v-4"/></svg>
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="logo text-brand hover-glow" style="display:flex;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V2M16 11l-4-4-4 4M6 16v-4M18 16v-4"/></svg>
         </a>
         <div style="height: 24px; width: 1px; background: var(--border);"></div>
-        <span class="pill mono-text" style="background:transparent; border-color:var(--border-hi);">resume_2025.pdf</span>
+        <span id="display-filename" class="pill mono-text text-t2" style="background:var(--elevated); border:none;">resume.pdf</span>
         <span class="text-t3">→</span>
-        <span class="pill mono-text" style="color:var(--t1);">Senior Backend Engineer</span>
+        <span id="display-jd-title" class="pill mono-text" style="color:var(--brand); background:var(--brand-soft); border:none;">Job Description</span>
       </div>
       <div class="flex items-center gap-4">
         <button class="btn btn-ghost theme-toggle-btn" style="padding: 8px; border:none;" aria-label="Toggle Theme">
@@ -78,208 +139,411 @@
           <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
         <button class="btn btn-ghost" onclick="window.location.href='index.html'">Scan Again</button>
-        <button class="btn btn-primary" onclick="window.print()">Download Report</button>
+        <button class="btn btn-primary shadow-glow" onclick="window.print()">Download Report</button>
       </div>
     </div>
   </div>
 
-  <!-- JD Context Strip -->
-  <div class="jd-context-strip">
-    <div class="container flex justify-between items-center text-t2">
-      <div class="flex items-center gap-2">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-        <span>Matching against: <strong class="text-brand">Senior Backend Engineer at Google</strong></span>
-        <span class="text-t3 mx-2">|</span>
-        <span>23 requirements analyzed</span>
-      </div>
-      <div style="position: relative;">
-        <button class="btn btn-ghost" style="padding: 4px 12px; font-size: 12px; border: none; color: var(--brand);" onclick="document.getElementById('change-jd-flyout').classList.toggle('hidden')">Change JD →</button>
-        <div id="change-jd-flyout" class="card hidden" style="position: absolute; right: 0; top: 100%; width: 360px; z-index: 50; padding: 20px;">
-          <p class="font-500 mb-2">Re-score with different JD</p>
-          <textarea class="textarea mono-text mb-4" style="height: 120px; font-size: 12px;" placeholder="Paste new JD here..."></textarea>
-          <button class="btn btn-primary w-full" onclick="location.reload()">Re-analyze →</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <main class="container mt-12 mb-32">
+  <main class="container mt-8 mb-32">
     <div class="dashboard-layout">
-      <!-- Sticky Sidebar -->
+      
+      <!-- 1. Left Sidebar -->
       <aside class="sidebar">
-        <div style="position: sticky; top: 160px;">
+        <div style="position: sticky; top: 100px;">
           <nav>
-            <a href="#overall" class="active">
+            <a href="#overall" class="nav-link active" data-target="overall">
               <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Overall Score</div>
-              <span class="nav-badge">82</span>
+              <span id="nav-score-badge" class="nav-badge badge-blue">0</span>
             </a>
-            <a href="#keywords">
-              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> Keyword Analysis</div>
-              <span class="nav-badge">82%</span>
+            <a href="#jdcompat" class="nav-link" data-target="jdcompat">
+              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Requirements</div>
+              <span id="nav-match-badge" class="nav-badge badge-amber">0/0</span>
             </a>
-            <a href="#jdcompat">
-              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> JD Compatibility</div>
-              <span class="nav-badge">19/23</span>
-            </a>
-            <a href="#breakdown">
-              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg> Section Breakdown</div>
-              <span class="nav-badge" style="background:var(--average); color:#000;">3</span>
-            </a>
-            <a href="#suggestions">
-              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg> AI Suggestions</div>
-              <span class="nav-badge" style="background:var(--poor); color:#fff;">5</span>
-            </a>
-            <a href="#format">
-              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Format Check</div>
-              <span class="nav-badge" style="background:var(--excellent); color:#fff;">✓</span>
+            <a href="#suggestions" class="nav-link" data-target="suggestions">
+              <div class="flex items-center gap-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg> Gaps & Strengths</div>
+              <span id="nav-gap-badge" class="nav-badge badge-red">0</span>
             </a>
           </nav>
+          
+          <div class="mt-8 p-4 rounded bg-surface border border-border">
+            <p class="text-t3" style="font-size:12px; margin-bottom:4px;">Matched against:</p>
+            <p id="sidebar-role-name" class="font-500 text-sm mb-4">Calculated Role</p>
+            <a href="index.html" class="text-brand text-sm hover-underline">Change JD →</a>
+          </div>
         </div>
       </aside>
 
-      <!-- Main Content Area -->
-      <div>
+      <!-- 2. Center Main -->
+      <div class="center-content">
         
-        <!-- hero Score -->
-        <section id="overall" class="mb-16 animate-on-scroll card" style="border:1px solid var(--brand-glow); background:linear-gradient(135deg, var(--brand-soft) 0%, var(--card) 60%);">
-          <div id="hero-gauge" class="gauge-wrapper mb-8">
-            <svg class="gauge-svg" viewBox="0 0 240 240">
-              <circle cx="120" cy="120" r="110" fill="none" stroke="var(--border)" stroke-width="14"></circle>
-              <!-- Animated Circle -->
-              <circle id="gauge-circle" cx="120" cy="120" r="110" fill="none" stroke="var(--good)" stroke-width="14" stroke-dasharray="0 692" stroke-linecap="round" style="filter: drop-shadow(0 0 8px var(--brand-glow));"></circle>
-            </svg>
-            <div class="gauge-value">
-              <div id="gauge-score" class="gauge-number text-t1 font-mono" data-score="82">0</div>
-              <div class="text-t2 font-500 mt-2" style="font-size:14px;">Good Match</div>
-              <div class="text-t3 mt-1" style="font-size:12px;">against Senior Backend Engineer</div>
-            </div>
-          </div>
-
-          <div class="grid-2 gap-8 text-left mx-auto">
-            <div class="flex-col justify-center">
-              <p class="text-t2" style="font-size:16px; line-height:1.7;">
-                Your resume is a strong match for this role. You cover 19 of 23 requirements. The main gap is infrastructure keywords (Kubernetes, Terraform) that appear 8 times in the JD but not in your resume.
-              </p>
-            </div>
-            
-            <div class="flex-col gap-1">
-              <div class="dim-bar-wrapper">
-                <div class="dim-bar-title"><span class="text-t2" title="Click to see breakdown">Keyword Match</span> <span class="mono-text">82%</span></div>
-                <div class="dim-bar-track"><div class="dim-bar-fill bg-brand" data-width="82%" style="background:var(--brand);"></div></div>
-              </div>
-              <div class="dim-bar-wrapper">
-                <div class="dim-bar-title"><span class="text-t2" title="Click to see breakdown">Format & Structure</span> <span class="mono-text" style="color:var(--poor);">54%</span></div>
-                <div class="dim-bar-track"><div class="dim-bar-fill" data-width="54%" style="background:var(--poor);"></div></div>
-              </div>
-              <div class="dim-bar-wrapper">
-                <div class="dim-bar-title"><span class="text-t2" title="Click to see breakdown">Experience Match</span> <span class="mono-text">88%</span></div>
-                <div class="dim-bar-track"><div class="dim-bar-fill" data-width="88%" style="background:var(--excellent);"></div></div>
-              </div>
-              <div class="dim-bar-wrapper">
-                <div class="dim-bar-title"><span class="text-t2" title="Click to see breakdown">ATS Compatibility</span> <span class="mono-text">100%</span></div>
-                <div class="dim-bar-track"><div class="dim-bar-fill" data-width="100%" style="background:var(--excellent);"></div></div>
+        <!-- Score Section -->
+        <section id="overall" class="mb-20 pt-4">
+          <div class="score-gauge-container animate-on-scroll">
+            <div class="gauge-wrapper">
+              <svg class="gauge-svg" viewBox="0 0 260 260">
+                <circle cx="130" cy="130" r="120" fill="none" stroke="var(--border)" stroke-width="12"></circle>
+                <circle id="gauge-circle" cx="130" cy="130" r="120" fill="none" stroke="var(--brand)" stroke-width="12" stroke-dasharray="0 754" stroke-linecap="round" style="transition: stroke-dasharray 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);"></circle>
+              </svg>
+              <div class="gauge-value">
+                <div id="gauge-score" class="gauge-number text-t1">0</div>
+                <div id="gauge-label" class="text-t2 font-500 mt-2 text-sm tracking-wide uppercase">Analyzing</div>
               </div>
             </div>
-          </div>
-        </section>
 
-        <!-- JD Compatibility -->
-        <section id="jdcompat" class="mb-16 animate-on-scroll">
-          <h2 class="display-title-normal mb-8">How well do you fit THIS specific job?</h2>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Requirement</th>
-                <th>In JD</th>
-                <th>In Resume</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Python</td>
-                <td class="mono-text">5×</td>
-                <td><span class="pill pill-green border-none">✓ Found</span></td>
-              </tr>
-              <tr>
-                <td>Microservices</td>
-                <td class="mono-text">4×</td>
-                <td><span class="pill pill-green border-none">✓ Found</span></td>
-              </tr>
-              <tr>
-                <td>Kubernetes</td>
-                <td class="mono-text">4×</td>
-                <td><span class="pill pill-red border-none">✗ Missing</span></td>
-              </tr>
-              <tr>
-                <td>5+ Years Experience</td>
-                <td class="mono-text">3×</td>
-                <td><span class="pill pill-green border-none">✓ Found</span></td>
-              </tr>
-              <tr>
-                <td>Terraform</td>
-                <td class="mono-text">2×</td>
-                <td><span class="pill pill-red border-none">✗ Missing</span></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="mt-4 p-6 card flex justify-between items-center" style="border:1px dashed var(--border-hi); background:transparent;">
-            <div>
-              <p class="text-t1 font-500 mb-1">Want to try a different job?</p>
-              <p class="text-t2 text-sm">Rescore this exact resume against a different role.</p>
-            </div>
-            <a href="index.html" class="btn btn-ghost" style="padding:8px 16px;">Re-analyze →</a>
-          </div>
-        </section>
-
-        <!-- Actions -->
-        <section id="suggestions" class="mb-16 animate-on-scroll">
-          <h2 class="display-title-normal mb-2">AI Suggestions</h2>
-          <p class="text-t3 mb-8 text-sm text-brand">Suggestions are specific to the job you matched against.</p>
-          
-          <div class="flex gap-2 mb-6">
-            <span class="pill" style="border-color:var(--border-hi); color:var(--t1);">All (8)</span>
-            <span class="pill" style="border-color:var(--poor);">High (3)</span>
-            <span class="pill" style="border-color:var(--average);">Medium (3)</span>
-            <span class="pill">Low (2)</span>
-          </div>
-
-          <div class="flex-col gap-4">
-            <!-- High Impact Keyword -->
-            <div class="card card-high flex-col gap-3 p-6" style="padding: 24px;">
-              <div class="flex justify-between items-center mb-2">
-                <span class="pill" style="background:rgba(239, 68, 68, 0.1); color:var(--poor); border:none;">🔴 HIGH</span>
-                <span class="text-t3 text-sm">Keywords & Scope</span>
-              </div>
-              
-              <div class="flex gap-2 mb-2 font-mono" style="font-size:13px; color:var(--poor);">
-                Missing: kubernetes, terraform, helm
-              </div>
-
-              <p class="text-t2 mb-4" style="line-height:1.6;">
-                These appear 8 times in the JD but are not in your resume. ATS will likely filter you out for this role specifically.
-              </p>
-
-              <div class="p-4 rounded border border-border bg-surface mono-text flex justify-between items-start">
-                <div>
-                  <span class="text-t3 text-xs uppercase tracking-widest block mb-2">FIX: ADD TO SKILLS SECTION</span>
-                  <span class="text-t1">"Container Orchestration: Kubernetes, Terraform, Helm"</span>
+            <div class="flex-col w-full">
+              <div class="flex-col gap-2 mb-6">
+                <!-- Dimension Bars with Stagger -->
+                <div class="dim-bar-wrapper animate-on-scroll" style="transition-delay: 100ms;">
+                  <div class="dim-bar-title"><span class="text-t2">Skill Match</span> <span id="val-skill" class="mono-text text-t1">0%</span></div>
+                  <div class="dim-bar-track"><div id="bar-skill" class="dim-bar-fill"></div></div>
                 </div>
-                <button class="btn btn-ghost" style="padding: 4px 10px; font-size:12px;">Copy Fix</button>
+                <div class="dim-bar-wrapper animate-on-scroll" style="transition-delay: 200ms;">
+                  <div class="dim-bar-title"><span class="text-t2">Experience Quality</span> <span id="val-exp" class="mono-text text-t1">0%</span></div>
+                  <div class="dim-bar-track"><div id="bar-exp" class="dim-bar-fill"></div></div>
+                </div>
+                <div class="dim-bar-wrapper animate-on-scroll" style="transition-delay: 300ms;">
+                  <div class="dim-bar-title"><span class="text-t2">Career Progression</span> <span id="val-prog" class="mono-text text-t1">0%</span></div>
+                  <div class="dim-bar-track"><div id="bar-prog" class="dim-bar-fill"></div></div>
+                </div>
+                <div class="dim-bar-wrapper animate-on-scroll" style="transition-delay: 400ms;">
+                  <div class="dim-bar-title"><span class="text-t2">Context Fit</span> <span id="val-fit" class="mono-text text-t1">0%</span></div>
+                  <div class="dim-bar-track"><div id="bar-fit" class="dim-bar-fill"></div></div>
+                </div>
+              </div>
+
+              <!-- Insight Chips replacing paragraph -->
+              <div id="insight-chips" class="flex-col animate-on-scroll" style="transition-delay: 500ms;">
+                <!-- Generated via JS -->
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- Requirements Accordion -->
+        <section id="jdcompat" class="mb-20 pt-4">
+          <h2 class="display-title-normal mb-8 animate-on-scroll">Detailed Requirement Match</h2>
+          <div id="accordion-container" class="flex-col gap-2">
+            <!-- Generated via JS -->
+            <p class="text-t3 text-center py-8">Loading match data...</p>
+          </div>
+        </section>
+
+        <!-- Gaps & Strengths 2-Column -->
+        <section id="suggestions" class="mb-20 pt-4">
+          <h2 class="display-title-normal mb-2 animate-on-scroll">Actionable Insights</h2>
+          <p class="text-t3 mb-8 text-sm animate-on-scroll">Critical improvements to pass the ATS filter.</p>
+          
+          <div class="grid-2 gap-8">
+            <div class="flex-col animate-on-scroll">
+              <h3 class="text-poor font-600 mb-4 flex items-center gap-2"><div class="dot red"></div> Critical Gaps</h3>
+              <div id="gaps-container" class="flex-col"></div>
+            </div>
             
+            <div class="flex-col animate-on-scroll" style="transition-delay: 100ms;">
+              <h3 class="text-excellent font-600 mb-4 flex items-center gap-2"><div class="dot green"></div> Your Strengths</h3>
+              <div id="strengths-container" class="flex-col"></div>
+            </div>
           </div>
         </section>
 
       </div>
+
+
     </div>
   </main>
 
-  <style>
-    .hidden { display: none !important; }
-  </style>
-  <script src="js/core.js" defer></script>
-  <script src="js/animations.js" defer></script>
-  <script src="js/app.js" defer></script>
+  <script src="js/core.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Sticky Top Bar Blur
+        window.addEventListener('scroll', () => {
+            const topBar = document.getElementById('top-bar');
+            if (window.scrollY > 20) topBar.classList.add('scrolled');
+            else topBar.classList.remove('scrolled');
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        // Setup data
+        const raw = localStorage.getItem('lastResult');
+        if (!raw) {
+            document.body.innerHTML = '<div class="container mt-32 text-center"><h2>No data found</h2><a href="index.html" class="btn btn-primary mt-4">Go Back</a></div>';
+            return;
+        }
+
+        const data = JSON.parse(raw);
+        const filename = localStorage.getItem('lastFilename') || 'resume.pdf';
+        const jdTitle = (localStorage.getItem('lastJD') || 'Job Description').replace(/\s+/g, ' ').trim().substring(0, 30) + "...";
+
+        // Top Bar & Sidebar Headers
+        document.getElementById('display-filename').innerText = filename;
+        document.getElementById('display-jd-title').innerText = jdTitle;
+        document.getElementById('sidebar-role-name').innerText = jdTitle;
+        
+        // Gauge Color Selection
+        const score = data.overall_score || 0;
+        let colorClass = "badge-red";
+        let hexColor = "var(--poor)";
+        let label = "Needs Work";
+        
+        if (score >= 85) { colorClass = "badge-green"; hexColor = "var(--excellent)"; label = "Excellent Match"; }
+        else if (score >= 70) { colorClass = "badge-blue"; hexColor = "var(--brand)"; label = "Good Match"; }
+        else if (score >= 50) { colorClass = "badge-amber"; hexColor = "var(--average)"; label = "Average Match"; }
+        
+        // Update Side Badges
+        const scoreBadge = document.getElementById('nav-score-badge');
+        scoreBadge.innerText = score;
+        scoreBadge.className = `nav-badge ${colorClass}`;
+        
+        const totalReqs = (data.matched_requirements?.length || 0) + (data.unmatched_requirements?.length || 0);
+        document.getElementById('nav-match-badge').innerText = `${data.matched_requirements?.length || 0}/${totalReqs}`;
+        document.getElementById('nav-gap-badge').innerText = data.gaps?.length || 0;
+
+        // Animate Gauge
+        document.getElementById('gauge-score').innerText = score;
+        document.getElementById('gauge-label').innerText = label;
+        const circle = document.getElementById('gauge-circle');
+        circle.style.stroke = hexColor;
+        circle.style.filter = `drop-shadow(0 0 20px ${hexColor}80)`;
+        
+        const circumference = 2 * Math.PI * 120; // r=120
+        const offset = circumference - (score / 100) * circumference;
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = circumference;
+        
+        setTimeout(() => { circle.style.strokeDashoffset = offset; }, 100);
+
+        // Dimension Bars
+        const dims = data.dimension_scores || {};
+        updateBar('skill', dims.skill_match);
+        updateBar('exp', dims.experience_quality);
+        updateBar('prog', dims.career_progression);
+        updateBar('fit', dims.context_fit);
+
+        function updateBar(id, val) {
+            val = val || 0;
+            document.getElementById(`val-${id}`).innerText = `${val}%`;
+            const bar = document.getElementById(`bar-${id}`);
+            const bColor = val >= 80 ? 'var(--excellent)' : (val >= 60 ? 'var(--brand)' : 'var(--poor)');
+            bar.style.background = bColor;
+            setTimeout(() => { bar.style.width = `${val}%`; }, 100);
+        }
+
+        // ===== ENHANCV-STYLE RESUME DOCUMENT =====
+        const rdoc = document.getElementById('rdoc');
+        if (rdoc && data.resume_json) {
+            const r = data.resume_json;
+            const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+            let h = '';
+
+            // --- Header ---
+            h += `<p class="rdoc-name">${esc(r.personal_info?.name || 'Candidate')}</p>`;
+            if (r.experience?.[0]?.title) h += `<p class="rdoc-title">${esc(r.experience[0].title)}</p>`;
+            const ci = [r.personal_info?.email, r.personal_info?.location, r.personal_info?.linkedin].filter(Boolean);
+            if (ci.length) h += `<div class="rdoc-contact">${ci.map(c => `<span>${esc(c)}</span>`).join('')}</div>`;
+
+            // --- Two columns ---
+            h += '<div class="rdoc-cols"><div class="rdoc-left">';
+
+            // LEFT: Experience
+            if (r.experience?.length) {
+                h += '<div class="rdoc-sh">Experience</div>';
+                r.experience.forEach(exp => {
+                    h += '<div class="rdoc-exp">';
+                    h += `<p class="rdoc-exp-role">${esc(exp.title)}</p>`;
+                    h += `<p class="rdoc-exp-co">${esc(exp.company)}</p>`;
+                    const d = [exp.start_year, exp.end_year||'Present'].filter(Boolean).join(' – ');
+                    if (d) h += `<p class="rdoc-exp-date">📅 ${d}</p>`;
+                    const bullets = [...(exp.responsibilities||[]), ...(exp.outcomes||[])];
+                    if (bullets.length) {
+                        h += '<ul>';
+                        bullets.forEach(b => h += `<li>${esc(b)}</li>`);
+                        h += '</ul>';
+                    }
+                    h += '</div>';
+                });
+            }
+
+            // LEFT: Education
+            if (r.education?.length) {
+                h += '<div class="rdoc-sh">Education</div>';
+                r.education.forEach(edu => {
+                    h += '<div class="rdoc-edu">';
+                    h += `<p class="rdoc-edu-deg">${esc(edu.degree)}</p>`;
+                    h += `<p class="rdoc-edu-inst">${esc(edu.institution)}</p>`;
+                    const meta = [edu.year ? '📅 ' + edu.year : '', edu.cgpa ? 'CGPA: ' + edu.cgpa : ''].filter(Boolean).join('  ·  ');
+                    if (meta) h += `<p class="rdoc-edu-meta">${meta}</p>`;
+                    h += '</div>';
+                });
+            }
+
+            h += '</div><div class="rdoc-right">';
+
+            // RIGHT: Skills as tags
+            if (r.skills?.length) {
+                h += '<div class="rdoc-sh">Skills</div>';
+                h += '<div class="rdoc-tags">';
+                r.skills.forEach(s => h += `<span class="rdoc-tag">${esc(s)}</span>`);
+                // Missing skill tags
+                (data.gaps || []).forEach(gap => {
+                    const words = gap.match(/\b[A-Z][a-zA-Z+#.\/]{1,}\b/g);
+                    if (words) words.forEach(w => {
+                        if (!r.skills.some(s => s.toLowerCase() === w.toLowerCase())) {
+                            h += `<span class="rdoc-tag missing">${esc(w)}</span>`;
+                        }
+                    });
+                });
+                h += '</div>';
+            }
+
+            // RIGHT: Projects
+            if (r.projects?.length) {
+                h += '<div class="rdoc-sh">Projects</div>';
+                r.projects.forEach(proj => {
+                    h += '<div class="rdoc-exp">';
+                    h += `<p class="rdoc-exp-role">${esc(proj.title)}</p>`;
+                    if (proj.description) h += `<p style="font-size:10.5px; color:#555; margin:2px 0;">${esc(proj.description)}</p>`;
+                    if (proj.outcome) h += `<p style="font-size:10.5px; color:#555; margin:2px 0;">▸ ${esc(proj.outcome)}</p>`;
+                    if (proj.tech_stack?.length) {
+                        h += '<div class="rdoc-tags" style="margin-top:4px;">';
+                        proj.tech_stack.forEach(t => h += `<span class="rdoc-tag">${esc(t)}</span>`);
+                        h += '</div>';
+                    }
+                    h += '</div>';
+                });
+            }
+
+            // RIGHT: Certifications
+            if (r.certifications?.length) {
+                h += '<div class="rdoc-sh">Certifications</div>';
+                r.certifications.forEach(c => h += `<p style="font-size:10.5px; margin:3px 0;">• ${esc(c)}</p>`);
+            }
+
+            h += '</div></div>'; // close cols
+
+            // --- Strengths (green annotations) ---
+            if (data.strengths?.length) {
+                h += '<div style="margin-top:16px;"><div class="rdoc-sh" style="border-color:#10b981; color:#10b981;">✓ Strengths Found</div>';
+                data.strengths.forEach(s => {
+                    h += `<div class="rdoc-good"><p>${esc(s)}</p></div>`;
+                });
+                h += '</div>';
+            }
+
+            // --- Gaps (red annotations) ---
+            if (data.gaps?.length) {
+                h += '<div style="margin-top:12px;"><div class="rdoc-sh" style="border-color:#ef4444; color:#ef4444;">✗ Areas to Improve</div>';
+                data.gaps.forEach(g => {
+                    h += `<div class="rdoc-bad"><p>${esc(g)}</p></div>`;
+                });
+                h += '</div>';
+            }
+
+            rdoc.innerHTML = h;
+        }
+
+        // Insight Chips
+        const chipsCont = document.getElementById('insight-chips');
+        if (data.strengths && data.strengths.length > 0) {
+            chipsCont.innerHTML += `<div class="insight-chip green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> <span><strong>Strength:</strong> ${data.strengths[0].split('.')[0]}.</span></div>`;
+        }
+        if (data.gaps && data.gaps.length > 0) {
+            chipsCont.innerHTML += `<div class="insight-chip red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-1"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> <span><strong>Critical Gap:</strong> ${data.gaps[0].split('.')[0]}.</span></div>`;
+        }
+
+        // Accordion Table
+        const accCont = document.getElementById('accordion-container');
+        accCont.innerHTML = '';
+        
+        let stagger = 0;
+        (data.matched_requirements || []).forEach(m => {
+            const card = document.createElement('div');
+            card.className = "accordion-card animate-on-scroll";
+            card.style.transitionDelay = `${stagger}ms`;
+            const isFull = m.match_type === 'full';
+            card.innerHTML = `
+                <div class="accordion-header">
+                    <div class="flex items-center gap-4">
+                        <span class="pill mono-text" style="font-size:11px; background:var(--surface); border:1px solid var(--border);">REQ</span>
+                        <span class="font-500 text-t1">${m.req_id}</span>
+                    </div>
+                    <span class="pill ${isFull ? 'badge-green' : 'badge-amber'} border-none" style="font-size:11px;">${isFull ? '✓ Found' : '◐ Partial'}</span>
+                    <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="accordion-content text-t2 text-sm">${m.reasoning}</div>
+            `;
+            card.addEventListener('click', () => card.classList.toggle('expanded'));
+            accCont.appendChild(card);
+            stagger += 60;
+        });
+
+        (data.unmatched_requirements || []).forEach(u => {
+            const card = document.createElement('div');
+            card.className = "accordion-card animate-on-scroll";
+            card.style.transitionDelay = `${stagger}ms`;
+            card.innerHTML = `
+                <div class="accordion-header">
+                    <div class="flex items-center gap-4">
+                        <span class="pill mono-text" style="font-size:11px; background:var(--surface); border:1px solid var(--border);">REQ</span>
+                        <span class="font-500 text-t1">${u}</span>
+                    </div>
+                    <span class="pill badge-red border-none" style="font-size:11px;">✗ Missing</span>
+                    <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="accordion-content text-t2 text-sm">This requirement was not detected anywhere in your resume structure.</div>
+            `;
+            card.addEventListener('click', () => card.classList.toggle('expanded'));
+            accCont.appendChild(card);
+            stagger += 60;
+        });
+
+        // Gaps and Strengths
+        const gapsCont = document.getElementById('gaps-container');
+        (data.gaps || []).forEach((gap, i) => {
+            const el = document.createElement('div');
+            el.className = "gs-item gs-gap";
+            el.innerHTML = `<span class="text-t2">${gap.split('.')[0]}.</span>`; // Shorten
+            gapsCont.appendChild(el);
+        });
+
+        const strCont = document.getElementById('strengths-container');
+        (data.strengths || []).forEach((s, i) => {
+            const el = document.createElement('div');
+            el.className = "gs-item gs-strength";
+            el.innerHTML = `<span class="text-t2">${s.split('.')[0]}.</span>`; // Shorten
+            strCont.appendChild(el);
+        });
+
+        // Fire observer
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        
+        // Sync Sidebar Navigation Highlight
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.sidebar nav .nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(sec => {
+                if (window.scrollY >= (sec.offsetTop - 150)) {
+                    current = sec.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-target') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    });
+  </script>
 </body>
 </html>

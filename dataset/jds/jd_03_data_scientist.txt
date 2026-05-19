@@ -1,0 +1,29 @@
+Job Title: Data Scientist
+
+Company: AI Vision Labs  
+Location: Bangalore, India
+
+Role Overview:
+We are hiring a Data Scientist with strong analytical
+thinking and machine learning knowledge to work on
+predictive models and intelligent systems.
+
+Required Skills:
+- Python programming
+- Machine Learning fundamentals
+- Statistics and Probability
+- Data preprocessing
+- SQL and database knowledge
+- Problem-solving mindset
+
+Preferred Skills:
+- Deep Learning basics
+- NLP or Computer Vision exposure
+- Scikit-learn / Pandas / NumPy
+- Kaggle or research projects
+
+Education:
+- B.Tech / M.Tech / MCA in relevant field
+
+Experience:
+- Freshers to 2 years

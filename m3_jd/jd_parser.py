@@ -61,7 +61,7 @@ class JDParser:
                 
                 self.validator.validate(jd_json, "jd_tree.json")
                 return jd_json
-            except (ValidationError, Exception) as e:
+            except ValidationError as e:
                 last_error = e
                 if attempt == max_retries - 1:
-                    raise JDParseError(f"Failed to parse JD after {max_retries} attempts. Last error: {str(last_error)}")
+                    raise JDParseError(f"Failed to validate JD schema after {max_retries} attempts. Last error: {str(last_error)}")

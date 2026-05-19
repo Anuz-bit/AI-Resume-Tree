@@ -124,4 +124,4 @@ class LLMClient:
                     return json.loads(cleaned[start:end])
             except:
                 pass
-            raise LLMError(f"Failed to parse JSON response: {e}\nResponse was: {cleaned[:200]}")
+            raise LLMError(f"Failed to parse JSON response: {e}\nResponse was: {cleaned[:200]}")

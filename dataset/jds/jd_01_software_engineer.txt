@@ -1,0 +1,31 @@
+Job Title: Software Engineer
+
+Company: TechNova Solutions  
+Location: Pune, India (Hybrid)
+
+Role Overview:
+We are looking for a Software Engineer with strong
+problem-solving skills and programming knowledge to
+join our development team. The candidate will work
+on software applications, backend systems, debugging,
+and performance optimization.
+
+Required Skills:
+- Strong knowledge of Python or Java
+- Understanding of OOP concepts
+- Knowledge of Data Structures and Algorithms
+- SQL and database fundamentals
+- Git and version control basics
+- Problem-solving ability
+
+Preferred Skills:
+- REST API development
+- Django / Spring Boot / FastAPI
+- Internship or project experience
+- Cloud basics (AWS/GCP/Azure)
+
+Education:
+- B.Tech / B.E. in CS, IT, or related field
+
+Experience:
+- Freshers to 2 years

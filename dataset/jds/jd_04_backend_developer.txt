@@ -1,0 +1,28 @@
+Job Title: Backend Developer
+
+Company: CloudCore Systems  
+Location: Hyderabad, India
+
+Role Overview:
+We are looking for a Backend Developer responsible
+for building scalable APIs and backend services.
+The candidate should understand databases and server-side development.
+
+Required Skills:
+- Python / Java / Node.js
+- REST APIs
+- SQL and database design
+- OOP principles
+- Git and deployment basics
+
+Preferred Skills:
+- Django / FastAPI / Spring Boot
+- Docker basics
+- Cloud fundamentals
+- Authentication systems
+
+Education:
+- B.Tech / B.E. preferred
+
+Experience:
+- Freshers and junior developers

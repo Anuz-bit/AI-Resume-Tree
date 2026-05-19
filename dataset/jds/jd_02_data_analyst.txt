@@ -1,0 +1,30 @@
+Job Title: Data Analyst
+
+Company: Insight Analytics Pvt Ltd  
+Location: Pune, India
+
+Role Overview:
+We are seeking a Data Analyst who can interpret
+complex data and help improve business decisions.
+The candidate should be comfortable working with
+data visualization, reporting, and SQL databases.
+
+Required Skills:
+- Strong SQL knowledge
+- Excel and data analysis skills
+- Python for data analysis
+- Power BI / Tableau basics
+- Statistics fundamentals
+- Communication skills
+
+Preferred Skills:
+- Machine Learning basics
+- Dashboard building
+- Data cleaning experience
+- Business reporting projects
+
+Education:
+- B.Tech / B.Sc / MCA / related field
+
+Experience:
+- Freshers welcome

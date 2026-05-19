@@ -35,9 +35,20 @@ class ResumeTreeBuilder:
                 # Assuming temperature 0.2 for tree generation
                 tree_json = self.llm.call_json(user_prompt, system_prompt, 0.2)
                 
+                # Recursive fix for tech_stack
+                def clean_nodes(node):
+                    if not isinstance(node, dict): return
+                    if "metadata" in node and isinstance(node["metadata"], dict):
+                        if node["metadata"].get("tech_stack") is None:
+                            node["metadata"]["tech_stack"] = []
+                    for child in node.get("children", []):
+                        clean_nodes(child)
+                
+                clean_nodes(tree_json)
+                
                 self.validator.validate(tree_json, "tree_node.json")
                 return tree_json
-            except (ValidationError, Exception) as e:
+            except ValidationError as e:
                 last_error = e
                 if attempt == max_retries - 1:
-                    raise TreeBuilderError(f"Failed to build tree after {max_retries} attempts. Last error: {str(last_error)}")
+                    raise TreeBuilderError(f"Failed to validate tree schema after {max_retries} attempts. Last error: {str(last_error)}")

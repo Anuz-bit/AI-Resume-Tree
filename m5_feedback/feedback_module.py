@@ -70,7 +70,7 @@ class FeedbackModule:
                             prompt=user_prompt, 
                             system=system_prompt, 
                             temperature=0.4,
-                            model="gemini-2.5-flash"
+                            model="gemini-1.5-flash"
                         )
                     except:
                         pass

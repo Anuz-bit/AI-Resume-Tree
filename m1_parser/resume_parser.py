@@ -76,8 +76,8 @@ class ResumeParser:
                 
                 self.validator.validate(result_json, "resume_json.json")
                 return result_json
-            except (ValidationError, Exception) as e:
+            except ValidationError as e:
                 last_error = e
                 # Re-throw if it's the last attempt
                 if attempt == max_retries - 1:
-                    raise ParseError(f"Failed to parse resume after {max_retries} attempts. Last error: {str(last_error)}")
+                    raise ParseError(f"Failed to validate resume schema after {max_retries} attempts. Last error: {str(last_error)}")
